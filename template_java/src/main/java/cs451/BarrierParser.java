@@ -18,7 +18,7 @@ public class BarrierParser {
     private static String ip;
     private static int port;
 
-    public boolean populate(String key, String value) {
+    public static boolean populate(String key, String value) {
         if (!key.equals(BARRIER_KEY)) {
             return false;
         }

@@ -2,16 +2,29 @@ package cs451;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Host {
 
     private static final String IP_START_REGEX = "/";
 
+    private static List<Host> hostList = Collections.synchronizedList(new LinkedList<>());
+
     private int id;
     private String ip;
     private int port = -1;
 
-    public boolean populate(String idString, String ipString, String portString) {
+    public Host(int id, String ip, int p) {
+        this.id = id;
+        this.ip = ip;
+        this.port = p;
+    }
+
+    public Host() {}
+
+    public synchronized boolean populate(String idString, String ipString, String portString) {
         try {
             id = Integer.parseInt(idString);
 
@@ -37,20 +50,56 @@ public class Host {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-
         return true;
     }
 
-    public int getId() {
+    public static synchronized void setHostList(List<Host> l) {
+        for (Host h : l) {
+            hostList.add(h);
+        }
+    }
+
+    public static synchronized Host findHost(String ip, int port) {
+        for (Host h: hostList) {
+            if (h.getIp().equals(ip) && h.getPort() == port) {
+                return h;
+            }
+        }
+        return null;
+    }
+
+    public static synchronized Host findHost(int id) {
+        for (Host h: hostList) {
+            if (h.getId() == id) {
+                return h;
+            }
+        }
+        return null;
+    }
+
+    public synchronized int getId() {
         return id;
     }
 
-    public String getIp() {
+    public synchronized String getIp() {
         return ip;
     }
 
-    public int getPort() {
+    public synchronized int getPort() {
         return port;
     }
 
+    public synchronized boolean equals(Object o) {
+        if (!(o instanceof Host)) return false;
+        Host m = (Host) o;
+        return ip.equals(m.ip) && id == m.id && port == m.port;
+    }
+
+    public synchronized int hashCode() {
+        return id + ip.hashCode() + port;
+    }
+
+    public synchronized String toString() {
+        return "(" + this.id + ";" + this.ip + ";" + this.port + ")";
+    }
 }

@@ -13,15 +13,13 @@ public class HostsParser {
     private static final String HOSTS_KEY = "--hosts";
     private static final String SPACES_REGEX = "\\s+";
 
-    private String filename;
-    private List<Host> hosts = new ArrayList<>();
+    private List<Host> hosts = Collections.synchronizedList(new ArrayList<>());
 
     public boolean populate(String key, String filename) {
         if (!key.equals(HOSTS_KEY)) {
             return false;
         }
 
-        this.filename = filename;
         try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
             int lineNum = 1;
             for(String line; (line = br.readLine()) != null; lineNum++) {
@@ -54,6 +52,7 @@ public class HostsParser {
 
         // sort by id
         Collections.sort(hosts, new HostsComparator());
+        Host.setHostList(hosts);
         return true;
     }
 
@@ -73,7 +72,7 @@ public class HostsParser {
         return id <= hosts.size();
     }
 
-    public List<Host> getHosts() {
+    public synchronized List<Host> getHosts() {
         return hosts;
     }
 

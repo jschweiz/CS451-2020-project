@@ -6,6 +6,9 @@ public class Parser {
 
     private String[] args;
     private long pid;
+    private long pport;
+    private Host ownHost;
+    private String pip;
     private IdParser idParser;
     private HostsParser hostsParser;
     private BarrierParser barrierParser;
@@ -15,6 +18,12 @@ public class Parser {
 
     public Parser(String[] args) {
         this.args = args;
+    }
+
+    public void populateOwnProcess(Host h) {
+        this.pport = h.getPort();
+        this.pip = h.getIp();
+        this.ownHost = h;
     }
 
     public void parse() {
@@ -70,6 +79,18 @@ public class Parser {
 
     public int myId() {
         return idParser.getId();
+    }
+
+    public Host myHost() {
+        return ownHost;
+    }
+
+    public String myIp() {
+        return pip;
+    }
+
+    public long myPort() {
+        return pport;
     }
 
     public List<Host> hosts() {

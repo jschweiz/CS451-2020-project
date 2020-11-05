@@ -1,10 +1,6 @@
 package cs451;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class SignalParser {
@@ -15,8 +11,8 @@ public class SignalParser {
     private static final String COLON_REGEX = ":";
     private static final String IP_START_REGEX = "/";
 
-    private static String ip;
-    private static int port;
+    private String ip;
+    private int port;
 
     public boolean populate(String key, String value) {
         if (!key.equals(SIGNAL_KEY)) {
