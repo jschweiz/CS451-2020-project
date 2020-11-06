@@ -1,0 +1,36 @@
+
+Number of messages received= 10023
+Active hosts:  127.0.0.1;10001  127.0.0.1;10002  127.0.0.1;10003  127.0.0.1;10004  127.0.0.1;10005  
+Number of messages received= 10023
+Number of messages received= 10023
+Exception in thread "Timer-0" java.lang.NullPointerException
+        at java.base/java.util.TimerThread.mainLoop(Timer.java:534)
+        at java.base/java.util.TimerThread.run(Timer.java:506)
+Exception in thread "Thread-4" java.lang.IllegalStateException: Timer already cancelled.
+        at java.base/java.util.Timer.sched(Timer.java:398)
+        at java.base/java.util.Timer.scheduleAtFixedRate(Timer.java:329)
+        at cs451.layers.TransportLayer$SenderManager.schedule(TransportLayer.java:56)
+        at cs451.layers.TransportLayer.send(TransportLayer.java:64)
+        at cs451.layers.PerfectLinkLayer.send(PerfectLinkLayer.java:15)
+        at cs451.layers.BEBLayer.send(BEBLayer.java:20)
+        at cs451.layers.UBLayer.receive(UBLayer.java:57)
+        at cs451.layers.BEBLayer.receive(BEBLayer.java:25)
+        at cs451.layers.PerfectLinkLayer.receive(PerfectLinkLayer.java:19)
+        at cs451.layers.TransportLayer.receive(TransportLayer.java:77)
+        at cs451.layers.GroundLayer.handleReceivedPacketThreadFunction(GroundLayer.java:65)
+        at cs451.layers.GroundLayer.lambda$start$1(GroundLayer.java:54)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Exception in thread "Thread-5" java.lang.IllegalStateException: Timer already cancelled.
+        at java.base/java.util.Timer.sched(Timer.java:398)
+        at java.base/java.util.Timer.scheduleAtFixedRate(Timer.java:329)
+        at cs451.layers.TransportLayer$SenderManager.schedule(TransportLayer.java:56)
+        at cs451.layers.TransportLayer.send(TransportLayer.java:64)
+        at cs451.layers.PerfectLinkLayer.send(PerfectLinkLayer.java:15)
+        at cs451.layers.BEBLayer.send(BEBLayer.java:20)
+        at cs451.layers.UBLayer.receive(UBLayer.java:57)
+        at cs451.layers.BEBLayer.receive(BEBLayer.java:25)
+        at cs451.layers.PerfectLinkLayer.receive(PerfectLinkLayer.java:19)
+        at cs451.layers.TransportLayer.receive(TransportLayer.java:77)
+        at cs451.layers.GroundLayer.handleReceivedPacketThreadFunction(GroundLayer.java:65)
+        at cs451.layers.GroundLayer.lambda$start$1(GroundLayer.java:54)
+        at java.base/java.lang.Thread.run(Thread.java:834)Number of messages received= 10023

@@ -1,18 +1,28 @@
 package cs451.utils;
 
-public class Packet {
-    public String payload;
-    public int seqNum;
-    public String destHost;
-    public int destPort;
+import cs451.Host;
 
+public class Packet {
+    // static constants
     public static String ACK = "ACK";
     public static String PING = "PING";
 
+    // properties of each packet
+    public final String payload;
+    public final int seqNum;
+    public final String destHost;
+    public final int destPort;
+
+    // constructor when receiving
     public Packet(String payload, String h, int p) {
-        this(h, p, payload.split(";", 2)[1], Integer.valueOf(payload.split(";", 2)[0]));
+        String[] splits = payload.split(";", 2);
+        this.destHost = h;
+        this.destPort = p;
+        this.seqNum = Integer.valueOf(splits[0]);
+        this.payload = splits[1];
     }
 
+    // constructor when sending
     public Packet(String h, int p, String payload, int s) {
         this.destHost = h;
         this.destPort = p;
@@ -32,6 +42,14 @@ public class Packet {
         return seqNum + ";" + payload;
     }
 
+    public String toAckPacket() {
+        return seqNum + ";" + ACK;
+    }
+
+    public Host getHost() {
+        return Host.findHost(this.destHost, this.destPort);
+    }
+
     @Override
     public String toString() {
         return "(" + destHost + ";" + destPort + ";" + seqNum + ";" + payload + ")";
@@ -39,8 +57,7 @@ public class Packet {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Packet))
-            return false;
+        if (!(o instanceof Packet)) return false;
         Packet m = (Packet)o;
         return seqNum == m.seqNum && destHost.equals(m.destHost)
                 && destPort == m.destPort;

@@ -20,7 +20,7 @@ public class TransportLayer {
     private SenderManager manager = new SenderManager();
     private int seqNum = 0;
 
-    public static final int SENDINGPERIOD = 1000;
+    private static final int SENDINGPERIOD = 1000;
 
     // Init function
     public void setLayers(PerfectLinkLayer p) {
@@ -28,9 +28,14 @@ public class TransportLayer {
         GroundLayer.deliverTo(this);
     }
 
+    public void stop() {
+        synchronized(toBeAcked) {
+            toBeAcked.clear();
+        }
+    }
 
     // TaskManager to program sending packets
-    class SenderManager {
+    private class SenderManager {
 		private Timer timer;
 
 		public SenderManager() {
@@ -38,7 +43,6 @@ public class TransportLayer {
 		}
 
 		public synchronized void schedule(Packet m) {
-			// Define new task
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
@@ -54,7 +58,6 @@ public class TransportLayer {
     }
     
 
-    // Send and receive functions
     public void send(String destHost, int destPort, String payload) {
         Packet m = new Packet(destHost, destPort, payload, seqNum);
         toBeAcked.add(m);
@@ -73,28 +76,22 @@ public class TransportLayer {
                 received.add(m);
                 perfectLinkLayer.receive(senderName, fromPort, m.payload);
             }
-            GroundLayer.send(m.seqNum + ";" + Packet.ACK, senderName, fromPort);
+            GroundLayer.send(m.toAckPacket(), senderName, fromPort);
         }
     }
 
-
     // Cancel sendings 
-    public void cancelSending(String s, int port) {
-        LinkedList<Packet> packetToRemove = new LinkedList<Packet>();
-        
-        synchronized (toBeAcked) {
+    public void cancelSending(String ip, int port) {
+        LinkedList<Packet> packetToRemove = new LinkedList<>();
+        synchronized (toBeAcked) { // make sure lock is kept when iteration on toBeAcked
             for (Packet m : toBeAcked) {
-                if ((port == -1 && m.payload.equals(s)) // cancel a specific message
-                        || (port != -1 && m.destHost.equals(s)
-                        && m.destPort == port)) // cancel messages to a specific host
+                if (port != -1 && m.destHost.equals(ip)
+                        && m.destPort == port) // cancel messages to a specific host
                 {
                     packetToRemove.add(m);
                 }
             }
-        }
-        
-        for (Packet m : packetToRemove) {
-            toBeAcked.remove(m);
+            toBeAcked.removeAll(packetToRemove);
         }
     }
 }

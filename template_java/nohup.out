@@ -2523,3 +2523,1430 @@ Connection from 127.0.0.1:57838, corresponds to PID 1
 Process 1 finished broadcasting at time 1604588560712 ms from Unix epoch 
 Process 2 finished broadcasting at time 1604588560811 ms from Unix epoch 
 Process 3 finished broadcasting at time 1604588560814 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40552), corresponds to PID 2
+Connection from ('127.0.0.1', 40556), corresponds to PID 3
+Connection from ('127.0.0.1', 40560), corresponds to PID 1
+Process 1 started broadcasting at time 1604589361804 ms from Unix epoch 
+Process 2 started broadcasting at time 1604589361803 ms from Unix epoch 
+Process 3 started broadcasting at time 1604589361804 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56618, corresponds to PID 2
+Connection from 127.0.0.1:56622, corresponds to PID 3
+Connection from 127.0.0.1:56626, corresponds to PID 1
+Process 1 finished broadcasting at time 1604589368823 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604589367973 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604589361992 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40634), corresponds to PID 3
+Connection from ('127.0.0.1', 40638), corresponds to PID 2
+Connection from ('127.0.0.1', 40642), corresponds to PID 1
+Process 1 started broadcasting at time 1604589632648 ms from Unix epoch 
+Process 2 started broadcasting at time 1604589632648 ms from Unix epoch 
+Process 3 started broadcasting at time 1604589632648 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56700, corresponds to PID 3
+Connection from 127.0.0.1:56704, corresponds to PID 2
+Connection from 127.0.0.1:56708, corresponds to PID 1
+Process 1 finished broadcasting at time 1604589659715 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604589632818 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604589632809 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40646), corresponds to PID 1
+Connection from ('127.0.0.1', 40650), corresponds to PID 2
+Connection from ('127.0.0.1', 40654), corresponds to PID 3
+Process 1 started broadcasting at time 1604589881456 ms from Unix epoch 
+Process 2 started broadcasting at time 1604589881457 ms from Unix epoch 
+Process 3 started broadcasting at time 1604589881457 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56712, corresponds to PID 1
+Connection from 127.0.0.1:56716, corresponds to PID 2
+Connection from 127.0.0.1:56720, corresponds to PID 3
+Process 1 finished broadcasting at time 1604589968242 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604589881617 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604589961906 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40660), corresponds to PID 1
+Connection from ('127.0.0.1', 40664), corresponds to PID 2
+Connection from ('127.0.0.1', 40672), corresponds to PID 3
+Process 1 started broadcasting at time 1604589987554 ms from Unix epoch 
+Process 2 started broadcasting at time 1604589987554 ms from Unix epoch 
+Process 3 started broadcasting at time 1604589987554 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56726, corresponds to PID 1
+Connection from 127.0.0.1:56730, corresponds to PID 2
+Connection from 127.0.0.1:56738, corresponds to PID 3
+Process 1 finished broadcasting at time 1604589987724 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604589987717 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590037814 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40696), corresponds to PID 3
+Connection from ('127.0.0.1', 40700), corresponds to PID 2
+Connection from ('127.0.0.1', 40704), corresponds to PID 1
+Process 1 started broadcasting at time 1604590289223 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590289223 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590289223 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56762, corresponds to PID 3
+Connection from 127.0.0.1:56766, corresponds to PID 2
+Connection from 127.0.0.1:56770, corresponds to PID 1
+Process 1 finished broadcasting at time 1604590299277 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590289500 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590289382 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40714), corresponds to PID 2
+Connection from ('127.0.0.1', 40718), corresponds to PID 3
+Connection from ('127.0.0.1', 40722), corresponds to PID 1
+Process 1 started broadcasting at time 1604590477719 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590477718 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590477719 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56780, corresponds to PID 2
+Connection from 127.0.0.1:56784, corresponds to PID 3
+Connection from 127.0.0.1:56788, corresponds to PID 1
+Process 1 finished broadcasting at time 1604590498079 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590497270 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590477889 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40726), corresponds to PID 3
+Connection from ('127.0.0.1', 40730), corresponds to PID 2
+Connection from ('127.0.0.1', 40734), corresponds to PID 1
+Process 1 started broadcasting at time 1604590626415 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590626415 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590626415 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56792, corresponds to PID 3
+Connection from 127.0.0.1:56796, corresponds to PID 2
+Connection from 127.0.0.1:56800, corresponds to PID 1
+Process 1 finished broadcasting at time 1604590626598 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590626585 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590626589 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40738), corresponds to PID 3
+Connection from ('127.0.0.1', 40742), corresponds to PID 2
+Connection from ('127.0.0.1', 40746), corresponds to PID 1
+Process 1 started broadcasting at time 1604590662536 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590662536 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590662536 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56804, corresponds to PID 3
+Connection from 127.0.0.1:56808, corresponds to PID 2
+Connection from 127.0.0.1:56812, corresponds to PID 1
+Process 1 finished broadcasting at time 1604590662669 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590751434 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590752026 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40762), corresponds to PID 1
+Connection from ('127.0.0.1', 40766), corresponds to PID 2
+Connection from ('127.0.0.1', 40770), corresponds to PID 3
+Process 1 started broadcasting at time 1604590801699 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590801699 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590801699 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56828, corresponds to PID 1
+Connection from 127.0.0.1:56832, corresponds to PID 2
+Connection from 127.0.0.1:56836, corresponds to PID 3
+Process 1 finished broadcasting at time 1604590801845 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590802132 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590802056 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40784), corresponds to PID 3
+Connection from ('127.0.0.1', 40790), corresponds to PID 2
+Connection from ('127.0.0.1', 40794), corresponds to PID 1
+Process 1 started broadcasting at time 1604590876177 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590876177 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590876177 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56850, corresponds to PID 3
+Connection from 127.0.0.1:56856, corresponds to PID 2
+Connection from 127.0.0.1:56860, corresponds to PID 1
+Process 1 finished broadcasting at time 1604590876640 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590876375 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590876481 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40814), corresponds to PID 3
+Connection from ('127.0.0.1', 40818), corresponds to PID 2
+Connection from ('127.0.0.1', 40822), corresponds to PID 1
+Process 1 started broadcasting at time 1604590977405 ms from Unix epoch 
+Process 2 started broadcasting at time 1604590977404 ms from Unix epoch 
+Process 3 started broadcasting at time 1604590977404 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56880, corresponds to PID 3
+Connection from 127.0.0.1:56884, corresponds to PID 2
+Connection from 127.0.0.1:56888, corresponds to PID 1
+Process 1 finished broadcasting at time 1604590977582 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604590977609 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604590977590 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40826), corresponds to PID 3
+Connection from ('127.0.0.1', 40830), corresponds to PID 2
+Connection from ('127.0.0.1', 40834), corresponds to PID 1
+Process 1 started broadcasting at time 1604591020386 ms from Unix epoch 
+Process 2 started broadcasting at time 1604591020386 ms from Unix epoch 
+Process 3 started broadcasting at time 1604591020385 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56892, corresponds to PID 3
+Connection from 127.0.0.1:56896, corresponds to PID 2
+Connection from 127.0.0.1:56900, corresponds to PID 1
+Process 1 finished broadcasting at time 1604591020755 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604591020613 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604591020557 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40936), corresponds to PID 3
+Connection from ('127.0.0.1', 40940), corresponds to PID 2
+Connection from ('127.0.0.1', 40944), corresponds to PID 1
+Process 1 started broadcasting at time 1604591772283 ms from Unix epoch 
+Process 2 started broadcasting at time 1604591772283 ms from Unix epoch 
+Process 3 started broadcasting at time 1604591772282 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57002, corresponds to PID 3
+Connection from 127.0.0.1:57006, corresponds to PID 2
+Connection from 127.0.0.1:57010, corresponds to PID 1
+Process 1 finished broadcasting at time 1604591772701 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604591772504 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604591772492 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40962), corresponds to PID 3
+Connection from ('127.0.0.1', 40966), corresponds to PID 2
+Connection from ('127.0.0.1', 40970), corresponds to PID 1
+Process 1 started broadcasting at time 1604591828872 ms from Unix epoch 
+Process 2 started broadcasting at time 1604591828872 ms from Unix epoch 
+Process 3 started broadcasting at time 1604591828872 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57028, corresponds to PID 3
+Connection from 127.0.0.1:57032, corresponds to PID 2
+Connection from 127.0.0.1:57036, corresponds to PID 1
+Process 1 finished broadcasting at time 1604591829116 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604591829077 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604591829253 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 40992), corresponds to PID 1
+Connection from ('127.0.0.1', 40996), corresponds to PID 2
+Connection from ('127.0.0.1', 41000), corresponds to PID 3
+Process 1 started broadcasting at time 1604592381215 ms from Unix epoch 
+Process 2 started broadcasting at time 1604592381215 ms from Unix epoch 
+Process 3 started broadcasting at time 1604592381216 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57058, corresponds to PID 1
+Connection from 127.0.0.1:57062, corresponds to PID 2
+Connection from 127.0.0.1:57066, corresponds to PID 3
+Process 1 finished broadcasting at time 1604592381510 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604592381444 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604592381485 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41004), corresponds to PID 1
+Connection from ('127.0.0.1', 41008), corresponds to PID 2
+Connection from ('127.0.0.1', 41012), corresponds to PID 3
+Process 1 started broadcasting at time 1604592660839 ms from Unix epoch 
+Process 2 started broadcasting at time 1604592660839 ms from Unix epoch 
+Process 3 started broadcasting at time 1604592660839 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57070, corresponds to PID 1
+Connection from 127.0.0.1:57074, corresponds to PID 2
+Connection from 127.0.0.1:57078, corresponds to PID 3
+Process 1 finished broadcasting at time 1604592661066 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604592661021 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604592661236 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41020), corresponds to PID 2
+Connection from ('127.0.0.1', 41024), corresponds to PID 3
+Connection from ('127.0.0.1', 41028), corresponds to PID 1
+Process 1 started broadcasting at time 1604592926243 ms from Unix epoch 
+Process 2 started broadcasting at time 1604592926243 ms from Unix epoch 
+Process 3 started broadcasting at time 1604592926243 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57086, corresponds to PID 2
+Connection from 127.0.0.1:57090, corresponds to PID 3
+Connection from 127.0.0.1:57094, corresponds to PID 1
+Process 1 finished broadcasting at time 1604592926410 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604592926587 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604592926397 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41032), corresponds to PID 1
+Connection from ('127.0.0.1', 41036), corresponds to PID 2
+Connection from ('127.0.0.1', 41040), corresponds to PID 3
+Process 1 started broadcasting at time 1604593074303 ms from Unix epoch 
+Process 2 started broadcasting at time 1604593074303 ms from Unix epoch 
+Process 3 started broadcasting at time 1604593074303 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57098, corresponds to PID 1
+Connection from 127.0.0.1:57102, corresponds to PID 2
+Connection from 127.0.0.1:57106, corresponds to PID 3
+Process 1 finished broadcasting at time 1604593074467 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604593074480 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604593074544 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41044), corresponds to PID 1
+Connection from ('127.0.0.1', 41048), corresponds to PID 2
+Connection from ('127.0.0.1', 41052), corresponds to PID 3
+Process 1 started broadcasting at time 1604593142137 ms from Unix epoch 
+Process 2 started broadcasting at time 1604593142137 ms from Unix epoch 
+Process 3 started broadcasting at time 1604593142137 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57110, corresponds to PID 1
+Connection from 127.0.0.1:57114, corresponds to PID 2
+Connection from 127.0.0.1:57118, corresponds to PID 3
+Process 1 finished broadcasting at time 1604593142292 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604593142287 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604593142360 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41060), corresponds to PID 1
+Connection from ('127.0.0.1', 41064), corresponds to PID 2
+Connection from ('127.0.0.1', 41068), corresponds to PID 3
+Process 1 started broadcasting at time 1604593228807 ms from Unix epoch 
+Process 2 started broadcasting at time 1604593228808 ms from Unix epoch 
+Process 3 started broadcasting at time 1604593228808 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57126, corresponds to PID 1
+Connection from 127.0.0.1:57130, corresponds to PID 2
+Connection from 127.0.0.1:57134, corresponds to PID 3
+Process 1 finished broadcasting at time 1604593228974 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604593228960 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604593228983 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41076), corresponds to PID 1
+Connection from ('127.0.0.1', 41080), corresponds to PID 2
+Connection from ('127.0.0.1', 41084), corresponds to PID 3
+Process 1 started broadcasting at time 1604593528393 ms from Unix epoch 
+Process 2 started broadcasting at time 1604593528393 ms from Unix epoch 
+Process 3 started broadcasting at time 1604593528393 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57142, corresponds to PID 1
+Connection from 127.0.0.1:57146, corresponds to PID 2
+Connection from 127.0.0.1:57150, corresponds to PID 3
+Process 1 finished broadcasting at time 1604593528517 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604593528796 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604593528573 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41096), corresponds to PID 1
+Connection from ('127.0.0.1', 41100), corresponds to PID 2
+Connection from ('127.0.0.1', 41104), corresponds to PID 3
+Process 1 started broadcasting at time 1604593677297 ms from Unix epoch 
+Process 2 started broadcasting at time 1604593677297 ms from Unix epoch 
+Process 3 started broadcasting at time 1604593677297 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57162, corresponds to PID 1
+Connection from 127.0.0.1:57166, corresponds to PID 2
+Connection from 127.0.0.1:57170, corresponds to PID 3
+Process 1 finished broadcasting at time 1604593677478 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604593677729 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604593677614 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41188), corresponds to PID 1
+Connection from ('127.0.0.1', 41192), corresponds to PID 2
+Connection from ('127.0.0.1', 41196), corresponds to PID 3
+Process 1 started broadcasting at time 1604594840644 ms from Unix epoch 
+Process 2 started broadcasting at time 1604594840644 ms from Unix epoch 
+Process 3 started broadcasting at time 1604594840644 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57254, corresponds to PID 1
+Connection from 127.0.0.1:57258, corresponds to PID 2
+Connection from 127.0.0.1:57262, corresponds to PID 3
+Process 1 finished broadcasting at time 1604594840823 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604594840875 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604594840840 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41268), corresponds to PID 1
+Connection from ('127.0.0.1', 41276), corresponds to PID 2
+Connection from ('127.0.0.1', 41280), corresponds to PID 3
+Process 1 started broadcasting at time 1604595061371 ms from Unix epoch 
+Process 2 started broadcasting at time 1604595061371 ms from Unix epoch 
+Process 3 started broadcasting at time 1604595061371 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57334, corresponds to PID 1
+Connection from 127.0.0.1:57342, corresponds to PID 2
+Connection from 127.0.0.1:57346, corresponds to PID 3
+Process 1 finished broadcasting at time 1604595061554 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604595061818 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604595061547 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41292), corresponds to PID 2
+Connection from ('127.0.0.1', 41296), corresponds to PID 3
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 41302), corresponds to PID 2
+Connection from ('127.0.0.1', 41306), corresponds to PID 3
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57358, corresponds to PID 2
+Connection from 127.0.0.1:57362, corresponds to PID 3
+Connection from 127.0.0.1:57368, corresponds to PID 2
+Connection from 127.0.0.1:57372, corresponds to PID 3
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37412), corresponds to PID 1
+Connection from ('127.0.0.1', 37416), corresponds to PID 2
+Connection from ('127.0.0.1', 37420), corresponds to PID 3
+Process 1 started broadcasting at time 1604595289213 ms from Unix epoch 
+Process 2 started broadcasting at time 1604595289214 ms from Unix epoch 
+Process 3 started broadcasting at time 1604595289214 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56396, corresponds to PID 1
+Connection from 127.0.0.1:56400, corresponds to PID 2
+Connection from 127.0.0.1:56404, corresponds to PID 3
+Process 1 finished broadcasting at time 1604595289338 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604595289668 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604595289564 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37458), corresponds to PID 2
+Connection from ('127.0.0.1', 37462), corresponds to PID 3
+Connection from ('127.0.0.1', 37466), corresponds to PID 1
+Process 1 started broadcasting at time 1604595551536 ms from Unix epoch 
+Process 2 started broadcasting at time 1604595551536 ms from Unix epoch 
+Process 3 started broadcasting at time 1604595551536 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56442, corresponds to PID 2
+Connection from 127.0.0.1:56446, corresponds to PID 3
+Connection from 127.0.0.1:56450, corresponds to PID 1
+Process 1 finished broadcasting at time 1604595551834 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604595551766 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604595551856 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37488), corresponds to PID 1
+Connection from ('127.0.0.1', 37492), corresponds to PID 2
+Connection from ('127.0.0.1', 37496), corresponds to PID 3
+Process 1 started broadcasting at time 1604595626704 ms from Unix epoch 
+Process 2 started broadcasting at time 1604595626704 ms from Unix epoch 
+Process 3 started broadcasting at time 1604595626704 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56472, corresponds to PID 1
+Connection from 127.0.0.1:56476, corresponds to PID 2
+Connection from 127.0.0.1:56480, corresponds to PID 3
+Process 1 finished broadcasting at time 1604595627038 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604595626962 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604595626916 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37500), corresponds to PID 1
+Connection from ('127.0.0.1', 37504), corresponds to PID 2
+Connection from ('127.0.0.1', 37508), corresponds to PID 3
+Process 1 started broadcasting at time 1604595718831 ms from Unix epoch 
+Process 2 started broadcasting at time 1604595718831 ms from Unix epoch 
+Process 3 started broadcasting at time 1604595718831 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56484, corresponds to PID 1
+Connection from 127.0.0.1:56488, corresponds to PID 2
+Connection from 127.0.0.1:56492, corresponds to PID 3
+Process 1 finished broadcasting at time 1604595719343 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604595719034 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604595719242 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37532), corresponds to PID 1
+Connection from ('127.0.0.1', 37536), corresponds to PID 2
+Connection from ('127.0.0.1', 37540), corresponds to PID 3
+Process 1 started broadcasting at time 1604600544024 ms from Unix epoch 
+Process 2 started broadcasting at time 1604600544024 ms from Unix epoch 
+Process 3 started broadcasting at time 1604600544024 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56516, corresponds to PID 1
+Connection from 127.0.0.1:56520, corresponds to PID 2
+Connection from 127.0.0.1:56524, corresponds to PID 3
+Process 1 finished broadcasting at time 1604600544234 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604600544674 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604600544328 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37570), corresponds to PID 1
+Connection from ('127.0.0.1', 37574), corresponds to PID 2
+Connection from ('127.0.0.1', 37578), corresponds to PID 3
+Process 1 started broadcasting at time 1604600836896 ms from Unix epoch 
+Process 2 started broadcasting at time 1604600836897 ms from Unix epoch 
+Process 3 started broadcasting at time 1604600836897 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56554, corresponds to PID 1
+Connection from 127.0.0.1:56558, corresponds to PID 2
+Connection from 127.0.0.1:56562, corresponds to PID 3
+Process 1 finished broadcasting at time 1604600837149 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604600837070 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604600837167 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37632), corresponds to PID 1
+Connection from ('127.0.0.1', 37636), corresponds to PID 2
+Connection from ('127.0.0.1', 37640), corresponds to PID 3
+Process 1 started broadcasting at time 1604612555308 ms from Unix epoch 
+Process 2 started broadcasting at time 1604612555308 ms from Unix epoch 
+Process 3 started broadcasting at time 1604612555308 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56616, corresponds to PID 1
+Connection from 127.0.0.1:56620, corresponds to PID 2
+Connection from 127.0.0.1:56624, corresponds to PID 3
+Process 1 finished broadcasting at time 1604612555640 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604612555561 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604612555788 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37652), corresponds to PID 2
+Connection from ('127.0.0.1', 37656), corresponds to PID 3
+Connection from ('127.0.0.1', 37660), corresponds to PID 1
+Process 1 started broadcasting at time 1604613023158 ms from Unix epoch 
+Process 2 started broadcasting at time 1604613023158 ms from Unix epoch 
+Process 3 started broadcasting at time 1604613023158 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56636, corresponds to PID 2
+Connection from 127.0.0.1:56640, corresponds to PID 3
+Connection from 127.0.0.1:56644, corresponds to PID 1
+Process 1 finished broadcasting at time 1604613023730 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604613023347 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604613023264 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37676), corresponds to PID 1
+Connection from ('127.0.0.1', 37680), corresponds to PID 2
+Connection from ('127.0.0.1', 37684), corresponds to PID 3
+Process 1 started broadcasting at time 1604613293549 ms from Unix epoch 
+Process 2 started broadcasting at time 1604613293549 ms from Unix epoch 
+Process 3 started broadcasting at time 1604613293549 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56660, corresponds to PID 1
+Connection from 127.0.0.1:56664, corresponds to PID 2
+Connection from 127.0.0.1:56668, corresponds to PID 3
+Process 1 finished broadcasting at time 1604613293940 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604613294002 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604613294080 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37862), corresponds to PID 1
+Connection from ('127.0.0.1', 37866), corresponds to PID 2
+Connection from ('127.0.0.1', 37870), corresponds to PID 3
+Process 1 started broadcasting at time 1604614028394 ms from Unix epoch 
+Process 2 started broadcasting at time 1604614028394 ms from Unix epoch 
+Process 3 started broadcasting at time 1604614028394 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56846, corresponds to PID 1
+Connection from 127.0.0.1:56850, corresponds to PID 2
+Connection from 127.0.0.1:56854, corresponds to PID 3
+Process 1 finished broadcasting at time 1604614028425 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604614028416 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604614028424 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 37876), corresponds to PID 1
+Connection from ('127.0.0.1', 37880), corresponds to PID 2
+Connection from ('127.0.0.1', 37884), corresponds to PID 3
+Process 1 started broadcasting at time 1604614143143 ms from Unix epoch 
+Process 2 started broadcasting at time 1604614143144 ms from Unix epoch 
+Process 3 started broadcasting at time 1604614143144 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:56860, corresponds to PID 1
+Connection from 127.0.0.1:56864, corresponds to PID 2
+Connection from 127.0.0.1:56868, corresponds to PID 3
+Process 1 finished broadcasting at time 1604614144022 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604614143725 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604614143845 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38020), corresponds to PID 1
+Connection from ('127.0.0.1', 38024), corresponds to PID 2
+Connection from ('127.0.0.1', 38028), corresponds to PID 3
+Process 1 started broadcasting at time 1604615755633 ms from Unix epoch 
+Process 2 started broadcasting at time 1604615755633 ms from Unix epoch 
+Process 3 started broadcasting at time 1604615755633 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57004, corresponds to PID 1
+Connection from 127.0.0.1:57008, corresponds to PID 2
+Connection from 127.0.0.1:57012, corresponds to PID 3
+Process 1 finished broadcasting at time 1604615756073 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604615756080 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604615756497 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38032), corresponds to PID 1
+Connection from ('127.0.0.1', 38036), corresponds to PID 2
+Connection from ('127.0.0.1', 38040), corresponds to PID 3
+Process 1 started broadcasting at time 1604616091425 ms from Unix epoch 
+Process 2 started broadcasting at time 1604616091425 ms from Unix epoch 
+Process 3 started broadcasting at time 1604616091425 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57016, corresponds to PID 1
+Connection from 127.0.0.1:57020, corresponds to PID 2
+Connection from 127.0.0.1:57024, corresponds to PID 3
+Process 1 finished broadcasting at time 1604616091983 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604616092096 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604616092042 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38044), corresponds to PID 1
+Connection from ('127.0.0.1', 38048), corresponds to PID 2
+Connection from ('127.0.0.1', 38052), corresponds to PID 3
+Process 1 started broadcasting at time 1604616243320 ms from Unix epoch 
+Process 2 started broadcasting at time 1604616243320 ms from Unix epoch 
+Process 3 started broadcasting at time 1604616243320 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57028, corresponds to PID 1
+Connection from 127.0.0.1:57032, corresponds to PID 2
+Connection from 127.0.0.1:57036, corresponds to PID 3
+Process 1 finished broadcasting at time 1604616244540 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604616243889 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604616244246 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38122), corresponds to PID 1
+Connection from ('127.0.0.1', 38126), corresponds to PID 2
+Connection from ('127.0.0.1', 38130), corresponds to PID 3
+Process 1 started broadcasting at time 1604617227993 ms from Unix epoch 
+Process 2 started broadcasting at time 1604617227993 ms from Unix epoch 
+Process 3 started broadcasting at time 1604617227993 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57106, corresponds to PID 1
+Connection from 127.0.0.1:57110, corresponds to PID 2
+Connection from 127.0.0.1:57114, corresponds to PID 3
+Process 1 finished broadcasting at time 1604617228404 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604617228806 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604617228481 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38134), corresponds to PID 1
+Connection from ('127.0.0.1', 38138), corresponds to PID 2
+Connection from ('127.0.0.1', 38142), corresponds to PID 3
+Process 1 started broadcasting at time 1604617368988 ms from Unix epoch 
+Process 2 started broadcasting at time 1604617368988 ms from Unix epoch 
+Process 3 started broadcasting at time 1604617368988 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57118, corresponds to PID 1
+Connection from 127.0.0.1:57122, corresponds to PID 2
+Connection from 127.0.0.1:57126, corresponds to PID 3
+Process 1 finished broadcasting at time 1604617369645 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604617369757 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604617369571 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38146), corresponds to PID 1
+Connection from ('127.0.0.1', 38150), corresponds to PID 2
+Connection from ('127.0.0.1', 38154), corresponds to PID 3
+Process 1 started broadcasting at time 1604617553646 ms from Unix epoch 
+Process 2 started broadcasting at time 1604617553646 ms from Unix epoch 
+Process 3 started broadcasting at time 1604617553646 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57130, corresponds to PID 1
+Connection from 127.0.0.1:57134, corresponds to PID 2
+Connection from 127.0.0.1:57138, corresponds to PID 3
+Process 1 finished broadcasting at time 1604617554059 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604617554111 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604617554110 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38184), corresponds to PID 1
+Connection from ('127.0.0.1', 38188), corresponds to PID 2
+Connection from ('127.0.0.1', 38192), corresponds to PID 3
+Process 1 started broadcasting at time 1604617673422 ms from Unix epoch 
+Process 2 started broadcasting at time 1604617673422 ms from Unix epoch 
+Process 3 started broadcasting at time 1604617673422 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57168, corresponds to PID 1
+Connection from 127.0.0.1:57172, corresponds to PID 2
+Connection from 127.0.0.1:57176, corresponds to PID 3
+Process 1 finished broadcasting at time 1604617673792 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604617673727 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604617673793 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38196), corresponds to PID 1
+Connection from ('127.0.0.1', 38200), corresponds to PID 2
+Connection from ('127.0.0.1', 38204), corresponds to PID 3
+Process 1 started broadcasting at time 1604617808655 ms from Unix epoch 
+Process 2 started broadcasting at time 1604617808655 ms from Unix epoch 
+Process 3 started broadcasting at time 1604617808655 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57180, corresponds to PID 1
+Connection from 127.0.0.1:57184, corresponds to PID 2
+Connection from 127.0.0.1:57188, corresponds to PID 3
+Process 1 finished broadcasting at time 1604617809350 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604617809193 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604617809537 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38210), corresponds to PID 1
+Connection from ('127.0.0.1', 38214), corresponds to PID 2
+Connection from ('127.0.0.1', 38218), corresponds to PID 3
+Process 1 started broadcasting at time 1604617933702 ms from Unix epoch 
+Process 2 started broadcasting at time 1604617933702 ms from Unix epoch 
+Process 3 started broadcasting at time 1604617933702 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57194, corresponds to PID 1
+Connection from 127.0.0.1:57198, corresponds to PID 2
+Connection from 127.0.0.1:57202, corresponds to PID 3
+Process 1 finished broadcasting at time 1604617957347 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604617954233 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604617954411 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38444), corresponds to PID 1
+Connection from ('127.0.0.1', 38448), corresponds to PID 2
+Connection from ('127.0.0.1', 38452), corresponds to PID 3
+Process 1 started broadcasting at time 1604661665632 ms from Unix epoch 
+Process 2 started broadcasting at time 1604661665632 ms from Unix epoch 
+Process 3 started broadcasting at time 1604661665632 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57428, corresponds to PID 1
+Connection from 127.0.0.1:57432, corresponds to PID 2
+Connection from 127.0.0.1:57436, corresponds to PID 3
+Process 1 finished broadcasting at time 1604661688710 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604661713773 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604661703579 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38456), corresponds to PID 1
+Connection from ('127.0.0.1', 38460), corresponds to PID 2
+Connection from ('127.0.0.1', 38464), corresponds to PID 3
+Process 1 started broadcasting at time 1604661808532 ms from Unix epoch 
+Process 2 started broadcasting at time 1604661808532 ms from Unix epoch 
+Process 3 started broadcasting at time 1604661808532 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57440, corresponds to PID 1
+Connection from 127.0.0.1:57444, corresponds to PID 2
+Connection from 127.0.0.1:57448, corresponds to PID 3
+Process 1 finished broadcasting at time 1604661814354 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604661813256 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604661812800 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38468), corresponds to PID 1
+Connection from ('127.0.0.1', 38472), corresponds to PID 2
+Connection from ('127.0.0.1', 38476), corresponds to PID 3
+Process 1 started broadcasting at time 1604661874712 ms from Unix epoch 
+Process 2 started broadcasting at time 1604661874712 ms from Unix epoch 
+Process 3 started broadcasting at time 1604661874712 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57452, corresponds to PID 1
+Connection from 127.0.0.1:57456, corresponds to PID 2
+Connection from 127.0.0.1:57460, corresponds to PID 3
+Process 1 finished broadcasting at time 1604661901562 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604661898037 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604661892114 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38524), corresponds to PID 1
+Connection from ('127.0.0.1', 38528), corresponds to PID 2
+Connection from ('127.0.0.1', 38532), corresponds to PID 3
+Process 1 started broadcasting at time 1604662639078 ms from Unix epoch 
+Process 2 started broadcasting at time 1604662639078 ms from Unix epoch 
+Process 3 started broadcasting at time 1604662639078 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57508, corresponds to PID 1
+Connection from 127.0.0.1:57512, corresponds to PID 2
+Connection from 127.0.0.1:57516, corresponds to PID 3
+Process 1 finished broadcasting at time 1604662656543 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604662656638 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604662657722 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38796), corresponds to PID 1
+Connection from ('127.0.0.1', 38800), corresponds to PID 2
+Connection from ('127.0.0.1', 38804), corresponds to PID 3
+Process 1 started broadcasting at time 1604664062898 ms from Unix epoch 
+Process 2 started broadcasting at time 1604664062898 ms from Unix epoch 
+Process 3 started broadcasting at time 1604664062898 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57780, corresponds to PID 1
+Connection from 127.0.0.1:57784, corresponds to PID 2
+Connection from 127.0.0.1:57788, corresponds to PID 3
+Process 1 finished broadcasting at time 1604664247810 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604664248716 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604664249185 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38874), corresponds to PID 1
+Connection from ('127.0.0.1', 38878), corresponds to PID 2
+Connection from ('127.0.0.1', 38882), corresponds to PID 3
+Process 1 started broadcasting at time 1604664418476 ms from Unix epoch 
+Process 2 started broadcasting at time 1604664418476 ms from Unix epoch 
+Process 3 started broadcasting at time 1604664418476 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57858, corresponds to PID 1
+Connection from 127.0.0.1:57862, corresponds to PID 2
+Connection from 127.0.0.1:57866, corresponds to PID 3
+Process 1 finished broadcasting at time 1604664437899 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604664439144 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604664442994 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38898), corresponds to PID 1
+Connection from ('127.0.0.1', 38902), corresponds to PID 2
+Connection from ('127.0.0.1', 38906), corresponds to PID 3
+Process 1 started broadcasting at time 1604664580968 ms from Unix epoch 
+Process 2 started broadcasting at time 1604664580968 ms from Unix epoch 
+Process 3 started broadcasting at time 1604664580968 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:57882, corresponds to PID 1
+Connection from 127.0.0.1:57886, corresponds to PID 2
+Connection from 127.0.0.1:57890, corresponds to PID 3
+Process 1 finished broadcasting at time 1604664589982 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604664605176 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604664605790 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 38948), corresponds to PID 1
+Connection from ('127.0.0.1', 38952), corresponds to PID 2
+Connection from ('127.0.0.1', 38956), corresponds to PID 3
+Process 1 started broadcasting at time 1604665114909 ms from Unix epoch 
+Process 2 started broadcasting at time 1604665114909 ms from Unix epoch 
+Process 3 started broadcasting at time 1604665114909 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35146), corresponds to PID 1
+Connection from ('127.0.0.1', 35150), corresponds to PID 2
+Connection from ('127.0.0.1', 35154), corresponds to PID 3
+Process 1 started broadcasting at time 1604668813252 ms from Unix epoch 
+Process 2 started broadcasting at time 1604668813252 ms from Unix epoch 
+Process 3 started broadcasting at time 1604668813252 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38688, corresponds to PID 1
+Connection from 127.0.0.1:38692, corresponds to PID 2
+Connection from 127.0.0.1:38696, corresponds to PID 3
+Process 1 finished broadcasting at time 1604668851818 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604668852197 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604668851246 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35160), corresponds to PID 1
+Connection from ('127.0.0.1', 35164), corresponds to PID 2
+Connection from ('127.0.0.1', 35168), corresponds to PID 3
+Process 1 started broadcasting at time 1604668984213 ms from Unix epoch 
+Process 2 started broadcasting at time 1604668984213 ms from Unix epoch 
+Process 3 started broadcasting at time 1604668984213 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38702, corresponds to PID 1
+Connection from 127.0.0.1:38706, corresponds to PID 2
+Connection from 127.0.0.1:38710, corresponds to PID 3
+Process 1 finished broadcasting at time 1604668989263 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604668989283 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604668988360 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35172), corresponds to PID 1
+Connection from ('127.0.0.1', 35176), corresponds to PID 2
+Connection from ('127.0.0.1', 35180), corresponds to PID 3
+Process 1 started broadcasting at time 1604669073173 ms from Unix epoch 
+Process 2 started broadcasting at time 1604669073173 ms from Unix epoch 
+Process 3 started broadcasting at time 1604669073173 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38714, corresponds to PID 1
+Connection from 127.0.0.1:38718, corresponds to PID 2
+Connection from 127.0.0.1:38722, corresponds to PID 3
+Process 1 finished broadcasting at time 1604669093103 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604669092509 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604669091220 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35184), corresponds to PID 1
+Connection from ('127.0.0.1', 35188), corresponds to PID 2
+Connection from ('127.0.0.1', 35192), corresponds to PID 3
+Process 1 started broadcasting at time 1604669233320 ms from Unix epoch 
+Process 2 started broadcasting at time 1604669233320 ms from Unix epoch 
+Process 3 started broadcasting at time 1604669233320 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38726, corresponds to PID 1
+Connection from 127.0.0.1:38730, corresponds to PID 2
+Connection from 127.0.0.1:38734, corresponds to PID 3
+Process 1 finished broadcasting at time 1604669264016 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604669249624 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604669264580 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35196), corresponds to PID 1
+Connection from ('127.0.0.1', 35200), corresponds to PID 2
+Connection from ('127.0.0.1', 35204), corresponds to PID 3
+Process 1 started broadcasting at time 1604669367651 ms from Unix epoch 
+Process 2 started broadcasting at time 1604669367651 ms from Unix epoch 
+Process 3 started broadcasting at time 1604669367651 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38738, corresponds to PID 1
+Connection from 127.0.0.1:38742, corresponds to PID 2
+Connection from 127.0.0.1:38746, corresponds to PID 3
+Process 1 finished broadcasting at time 1604669400132 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604669378433 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604669403146 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35214), corresponds to PID 1
+Connection from ('127.0.0.1', 35218), corresponds to PID 2
+Connection from ('127.0.0.1', 35222), corresponds to PID 3
+Process 1 started broadcasting at time 1604669605476 ms from Unix epoch 
+Process 2 started broadcasting at time 1604669605477 ms from Unix epoch 
+Process 3 started broadcasting at time 1604669605477 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38756, corresponds to PID 1
+Connection from 127.0.0.1:38760, corresponds to PID 2
+Connection from 127.0.0.1:38764, corresponds to PID 3
+Process 1 finished broadcasting at time 1604669627739 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604669622971 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604669626555 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35230), corresponds to PID 1
+Connection from ('127.0.0.1', 35234), corresponds to PID 2
+Connection from ('127.0.0.1', 35238), corresponds to PID 3
+Process 1 started broadcasting at time 1604669744009 ms from Unix epoch 
+Process 2 started broadcasting at time 1604669744009 ms from Unix epoch 
+Process 3 started broadcasting at time 1604669744009 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38772, corresponds to PID 1
+Connection from 127.0.0.1:38776, corresponds to PID 2
+Connection from 127.0.0.1:38780, corresponds to PID 3
+Process 1 finished broadcasting at time 1604669764474 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604669764121 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604669768288 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35270), corresponds to PID 1
+Connection from ('127.0.0.1', 35274), corresponds to PID 2
+Connection from ('127.0.0.1', 35278), corresponds to PID 3
+Process 1 started broadcasting at time 1604669921488 ms from Unix epoch 
+Process 2 started broadcasting at time 1604669921488 ms from Unix epoch 
+Process 3 started broadcasting at time 1604669921488 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38812, corresponds to PID 1
+Connection from 127.0.0.1:38816, corresponds to PID 2
+Connection from 127.0.0.1:38820, corresponds to PID 3
+Process 1 finished broadcasting at time 1604669922991 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604669922791 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604669923265 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35292), corresponds to PID 1
+Connection from ('127.0.0.1', 35296), corresponds to PID 2
+Connection from ('127.0.0.1', 35300), corresponds to PID 3
+Process 1 started broadcasting at time 1604670005621 ms from Unix epoch 
+Process 2 started broadcasting at time 1604670005621 ms from Unix epoch 
+Process 3 started broadcasting at time 1604670005621 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38834, corresponds to PID 1
+Connection from 127.0.0.1:38838, corresponds to PID 2
+Connection from 127.0.0.1:38842, corresponds to PID 3
+Process 1 finished broadcasting at time 1604670007227 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604670007867 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604670007960 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35304), corresponds to PID 1
+Connection from ('127.0.0.1', 35308), corresponds to PID 2
+Connection from ('127.0.0.1', 35312), corresponds to PID 3
+Process 1 started broadcasting at time 1604670085536 ms from Unix epoch 
+Process 2 started broadcasting at time 1604670085537 ms from Unix epoch 
+Process 3 started broadcasting at time 1604670085537 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38846, corresponds to PID 1
+Connection from 127.0.0.1:38850, corresponds to PID 2
+Connection from 127.0.0.1:38854, corresponds to PID 3
+Process 1 finished broadcasting at time 1604670087185 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604670086882 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604670086852 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35316), corresponds to PID 1
+Connection from ('127.0.0.1', 35320), corresponds to PID 2
+Connection from ('127.0.0.1', 35324), corresponds to PID 3
+Process 1 started broadcasting at time 1604670162978 ms from Unix epoch 
+Process 2 started broadcasting at time 1604670162978 ms from Unix epoch 
+Process 3 started broadcasting at time 1604670162978 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38858, corresponds to PID 1
+Connection from 127.0.0.1:38862, corresponds to PID 2
+Connection from 127.0.0.1:38866, corresponds to PID 3
+Process 1 finished broadcasting at time 1604670164754 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604670164985 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604670164870 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35332), corresponds to PID 1
+Connection from ('127.0.0.1', 35336), corresponds to PID 2
+Connection from ('127.0.0.1', 35340), corresponds to PID 3
+Process 1 started broadcasting at time 1604671354670 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671354670 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671354670 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38874, corresponds to PID 1
+Connection from 127.0.0.1:38878, corresponds to PID 2
+Connection from 127.0.0.1:38882, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671355970 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671355718 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671355374 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35344), corresponds to PID 1
+Connection from ('127.0.0.1', 35348), corresponds to PID 2
+Connection from ('127.0.0.1', 35352), corresponds to PID 3
+Process 1 started broadcasting at time 1604671400360 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671400360 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671400360 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38886, corresponds to PID 1
+Connection from 127.0.0.1:38890, corresponds to PID 2
+Connection from 127.0.0.1:38894, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671401455 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671401689 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671401358 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35356), corresponds to PID 1
+Connection from ('127.0.0.1', 35360), corresponds to PID 2
+Connection from ('127.0.0.1', 35364), corresponds to PID 3
+Process 1 started broadcasting at time 1604671529505 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671529505 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671529505 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38898, corresponds to PID 1
+Connection from 127.0.0.1:38902, corresponds to PID 2
+Connection from 127.0.0.1:38906, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671530222 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671530265 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671530273 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35368), corresponds to PID 1
+Connection from ('127.0.0.1', 35372), corresponds to PID 2
+Connection from ('127.0.0.1', 35376), corresponds to PID 3
+Process 1 started broadcasting at time 1604671570286 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671570286 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671570286 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38910, corresponds to PID 1
+Connection from 127.0.0.1:38914, corresponds to PID 2
+Connection from 127.0.0.1:38918, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671570850 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671571259 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671570972 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35380), corresponds to PID 1
+Connection from ('127.0.0.1', 35384), corresponds to PID 2
+Connection from ('127.0.0.1', 35388), corresponds to PID 3
+Process 1 started broadcasting at time 1604671639681 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671639682 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671639682 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38922, corresponds to PID 1
+Connection from 127.0.0.1:38926, corresponds to PID 2
+Connection from 127.0.0.1:38930, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671640768 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671640740 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671640448 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35416), corresponds to PID 1
+Connection from ('127.0.0.1', 35420), corresponds to PID 2
+Connection from ('127.0.0.1', 35424), corresponds to PID 3
+Process 1 started broadcasting at time 1604671890115 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671890115 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671890115 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38958, corresponds to PID 1
+Connection from 127.0.0.1:38962, corresponds to PID 2
+Connection from 127.0.0.1:38966, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671891056 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671890919 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671891048 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35428), corresponds to PID 1
+Connection from ('127.0.0.1', 35432), corresponds to PID 2
+Connection from ('127.0.0.1', 35436), corresponds to PID 3
+Process 1 started broadcasting at time 1604671945204 ms from Unix epoch 
+Process 2 started broadcasting at time 1604671945204 ms from Unix epoch 
+Process 3 started broadcasting at time 1604671945204 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38970, corresponds to PID 1
+Connection from 127.0.0.1:38974, corresponds to PID 2
+Connection from 127.0.0.1:38978, corresponds to PID 3
+Process 1 finished broadcasting at time 1604671946212 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604671946054 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604671946331 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35440), corresponds to PID 1
+Connection from ('127.0.0.1', 35444), corresponds to PID 2
+Connection from ('127.0.0.1', 35448), corresponds to PID 3
+Process 1 started broadcasting at time 1604672025207 ms from Unix epoch 
+Process 2 started broadcasting at time 1604672025207 ms from Unix epoch 
+Process 3 started broadcasting at time 1604672025207 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38982, corresponds to PID 1
+Connection from 127.0.0.1:38986, corresponds to PID 2
+Connection from 127.0.0.1:38990, corresponds to PID 3
+Process 1 finished broadcasting at time 1604672026211 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604672025999 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604672026090 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35452), corresponds to PID 1
+Connection from ('127.0.0.1', 35458), corresponds to PID 2
+Connection from ('127.0.0.1', 35462), corresponds to PID 3
+Process 1 started broadcasting at time 1604672096625 ms from Unix epoch 
+Process 2 started broadcasting at time 1604672096625 ms from Unix epoch 
+Process 3 started broadcasting at time 1604672096625 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:38994, corresponds to PID 1
+Connection from 127.0.0.1:39000, corresponds to PID 2
+Connection from 127.0.0.1:39004, corresponds to PID 3
+Process 1 finished broadcasting at time 1604672097960 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604672097601 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604672098007 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35466), corresponds to PID 1
+Connection from ('127.0.0.1', 35470), corresponds to PID 2
+Connection from ('127.0.0.1', 35474), corresponds to PID 3
+Process 1 started broadcasting at time 1604672136544 ms from Unix epoch 
+Process 2 started broadcasting at time 1604672136544 ms from Unix epoch 
+Process 3 started broadcasting at time 1604672136544 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:39008, corresponds to PID 1
+Connection from 127.0.0.1:39012, corresponds to PID 2
+Connection from 127.0.0.1:39016, corresponds to PID 3
+Process 1 finished broadcasting at time 1604672138410 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604672137802 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604672138386 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35478), corresponds to PID 1
+Connection from ('127.0.0.1', 35482), corresponds to PID 2
+Connection from ('127.0.0.1', 35486), corresponds to PID 3
+Process 1 started broadcasting at time 1604672164475 ms from Unix epoch 
+Process 2 started broadcasting at time 1604672164476 ms from Unix epoch 
+Process 3 started broadcasting at time 1604672164476 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:39020, corresponds to PID 1
+Connection from 127.0.0.1:39024, corresponds to PID 2
+Connection from 127.0.0.1:39028, corresponds to PID 3
+Process 1 finished broadcasting at time 1604672165372 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604672165819 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604672166162 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35490), corresponds to PID 1
+Connection from ('127.0.0.1', 35494), corresponds to PID 2
+Connection from ('127.0.0.1', 35498), corresponds to PID 3
+Process 1 started broadcasting at time 1604672198796 ms from Unix epoch 
+Process 2 started broadcasting at time 1604672198796 ms from Unix epoch 
+Process 3 started broadcasting at time 1604672198796 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:39032, corresponds to PID 1
+Connection from 127.0.0.1:39036, corresponds to PID 2
+Connection from 127.0.0.1:39040, corresponds to PID 3
+Process 1 finished broadcasting at time 1604672199908 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604672200187 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604672200136 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 35518), corresponds to PID 1
+Connection from ('127.0.0.1', 35522), corresponds to PID 2
+Connection from ('127.0.0.1', 35526), corresponds to PID 3
+Process 1 started broadcasting at time 1604678952298 ms from Unix epoch 
+Process 2 started broadcastin                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Barrier listens on 0.0.0.0:10000 and waits for 3 processes
+Connection from ('127.0.0.1', 48312), corresponds to PID 1
+Connection from ('127.0.0.1', 48316), corresponds to PID 2
+Connection from ('127.0.0.1', 48320), corresponds to PID 3
+Process 1 started broadcasting at time 1604700967134 ms from Unix epoch 
+Process 2 started broadcasting at time 1604700967134 ms from Unix epoch 
+Process 3 started broadcasting at time 1604700967134 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:36192, corresponds to PID 1
+Connection from 127.0.0.1:36196, corresponds to PID 2
+Connection from 127.0.0.1:36200, corresponds to PID 3
+Process 1 finished broadcasting at time 1604700968053 ms from Unix epoch 
+Process 2 finished broadcasting at time 1604700967635 ms from Unix epoch 
+Process 3 finished broadcasting at time 1604700968142 ms from Unix epoch 
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 48324), corresponds to PID 1
+Connection from ('127.0.0.1', 48328), corresponds to PID 2
+Connection from ('127.0.0.1', 48334), corresponds to PID 3
+Connection from ('127.0.0.1', 48338), corresponds to PID 4
+Connection from ('127.0.0.1', 48342), corresponds to PID 5
+Connection from ('127.0.0.1', 48346), corresponds to PID 6
+Process 1 started broadcasting at time 1604701096241 ms from Unix epoch 
+Process 2 started broadcasting at time 1604701096241 ms from Unix epoch 
+Process 3 started broadcasting at time 1604701096241 ms from Unix epoch 
+Process 4 started broadcasting at time 1604701096241 ms from Unix epoch 
+Process 5 started broadcasting at time 1604701096241 ms from Unix epoch 
+Process 6 started broadcasting at time 1604701096241 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:36204, corresponds to PID 1
+Connection from 127.0.0.1:36208, corresponds to PID 2
+Connection from 127.0.0.1:36214, corresponds to PID 3
+Connection from 127.0.0.1:36218, corresponds to PID 4
+Connection from 127.0.0.1:36222, corresponds to PID 5
+Connection from 127.0.0.1:36226, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 48350), corresponds to PID 1
+Connection from ('127.0.0.1', 48354), corresponds to PID 2
+Connection from ('127.0.0.1', 48358), corresponds to PID 3
+Connection from ('127.0.0.1', 48362), corresponds to PID 4
+Connection from ('127.0.0.1', 48366), corresponds to PID 5
+Connection from ('127.0.0.1', 48370), corresponds to PID 6
+Process 1 started broadcasting at time 1604701294007 ms from Unix epoch 
+Process 2 started broadcasting at time 1604701294007 ms from Unix epoch 
+Process 3 started broadcasting at time 1604701294007 ms from Unix epoch 
+Process 4 started broadcasting at time 1604701294007 ms from Unix epoch 
+Process 5 started broadcasting at time 1604701294007 ms from Unix epoch 
+Process 6 started broadcasting at time 1604701294007 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:36230, corresponds to PID 1
+Connection from 127.0.0.1:36234, corresponds to PID 2
+Connection from 127.0.0.1:36238, corresponds to PID 3
+Connection from 127.0.0.1:36242, corresponds to PID 4
+Connection from 127.0.0.1:36246, corresponds to PID 5
+Connection from 127.0.0.1:36250, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50280), corresponds to PID 1
+Connection from ('127.0.0.1', 50284), corresponds to PID 2
+Connection from ('127.0.0.1', 50288), corresponds to PID 3
+Connection from ('127.0.0.1', 50292), corresponds to PID 4
+Connection from ('127.0.0.1', 50296), corresponds to PID 5
+Connection from ('127.0.0.1', 50300), corresponds to PID 6
+Process 1 started broadcasting at time 1604702220284 ms from Unix epoch 
+Process 2 started broadcasting at time 1604702220285 ms from Unix epoch 
+Process 3 started broadcasting at time 1604702220285 ms from Unix epoch 
+Process 4 started broadcasting at time 1604702220285 ms from Unix epoch 
+Process 5 started broadcasting at time 1604702220285 ms from Unix epoch 
+Process 6 started broadcasting at time 1604702220285 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49648, corresponds to PID 1
+Connection from 127.0.0.1:49652, corresponds to PID 2
+Connection from 127.0.0.1:49656, corresponds to PID 3
+Connection from 127.0.0.1:49660, corresponds to PID 4
+Connection from 127.0.0.1:49664, corresponds to PID 5
+Connection from 127.0.0.1:49668, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50330), corresponds to PID 1
+Connection from ('127.0.0.1', 50334), corresponds to PID 2
+Connection from ('127.0.0.1', 50338), corresponds to PID 3
+Connection from ('127.0.0.1', 50342), corresponds to PID 4
+Connection from ('127.0.0.1', 50346), corresponds to PID 5
+Connection from ('127.0.0.1', 50350), corresponds to PID 6
+Process 1 started broadcasting at time 1604702415925 ms from Unix epoch 
+Process 2 started broadcasting at time 1604702415925 ms from Unix epoch 
+Process 3 started broadcasting at time 1604702415925 ms from Unix epoch 
+Process 4 started broadcasting at time 1604702415925 ms from Unix epoch 
+Process 5 started broadcasting at time 1604702415925 ms from Unix epoch 
+Process 6 started broadcasting at time 1604702415925 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49698, corresponds to PID 1
+Connection from 127.0.0.1:49702, corresponds to PID 2
+Connection from 127.0.0.1:49706, corresponds to PID 3
+Connection from 127.0.0.1:49710, corresponds to PID 4
+Connection from 127.0.0.1:49714, corresponds to PID 5
+Connection from 127.0.0.1:49718, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50362), corresponds to PID 1
+Connection from ('127.0.0.1', 50366), corresponds to PID 2
+Connection from ('127.0.0.1', 50370), corresponds to PID 3
+Connection from ('127.0.0.1', 50374), corresponds to PID 4
+Connection from ('127.0.0.1', 50378), corresponds to PID 5
+Connection from ('127.0.0.1', 50382), corresponds to PID 6
+Process 1 started broadcasting at time 1604702544261 ms from Unix epoch 
+Process 2 started broadcasting at time 1604702544261 ms from Unix epoch 
+Process 3 started broadcasting at time 1604702544261 ms from Unix epoch 
+Process 4 started broadcasting at time 1604702544261 ms from Unix epoch 
+Process 5 started broadcasting at time 1604702544261 ms from Unix epoch 
+Process 6 started broadcasting at time 1604702544261 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49730, corresponds to PID 1
+Connection from 127.0.0.1:49734, corresponds to PID 2
+Connection from 127.0.0.1:49738, corresponds to PID 3
+Connection from 127.0.0.1:49742, corresponds to PID 4
+Connection from 127.0.0.1:49746, corresponds to PID 5
+Connection from 127.0.0.1:49750, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50386), corresponds to PID 1
+Connection from ('127.0.0.1', 50390), corresponds to PID 2
+Connection from ('127.0.0.1', 50394), corresponds to PID 3
+Connection from ('127.0.0.1', 50398), corresponds to PID 4
+Connection from ('127.0.0.1', 50402), corresponds to PID 5
+Connection from ('127.0.0.1', 50406), corresponds to PID 6
+Process 1 started broadcasting at time 1604702790709 ms from Unix epoch 
+Process 2 started broadcasting at time 1604702790709 ms from Unix epoch 
+Process 3 started broadcasting at time 1604702790709 ms from Unix epoch 
+Process 4 started broadcasting at time 1604702790710 ms from Unix epoch 
+Process 5 started broadcasting at time 1604702790710 ms from Unix epoch 
+Process 6 started broadcasting at time 1604702790710 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49754, corresponds to PID 1
+Connection from 127.0.0.1:49758, corresponds to PID 2
+Connection from 127.0.0.1:49762, corresponds to PID 3
+Connection from 127.0.0.1:49766, corresponds to PID 4
+Connection from 127.0.0.1:49770, corresponds to PID 5
+Connection from 127.0.0.1:49774, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50410), corresponds to PID 1
+Connection from ('127.0.0.1', 50414), corresponds to PID 2
+Connection from ('127.0.0.1', 50418), corresponds to PID 3
+Connection from ('127.0.0.1', 50422), corresponds to PID 4
+Connection from ('127.0.0.1', 50426), corresponds to PID 5
+Connection from ('127.0.0.1', 50430), corresponds to PID 6
+Process 1 started broadcasting at time 1604702884509 ms from Unix epoch 
+Process 2 started broadcasting at time 1604702884509 ms from Unix epoch 
+Process 3 started broadcasting at time 1604702884509 ms from Unix epoch 
+Process 4 started broadcasting at time 1604702884509 ms from Unix epoch 
+Process 5 started broadcasting at time 1604702884509 ms from Unix epoch 
+Process 6 started broadcasting at time 1604702884509 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49778, corresponds to PID 1
+Connection from 127.0.0.1:49782, corresponds to PID 2
+Connection from 127.0.0.1:49786, corresponds to PID 3
+Connection from 127.0.0.1:49790, corresponds to PID 4
+Connection from 127.0.0.1:49794, corresponds to PID 5
+Connection from 127.0.0.1:49798, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50434), corresponds to PID 1
+Connection from ('127.0.0.1', 50438), corresponds to PID 2
+Connection from ('127.0.0.1', 50442), corresponds to PID 3
+Connection from ('127.0.0.1', 50446), corresponds to PID 4
+Connection from ('127.0.0.1', 50450), corresponds to PID 5
+Connection from ('127.0.0.1', 50454), corresponds to PID 6
+Process 1 started broadcasting at time 1604703020549 ms from Unix epoch 
+Process 2 started broadcasting at time 1604703020549 ms from Unix epoch 
+Process 3 started broadcasting at time 1604703020549 ms from Unix epoch 
+Process 4 started broadcasting at time 1604703020549 ms from Unix epoch 
+Process 5 started broadcasting at time 1604703020549 ms from Unix epoch 
+Process 6 started broadcasting at time 1604703020549 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49802, corresponds to PID 1
+Connection from 127.0.0.1:49806, corresponds to PID 2
+Connection from 127.0.0.1:49810, corresponds to PID 3
+Connection from 127.0.0.1:49814, corresponds to PID 4
+Connection from 127.0.0.1:49818, corresponds to PID 5
+Connection from 127.0.0.1:49822, corresponds to PID 6
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50458), corresponds to PID 1
+Connection from ('127.0.0.1', 50462), corresponds to PID 2
+Connection from ('127.0.0.1', 50466), corresponds to PID 3
+Connection from ('127.0.0.1', 50470), corresponds to PID 5
+Connection from ('127.0.0.1', 50474), corresponds to PID 4
+Connection from ('127.0.0.1', 50478), corresponds to PID 6
+Process 1 started broadcasting at time 1604703163487 ms from Unix epoch 
+Process 2 started broadcasting at time 1604703163487 ms from Unix epoch 
+Process 3 started broadcasting at time 1604703163487 ms from Unix epoch 
+Process 4 started broadcasting at time 1604703163487 ms from Unix epoch 
+Process 5 started broadcasting at time 1604703163487 ms from Unix epoch 
+Process 6 started broadcasting at time 1604703163487 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49826, corresponds to PID 1
+Connection from 127.0.0.1:49830, corresponds to PID 2
+Connection from 127.0.0.1:49834, corresponds to PID 3
+Connection from 127.0.0.1:49838, corresponds to PID 5
+Connection from 127.0.0.1:49842, corresponds to PID 4
+Connection from 127.0.0.1:49846, corresponds to PID 6
+Barrier listens on 0.0.0.0:10000 and waits for 6 processes
+Connection from ('127.0.0.1', 50482), corresponds to PID 1
+Connection from ('127.0.0.1', 50486), corresponds to PID 2
+Connection from ('127.0.0.1', 50490), corresponds to PID 3
+Connection from ('127.0.0.1', 50494), corresponds to PID 4
+Connection from ('127.0.0.1', 50498), corresponds to PID 5
+Connection from ('127.0.0.1', 50502), corresponds to PID 6
+Process 1 started broadcasting at time 1604703263736 ms from Unix epoch 
+Process 2 started broadcasting at time 1604703263736 ms from Unix epoch 
+Process 3 started broadcasting at time 1604703263736 ms from Unix epoch 
+Process 4 started broadcasting at time 1604703263736 ms from Unix epoch 
+Process 5 started broadcasting at time 1604703263736 ms from Unix epoch 
+Process 6 started broadcasting at time 1604703263736 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:49850, corresponds to PID 1
+Connection from 127.0.0.1:49854, corresponds to PID 2
+Connection from 127.0.0.1:49858, corresponds to PID 3
+Connection from 127.0.0.1:49862, corresponds to PID 4
+Connection from 127.0.0.1:49866, corresponds to PID 5
+Connection from 127.0.0.1:49870, corresponds to PID 6

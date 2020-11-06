@@ -1,38 +1,22 @@
 package cs451;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.Socket;
 import java.net.SocketException;
-import java.util.LinkedList;
-import java.util.List;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.DatagramPacket;
 
 public class Main {
 
-    static int id = 0;
-
-    private static void handleSignal() {
-        //immediately stop network packet processing
-        System.out.println("Immediately stopping network packet processing.");
-
-        //write/flush output file if necessary
-        System.out.println("Writing output.");
-
-    }
-
-    
+    public static Coordinator coord = null;
 
     private static void initSignalHandlers() {
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
-                handleSignal();
+                try {
+                    Process.writeInFile();
+                    // Main.coord.finishedBroadcasting();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -67,14 +51,14 @@ public class Main {
 
 
         Coordinator coordinator = new Coordinator(parser.myId(), parser.barrierIp(), parser.barrierPort(), parser.signalIp(), parser.signalPort());
+        coord = coordinator;
 
         System.out.println("Waiting for all processes for finish initialization");
             coordinator.waitOnBarrier();
 
         System.out.println("Broadcasting messages...");
-        Process p = new Process(parser);
-        id = parser.myId();
-        p.broadcastMessages();
+        Process process = new Process(parser);
+        process.broadcastMessages();
 
         System.out.println("Signaling end of broadcasting messages");
             coordinator.finishedBroadcasting();

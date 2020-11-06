@@ -12,13 +12,12 @@ import cs451.utils.PacketList;
 
 public class GroundLayer {
 
-	static TransportLayer upLayer;
-	static PingLayer pingLayer;
+	private static boolean RUNNING = true;
 
-	static PacketList receivedPacketList = new PacketList();
+	private static TransportLayer upLayer;
 
-	static Thread thread;
-	static DatagramSocket serverSocket = null;
+	private static PacketList receivedPacketList = new PacketList();
+	private static DatagramSocket serverSocket = null;
 
 	public static void deliverTo(TransportLayer layer) {
 		upLayer = layer;
@@ -26,7 +25,6 @@ public class GroundLayer {
 
 	// called by above layer to send packet
 	public static void send(String payload, String destinationHostName, int destPort) {
-
 		InetAddress address = null;
 		try {
 			address = InetAddress.getByName(destinationHostName);
@@ -35,10 +33,9 @@ public class GroundLayer {
 		}
 
 		byte[] buf = payload.getBytes();
-
 		DatagramPacket sendPacket = new DatagramPacket(buf, buf.length, address, destPort);
-		if (serverSocket == null)
-			return;
+
+		if (!RUNNING || serverSocket == null) return;
 		try {
 			serverSocket.send(sendPacket);
 		} catch (IOException e) {
@@ -46,26 +43,31 @@ public class GroundLayer {
 		}
 	}
 
-	// runs forever in order to receive the packages on a given port
+	// start 2 types of threads
 	public static void start(int localPort) {
-
 		// start thread receiving and storing in receivedPacketList List 
-		(new Thread(() -> { receivePacketThreadFunction(localPort); })).start();
+		(new Thread(() -> receivePacketThreadFunction(localPort))).start();
 
-		// start threads to handle the received
-		int numThreads = 5;
+		// start threads to process the received packets
+		int numThreads = 2;
 		for (int i = 0; i < numThreads; i++) {
-			(new Thread(() -> { handleReceivedPacketThreadFunction(); })).start();
+			(new Thread(() -> handleReceivedPacketThreadFunction())).start();
 		}
 	}
 
-	public static void handleReceivedPacketThreadFunction() {
-		while(true) {
+	public static void stop() {
+		RUNNING = false;
+	}
+
+	// processing received packet threads : numThreads
+	private static void handleReceivedPacketThreadFunction() {
+		while(RUNNING) {
 			upLayer.receive(receivedPacketList.removeFirst());
 		}
 	}
 
-	public static void receivePacketThreadFunction(int localPort) {
+	// receiver packet thread : 1
+	private static void receivePacketThreadFunction(int localPort) {
 		try {
 			System.out.println("Opening socket on port " + localPort);
 			serverSocket = new DatagramSocket(localPort);
@@ -77,15 +79,17 @@ public class GroundLayer {
 		DatagramPacket packet = null;
 		byte[] buf = new byte[258];
 
-		while (!Thread.currentThread().isInterrupted()) {
+		while (!Thread.currentThread().isInterrupted() && RUNNING) {
 			packet = new DatagramPacket(buf, buf.length);
 			try {
 				serverSocket.receive(packet);
 				String data = new String(packet.getData(), 0, packet.getLength()); // to match the length
 				if (upLayer != null) {
 					Packet p = new Packet(data, packet.getAddress().getHostAddress(), packet.getPort());
+
+					// handle ping here so they are not stuck behind queue
 					if (p.isPing()) {
-						PingLayer.receive(p.destHost, p.destPort);
+						PingLayer.receive(p);
 					} else {
 						receivedPacketList.add(p);
 					}
@@ -98,5 +102,7 @@ public class GroundLayer {
 				Thread.currentThread().interrupt();
 			}
 		}
+
+		serverSocket.close();
 	}
 }

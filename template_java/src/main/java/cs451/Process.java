@@ -2,6 +2,7 @@ package cs451;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,141 +21,169 @@ import cs451.layers.UBLayer;
 
 public class Process {
 
-    private int id;
-    private int port;
+    public static boolean RUNNING = true;
 
     public PerfectLinkLayer perfectLinkLayer;
-    private TransportLayer transportLayer;
+    private static TransportLayer transportLayer;
 
     private BEBLayer bebLayer;
     private UBLayer urbLayer;
     private FIFOLayer fifoLayer;
 
-    List<String> messageList;
-    private int currentBroad;
+    private static List<String> messageList = Collections.synchronizedList(new LinkedList<>());
+    private static int ID = -1;
+    private static int PORT = 0;
+    private static int CURRENT_BROADCASTED_MESSAGES = 0;
+    private static int MAXBROAD = 30000;
+    private static int NUMMESSAGES = 10000;
+    private static String configPath = null;
+    private static String outputPath = null;
+
+    // timer
+    private long start = 0;
 
     public Process(Parser p) {
-        id = p.myId();
-        port = (int) p.myPort();
-        this.messageList = Collections.synchronizedList(new LinkedList<>());
-        this.currentBroad = 0;
+        ID = p.myId();
+        PORT = (int) p.myPort();
+        configPath = (p.hasConfig() ? p.config() : null);
+        outputPath = p.output();
 
         transportLayer = new TransportLayer();
         perfectLinkLayer = new PerfectLinkLayer();
         bebLayer = new BEBLayer();
-        urbLayer = new UBLayer(id);
-        fifoLayer = new FIFOLayer(id);
+        urbLayer = new UBLayer(ID);
+        fifoLayer = new FIFOLayer();
 
         PingLayer.initializePingLayer(transportLayer, urbLayer, p.hosts(), p.myHost());
 
         transportLayer.setLayers(perfectLinkLayer);
-        perfectLinkLayer.setLayers(transportLayer, bebLayer, this);
-        bebLayer.setLayers(perfectLinkLayer, urbLayer, this);
-        urbLayer.setLayers(bebLayer, fifoLayer, this);
-        fifoLayer.setLayers(urbLayer, this);
+        perfectLinkLayer.setLayers(transportLayer, bebLayer);
+        bebLayer.setLayers(perfectLinkLayer, urbLayer);
+        urbLayer.setLayers(bebLayer, fifoLayer);
+        fifoLayer.setLayers(urbLayer);
 
-    }
-
-    private List<String> getMessages() {
-        List<String> messagesToBroadcast = new LinkedList<>();
-        for (int i = 0; i < 50; i++) {
-            messagesToBroadcast.add("" + i + ":" + this.id);
-        }
-        return messagesToBroadcast;
+        // initSignalHandlers();
     }
 
     // Start layers and broadcast messages
     public void broadcastMessages() {
-
-        int MAXBROAD = 30000;
-
         // start layers
         startLayers();
 
         // start thread to check number of messages received
+        startReporter();
+
+        // start broadcasting
+        startBroadcasting(getMessages());
+    }
+
+    private void startLayers() {
+        start = System.currentTimeMillis();
+        GroundLayer.start(PORT);
+        PingLayer.start();
+    }
+
+    private void startReporter() {
         (new Thread(() -> {
             try {
-                writeReceivedMessage();
+                Thread.sleep(5000);
+                int lastVersion = -1;
+                int evolution = 0;
+                int numHosts = Host.getHostList().size();
+                while (RUNNING) {
+                    int messageReceived = messageList.size();
+                    if (messageReceived == NUMMESSAGES * (numHosts + 1)) {
+                        System.out.println("All " + NUMMESSAGES  + " messages broadcasted in " + (System.currentTimeMillis()-start)/1000 + " s (received " + messageReceived + " messages)" );
+                        return;
+                        // System.exit(0);
+                    } else {
+                        System.out.println("Number of messages received= "+ (messageReceived));// - NUMMESSAGES));
+                        Thread.sleep(2000);
+                    }
+                    if (lastVersion == messageReceived) {
+                        evolution++;
+                        if (evolution == 10) {
+                            Main.coord.finishedBroadcasting();
+                            break;
+                        }
+                    } else {
+                        lastVersion = messageReceived;
+                        evolution = 0;
+                    }
+                }
             } catch (Exception e) {
                 System.err.print(e);
             }
         })).start();
+    }
 
-        // if (id == 1) {
-        // broadcast from all
-        for (String m : getMessages()) {
-            while (currentBroad > MAXBROAD) {
+    private void startBroadcasting(List<String> messages) {
+        for (String m : messages) {
+            while (RUNNING && CURRENT_BROADCASTED_MESSAGES > MAXBROAD) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+            if (!RUNNING) return;
             this.fifoLayer.send(m);
-            currentBroad++;
+            writeInMemory(m, ID, false);
+            incrementCurrentBroad(true);
         }
-        // }
     }
 
-    private void startLayers() {
-        GroundLayer.start(this.port);
-        PingLayer.start();
+    public static void incrementCurrentBroad(boolean increment) {
+        if (increment) CURRENT_BROADCASTED_MESSAGES++;
+        else CURRENT_BROADCASTED_MESSAGES--;
     }
 
-    private void writeReceivedMessage() throws IOException {
-        int rec = 0;
-        String path = "outputs/message_received_" + this.id + ".log";
-        new PrintWriter(path).close();
-        FileWriter myWriter[] = new FileWriter[3];
-        for (int i = 1; i < 4; i++) {
-            path = "outputs/message_received_" + this.id + "_from_"+ i  +".log";
-            myWriter[i-1] = new FileWriter(path);
-        }
-        while (true) {
+    public static void writeInMemory(String message, int pid, boolean delivery) {
+        messageList.add((delivery ? "d " + pid + " " : "b ") + message);
+        if (delivery && pid == ID) incrementCurrentBroad(false);
+    }
+    
+    private List<String> getMessages() {
+
+        if (configPath != null) {
+            File myObj = new File(configPath);
+            Scanner myReader;
             try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
+                myReader = new Scanner(myObj);
+                String data = myReader.nextLine();
+                NUMMESSAGES = Integer.parseInt(data);
 
-            synchronized (messageList) {
-                rec += this.messageList.size();
-                System.out.println("Number of messages received= "+ rec +"");
-                for (String m : this.messageList) {
-                    int num = Integer.parseInt(m.split(":")[1]);
-                    myWriter[num-1].write(m+"\n");
+                if (myReader.hasNext()) {
+                    data = myReader.nextLine();
+                    MAXBROAD = Integer.valueOf(data);
                 }
-                for (int i = 0; i < 3; i++) {
-                    myWriter[i].flush();
-                }
-               
-                messageList.clear();
+
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
         }
-    }
 
-
-    // Reading and writing to files
-    public static List<String> readFromFile(String path) {
-        LinkedList<String> list = new LinkedList<>();
-        try {
-            File file = new File(path);
-            Scanner scan = new Scanner(file);
-            while (scan.hasNextLine()) {
-                list.add(scan.nextLine());
-            }
-            scan.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        List<String> messagesToBroadcast = new LinkedList<>();
+        for (int i = 1; i < NUMMESSAGES + 1; i++) {
+            messagesToBroadcast.add("" + i);
         }
-        return list;
+        return messagesToBroadcast;
     }
+    
+    public static void writeInFile() throws IOException {
+        //immediately stop network packet processing
+        System.out.println("Immediately stopping network packet processing.");
+        RUNNING = false;
+        GroundLayer.stop();
+        PingLayer.stop();
+        transportLayer.stop();
 
-
-    public void writeInFile(String message, int id) {
-        this.messageList.add(message);
-        if (id == this.id) {
-            currentBroad--;
-        }
+        // writing in output file
+        System.out.println("Writing output (" + messageList.size() + " messages received)");
+        new PrintWriter(outputPath).close(); // clean the file
+        FileWriter globalWriter = new FileWriter(outputPath);
+        for (String m : messageList) globalWriter.write(m + "\n");
+        globalWriter.close();
     }
 }

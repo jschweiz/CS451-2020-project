@@ -10,8 +10,6 @@ public class Host {
 
     private static final String IP_START_REGEX = "/";
 
-    private static List<Host> hostList = Collections.synchronizedList(new LinkedList<>());
-
     private int id;
     private String ip;
     private int port = -1;
@@ -53,30 +51,6 @@ public class Host {
         return true;
     }
 
-    public static synchronized void setHostList(List<Host> l) {
-        for (Host h : l) {
-            hostList.add(h);
-        }
-    }
-
-    public static synchronized Host findHost(String ip, int port) {
-        for (Host h: hostList) {
-            if (h.getIp().equals(ip) && h.getPort() == port) {
-                return h;
-            }
-        }
-        return null;
-    }
-
-    public static synchronized Host findHost(int id) {
-        for (Host h: hostList) {
-            if (h.getId() == id) {
-                return h;
-            }
-        }
-        return null;
-    }
-
     public synchronized int getId() {
         return id;
     }
@@ -101,5 +75,26 @@ public class Host {
 
     public synchronized String toString() {
         return "(" + this.id + ";" + this.ip + ";" + this.port + ")";
+    }
+
+
+    // static functions added
+    private static List<Host> hostList = Collections.synchronizedList(new LinkedList<>());
+    
+    public static synchronized void setHostList(List<Host> l) {
+        hostList.addAll(l);
+    }
+
+    public static synchronized List<Host> getHostList() {
+        return hostList;
+    }
+
+    public static synchronized Host findHost(String ip, int port) {
+        for (Host h: hostList) {
+            if (h.getIp().equals(ip) && h.getPort() == port) {
+                return h;
+            }
+        }
+        return null;
     }
 }

@@ -1,1 +1,1 @@
-./run.sh --id $1 --hosts hosts.txt --barrier 0.0.0.0:10000 --signal 0.0.0.0:11000 --output outputs/$1.txt
+./run.sh --id $1 --hosts hosts.txt --barrier 0.0.0.0:10000 --signal 0.0.0.0:11000 --output outputs/$1.txt config

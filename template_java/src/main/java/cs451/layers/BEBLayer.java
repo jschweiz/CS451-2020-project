@@ -3,20 +3,16 @@ package cs451.layers;
 import java.util.List;
 
 import cs451.Host;
-import cs451.Process;
 import cs451.utils.Message;
 
 public class BEBLayer {
 
     private PerfectLinkLayer perfectLinkLayer;
     private UBLayer bLayer;
-    private Process p;
 
-
-    public void setLayers(PerfectLinkLayer pe, UBLayer b, Process p) {
+    public void setLayers(PerfectLinkLayer pe, UBLayer b) {
         this.perfectLinkLayer = pe;
         this.bLayer = b;
-        this.p = p;
     }
 
     public void send(Message m, List<Host> hosts) {

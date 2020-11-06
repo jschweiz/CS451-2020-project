@@ -1,7 +1,9 @@
-package cs451.utils;
+package cs451.unused;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import cs451.utils.Message;
 
 public class SynchronizedMessageSet {
 

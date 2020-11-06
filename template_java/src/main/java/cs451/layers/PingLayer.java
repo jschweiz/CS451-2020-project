@@ -14,18 +14,20 @@ import cs451.utils.Packet;
 
 public class PingLayer {
 
+    private static boolean RUNNING = true;
+
     private static TransportLayer transportLayer; // to send pings
     private static UBLayer bLayer;
 
     private static List<Host> listAllGoodHosts;
     private static Set<Host> currentHosts;
 
-    static final int DELAY = 500;
+    static final int DELAY = 100;
     static final int PERIOD = 10000;
 
     private static PingSenderManager manager = new PingSenderManager();
 
-    public static class PingSenderManager {
+    private static class PingSenderManager {
 		private Timer timer;
 
 		public PingSenderManager() {
@@ -37,7 +39,7 @@ public class PingLayer {
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
-                    Host h = Host.findHost(m.destHost, m.destPort);
+                    Host h = m.getHost();
                     if (!listAllGoodHosts.contains(h)) {
                         this.cancel();
                     } else {
@@ -52,18 +54,15 @@ public class PingLayer {
     // intialize layer
     public static void initializePingLayer(TransportLayer tl, UBLayer r, List<Host> hosts, Host ownHost) {
         listAllGoodHosts = Collections.synchronizedList(new LinkedList<Host>());
-        for (Host host: hosts) {
-            if (!host.equals(ownHost)) {
-                listAllGoodHosts.add(host);
-            }
-        }
+        listAllGoodHosts.addAll(hosts);
+        listAllGoodHosts.remove(ownHost);
         currentHosts = Collections.synchronizedSet(new HashSet<Host>());
         transportLayer = tl;
         bLayer = r;
     }
 
 
-    // start ping layer
+    // start and stop ping layer
     public static void start() {
         // program the sending of pings
         programPingSending();
@@ -71,28 +70,29 @@ public class PingLayer {
         createCheckThread().start();
     }
 
+    public static void stop() {
+        RUNNING = false;
+        synchronized (listAllGoodHosts) {
+            listAllGoodHosts.clear();
+        }
+    }
+
 
     // program sending the pings
     private static void programPingSending() {
         synchronized (listAllGoodHosts) {
             for (Host host : listAllGoodHosts) {
-                manager.schedule(new Packet(host.getIp(), host.getPort(),
-                        Packet.PING,0));
+                manager.schedule(new Packet(host.getIp(), host.getPort(), Packet.PING,0));
             }
         }
     }
 
-
     // check if ping received from all good hosts
     private static Thread createCheckThread() {
         return new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(PERIOD);
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
+            sleep();
 
+            while (RUNNING) {
                 checkStillHaveHosts();
                 List<Host> crashedHosts = removeLostHosts();
 
@@ -100,33 +100,43 @@ public class PingLayer {
                     cancelSendingMessageInVoid(crashedHosts);
                     bLayer.lostConnectionTo(listAllGoodHosts);
                 }
+                sleep();
             }
         });
+    }
+
+    private static void sleep() {   
+        try {
+            Thread.sleep(PERIOD);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     private static void checkStillHaveHosts() {
         if (listAllGoodHosts.isEmpty()) {
             System.out.println("NO FRIENDS TO PING :/ (STOPPED)");
-            Thread.currentThread().stop();
+            stop();
         }
-        System.out.print("Checking if all hosts are still alive (current list: ");
+        StringBuilder activeHostsString = new StringBuilder();
+        activeHostsString.append("Active hosts:  ");
         synchronized (listAllGoodHosts) {
             for (Host h: listAllGoodHosts) {
-                System.out.print(h.getIp() + ";" + h.getPort() + "  ");
+                activeHostsString.append(h.getIp() + ";" + h.getPort() + "  ");
             }
         }
-        System.out.println(")");
+        System.out.println(activeHostsString);
     }
 
     private static List<Host> removeLostHosts() {
-        List<Host> crashedHost = new LinkedList<Host>();
+        List<Host> crashedHost = new LinkedList<>();
         // Check if ping have been received from all hosts
         synchronized (listAllGoodHosts) {
-            for (Host host : listAllGoodHosts) {
-                if (!currentHosts.contains(host)) {
-                    crashedHost.add(host);
+            listAllGoodHosts.forEach((e) -> {
+                if (!currentHosts.contains(e)) {
+                    crashedHost.add(e);
                 }
-            }
+            });
         }
         
         // remove the one for which no ping have been received
@@ -144,17 +154,13 @@ public class PingLayer {
         }
     }
 
-
     // update the table of recevied pings
-    public static void receive(String senderName, int fromPort) {
-        currentHosts.add(Host.findHost(senderName, fromPort));
+    public static void receive(Packet p) {
+        currentHosts.add(p.getHost());
     }
-
 
     // Getters 
     public static List<Host> currentAvailableHosts() {
         return listAllGoodHosts;
     }
-
-
 }

@@ -37,9 +37,7 @@ public class AckMap {
 
     public synchronized Set<Message> getAllMessages() {
         Set<Message> s = new HashSet<>();
-        for (Message m : map.keySet()) {
-            s.add(m);
-        }
+        s.addAll( map.keySet());
         return s;
     }
 }

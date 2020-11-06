@@ -8,38 +8,32 @@ import java.util.Set;
 import cs451.utils.Message;
 import cs451.Host;
 import cs451.utils.AckMap;
-import cs451.utils.SynchronizedMessageSet;
-import cs451.Process;
 
 public class UBLayer {
 
     // layers and process
     private FIFOLayer fifoLayer;
     private BEBLayer bebLayer;
-    private Process p;
 
     private int processID; // used to sign first sender of message
 
     // used for uniform broadcast
     private Set<Message> delivered = Collections.synchronizedSet(new HashSet<Message>());
-    private SynchronizedMessageSet forward = new SynchronizedMessageSet();
+    private Set<Message> forward = Collections.synchronizedSet(new HashSet<Message>());
     private AckMap ack = new AckMap();
 
     private List<Host> availableHosts; // updated directly by pinglayer 
-
 
     // init functions
     public UBLayer(int id) {
         this.processID = id;
     }
 
-    public void setLayers(BEBLayer b, FIFOLayer f, Process p) {
+    public void setLayers(BEBLayer b, FIFOLayer f) {
         this.bebLayer = b;
         this.fifoLayer = f;
         this.availableHosts = PingLayer.currentAvailableHosts();
-        this.p = p;
     }
-
 
     // send and receive functions
     public synchronized void send(String payload) {
@@ -54,13 +48,12 @@ public class UBLayer {
 
     public synchronized void receive(Host sender, Message m) {
         if (delivered.contains(m)) {
-            System.out.println(".......");
             return;
         }
         ack.ackBy(m, sender);
 
         if (!forward.contains(m)) {
-            forward.addForced(m);
+            forward.add(m);
             this.bebLayer.send(m, this.availableHosts);
         }
 
@@ -80,12 +73,9 @@ public class UBLayer {
         }
     }
 
-    public void deliver(Message m) {
+    private void deliver(Message m) {
         delivered.add(m);
         forward.remove(m);
-
         this.fifoLayer.receive(m.payload, m.originalSenderId);
-
-        // p.writeInFile(m.payload, this.processID);
     }
 }

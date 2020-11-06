@@ -1,0 +1,4 @@
+Exception in thread "Thread-0" java.lang.NullPointerException
+	at cs451.layers.PingLayer.stop(PingLayer.java:75)
+	at cs451.Process.writeInFile(Process.java:176)
+	at cs451.Main$1.run(Main.java:15)
