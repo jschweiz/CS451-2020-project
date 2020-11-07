@@ -15,6 +15,7 @@ public class GroundLayer {
 
 	private static boolean RUNNING = true;
 	public static final boolean optimizedThreads = ConcurrencyManager.REDUCE_THREADS;
+	public static final int numThreads = ConcurrencyManager.NUM_THREAD_PACKET_HANDLER;
 
 	private static TransportLayer upLayer;
 
@@ -27,18 +28,18 @@ public class GroundLayer {
 
 	// called by above layer to send packet
 	public static void send(String payload, String destinationHostName, int destPort) {
+		if (!RUNNING || serverSocket == null) return;
+
 		InetAddress address = null;
 		try {
 			address = InetAddress.getByName(destinationHostName);
-		} catch (UnknownHostException e) {
-			System.err.println("Error" + e.getMessage());
+		} catch (IOException e) {
+			System.err.println("Error while sending in GroundLayer");
 		}
 
 		byte[] buf = payload.getBytes();
 		DatagramPacket sendPacket = new DatagramPacket(buf, buf.length, address, destPort);
 
-		if (!RUNNING || serverSocket == null)
-			return;
 		try {
 			serverSocket.send(sendPacket);
 		} catch (IOException e) {
@@ -53,7 +54,6 @@ public class GroundLayer {
 
 		// start threads to process the received packets
 		if (!optimizedThreads) {
-			int numThreads = 2;
 			for (int i = 0; i < numThreads; i++) {
 				(new Thread(() -> handleReceivedPacketThreadFunction())).start();
 			}
@@ -96,21 +96,19 @@ public class GroundLayer {
 			packet = new DatagramPacket(buf, buf.length);
 			try {
 				serverSocket.receive(packet);
-				String data = new String(packet.getData(), 0, packet.getLength()); // to match the length
-				if (upLayer != null) {
-					Packet p = new Packet(data, packet.getAddress().getHostAddress(), packet.getPort());
+				Packet p = new Packet(
+						new String(packet.getData(), 0, packet.getLength()),
+						packet.getAddress().getHostAddress(), packet.getPort());
 
-					// handle ping here so they are not stuck behind queue
-					if (p.isPing()) {
-						PingLayer.receive(p);
-					} else  if (optimizedThreads) {
-						upLayer.receive(p);
-					} else {
-						synchronized (receivedPacketList) {
-							receivedPacketList.add(p);
-						}
-					}
+				// handle ping here so they are not stuck behind queue
+				if (p.isPing()) {
+					PingLayer.receive(p);
+				} else  if (optimizedThreads) {
+					upLayer.receive(p);
+				} else {
+					receivedPacketList.add(p);
 				}
+
 			} catch (SocketException e) {
 				System.err.println("-- socket closed --");
 				Thread.currentThread().interrupt();

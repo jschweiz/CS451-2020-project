@@ -41,6 +41,7 @@ public class PingLayer {
 				@Override
 				public void run() {
                     Host h = m.getHost();
+                    // System.out.println("Sending ping to" + h);
                     if (!listAllGoodHosts.contains(h)) {
                         this.cancel();
                     } else {
@@ -84,9 +85,9 @@ public class PingLayer {
     // start and stop ping layer
     public static void start() {
         // program the sending of pings
-        programPingSending();
+        //programPingSending();
         // start checking if all ping are received
-        manager.schedule();
+        //manager.schedule();
     }
 
     public static void stop() {

@@ -1,10 +1,19 @@
 package cs451.layers;
+
 import cs451.Host;
+import cs451.Process;
+import cs451.TestProcess;
 
 public class PerfectLinkLayer {
 
     TransportLayer transportLayer;
     BEBLayer bebLayer;
+
+    private int id;
+
+    public PerfectLinkLayer(int id) {
+        this.id = id;
+    }
 
     public void setLayers(TransportLayer t, BEBLayer b) {
         this.transportLayer = t;
@@ -12,10 +21,15 @@ public class PerfectLinkLayer {
     }
 
     public void send(Host destHost, String payload) {
-        transportLayer.send(destHost.getIp(),  destHost.getPort(), payload);
+        if (destHost.getId() == this.id) {
+            bebLayer.receive(destHost, payload);
+        } else {
+            transportLayer.send(destHost.getIp(),  destHost.getPort(), payload);
+        }
     }
 
     public void receive(String senderName, int fromPort, String payload) {
-        bebLayer.receive(Host.findHost(senderName, fromPort), payload);
+        TestProcess.currProcess.writeInMemory(payload, Host.findHost(senderName, fromPort).getId(), true);
+        // bebLayer.receive(Host.findHost(senderName, fromPort), payload);
     }    
 }

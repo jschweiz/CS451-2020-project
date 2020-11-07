@@ -23,8 +23,8 @@ public class BEBLayer {
     }
 
     public void receive(Host sender, String payload) {
-        Process.currProcess.writeInMemory(payload, sender.getId(), true);
-        // this.bLayer.receive(sender, new Message(payload));
+        // Process.currProcess.writeInMemory(payload, sender.getId(), true);
+        this.bLayer.receive(sender, new Message(payload));
     }
 
 }

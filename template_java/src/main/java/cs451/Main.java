@@ -57,7 +57,7 @@ public class Main {
             coordinator.waitOnBarrier();
 
         System.out.println("Broadcasting messages...");
-        Process process = new Process(parser);
+        TestProcess process = new TestProcess(parser);
         process.broadcastMessages();
 
         System.out.println("Signaling end of broadcasting messages");

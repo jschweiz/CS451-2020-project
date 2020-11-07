@@ -6,6 +6,8 @@ public class Packet {
     // static constants
     public static String ACK = "ACK";
     public static String PING = "PING";
+    public static int DIV1 = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN;
+    public static int DIV2 = ConcurrencyManager.NBINS;
 
     // properties of each packet
     public final String payload;
@@ -67,5 +69,11 @@ public class Packet {
     public int hashCode() {
         return this.destHost.hashCode() + this.destPort
                 + (int)this.seqNum;
+    }
+
+    public int getMapId() {
+        int number =  (int) (this.seqNum / DIV1) % DIV2;
+        if (number < 0) number += DIV2;
+        return number;
     }
 }

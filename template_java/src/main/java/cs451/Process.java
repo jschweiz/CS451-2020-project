@@ -56,7 +56,7 @@ public class Process {
         outputPath = p.output();
 
         transportLayer = new TransportLayer();
-        perfectLinkLayer = new PerfectLinkLayer();
+        perfectLinkLayer = new PerfectLinkLayer(ID);
         bebLayer = new BEBLayer();
         urbLayer = new UBLayer(ID);
         fifoLayer = new FIFOLayer();
@@ -110,7 +110,7 @@ public class Process {
 				@Override
 				public void run() {
                     int messageReceived = messageList.size();
-                    if (messageReceived == NUMMESSAGES * (numHosts + 1)) {
+                    if (false && messageReceived == NUMMESSAGES * (numHosts + 1)) {
                         System.out.println("All " + NUMMESSAGES + " messages broadcasted in "
                                 + (System.currentTimeMillis() - start) / 1000 + " s (received " + messageReceived
                                 + " messages)");
@@ -147,7 +147,8 @@ public class Process {
                }
             }
             if (!RUNNING) return;
-            this.bebLayer.send(new Message(m, ID), Host.getHostList());
+            int friend = (ID == 1) ? 1 : 0;
+            this.perfectLinkLayer.send(Host.getHostList().get(friend), m);
             writeInMemory(m, ID, false);
             incrementCurrentBroad(true);
         }
@@ -178,11 +179,11 @@ public class Process {
             try {
                 myReader = new Scanner(myObj);
                 String data = myReader.nextLine();
-                NUMMESSAGES = Integer.parseInt(data) * 30;
+                NUMMESSAGES = Integer.parseInt(data);
 
                 if (myReader.hasNext()) {
                     data = myReader.nextLine();
-                    MAXBROAD = Integer.valueOf(data) * 30;
+                    MAXBROAD = Integer.valueOf(data);
                 }
 
                 myReader.close();

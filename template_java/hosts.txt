@@ -1,3 +1,2 @@
 1 localhost 10001
 2 localhost 10002
-3 localhost 10003
