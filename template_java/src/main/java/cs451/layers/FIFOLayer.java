@@ -1,17 +1,11 @@
 package cs451.layers;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import cs451.utils.Message;
 import cs451.Host;
-import cs451.utils.AckMap;
 import cs451.utils.FifoStruc;
-import cs451.Process;
 
 public class FIFOLayer {
 
@@ -30,7 +24,6 @@ public class FIFOLayer {
         this.ubLayer = b;
         List<Host> hosts = Host.getHostList();
         for (Host h : hosts) {
-            System.out.println("++1");
             received.put(h.getId(), new FifoStruc());
         }
     }
@@ -63,6 +56,6 @@ public class FIFOLayer {
     }
 
     private void deliver(String s, int sender) {
-        cs451.Process.writeInMemory(s, sender, true);
+        cs451.Process.currProcess.writeInMemory(s, sender, true);
     }
 }

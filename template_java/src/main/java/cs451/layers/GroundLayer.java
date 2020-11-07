@@ -6,17 +6,19 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.concurrent.LinkedBlockingQueue;
 
+import cs451.utils.ConcurrencyManager;
 import cs451.utils.Packet;
-import cs451.utils.PacketList;
 
 public class GroundLayer {
 
 	private static boolean RUNNING = true;
+	public static final boolean optimizedThreads = ConcurrencyManager.REDUCE_THREADS;
 
 	private static TransportLayer upLayer;
 
-	private static PacketList receivedPacketList = new PacketList();
+	private static LinkedBlockingQueue<Packet> receivedPacketList = new LinkedBlockingQueue<Packet>();
 	private static DatagramSocket serverSocket = null;
 
 	public static void deliverTo(TransportLayer layer) {
@@ -35,7 +37,8 @@ public class GroundLayer {
 		byte[] buf = payload.getBytes();
 		DatagramPacket sendPacket = new DatagramPacket(buf, buf.length, address, destPort);
 
-		if (!RUNNING || serverSocket == null) return;
+		if (!RUNNING || serverSocket == null)
+			return;
 		try {
 			serverSocket.send(sendPacket);
 		} catch (IOException e) {
@@ -45,13 +48,15 @@ public class GroundLayer {
 
 	// start 2 types of threads
 	public static void start(int localPort) {
-		// start thread receiving and storing in receivedPacketList List 
+		// start thread receiving and storing in receivedPacketList List
 		(new Thread(() -> receivePacketThreadFunction(localPort))).start();
 
 		// start threads to process the received packets
-		int numThreads = 2;
-		for (int i = 0; i < numThreads; i++) {
-			(new Thread(() -> handleReceivedPacketThreadFunction())).start();
+		if (!optimizedThreads) {
+			int numThreads = 2;
+			for (int i = 0; i < numThreads; i++) {
+				(new Thread(() -> handleReceivedPacketThreadFunction())).start();
+			}
 		}
 	}
 
@@ -61,8 +66,16 @@ public class GroundLayer {
 
 	// processing received packet threads : numThreads
 	private static void handleReceivedPacketThreadFunction() {
-		while(RUNNING) {
-			upLayer.receive(receivedPacketList.removeFirst());
+		while (RUNNING) {
+			try {
+				Packet m = null;
+				synchronized (receivedPacketList) {
+					m = receivedPacketList.take();
+				}
+				upLayer.receive(m);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -90,8 +103,12 @@ public class GroundLayer {
 					// handle ping here so they are not stuck behind queue
 					if (p.isPing()) {
 						PingLayer.receive(p);
+					} else  if (optimizedThreads) {
+						upLayer.receive(p);
 					} else {
-						receivedPacketList.add(p);
+						synchronized (receivedPacketList) {
+							receivedPacketList.add(p);
+						}
 					}
 				}
 			} catch (SocketException e) {

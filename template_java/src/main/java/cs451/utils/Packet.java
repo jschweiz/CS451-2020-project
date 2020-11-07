@@ -9,7 +9,7 @@ public class Packet {
 
     // properties of each packet
     public final String payload;
-    public final int seqNum;
+    public final long seqNum;
     public final String destHost;
     public final int destPort;
 
@@ -18,12 +18,12 @@ public class Packet {
         String[] splits = payload.split(";", 2);
         this.destHost = h;
         this.destPort = p;
-        this.seqNum = Integer.valueOf(splits[0]);
+        this.seqNum = Long.valueOf(splits[0]);
         this.payload = splits[1];
     }
 
     // constructor when sending
-    public Packet(String h, int p, String payload, int s) {
+    public Packet(String h, int p, String payload, long s) {
         this.destHost = h;
         this.destPort = p;
         this.seqNum = s;
@@ -66,6 +66,6 @@ public class Packet {
     @Override
     public int hashCode() {
         return this.destHost.hashCode() + this.destPort
-                + this.seqNum;
+                + (int)this.seqNum;
     }
 }

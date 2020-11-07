@@ -6,4 +6,4 @@
 # tc qdisc change dev lo root netem delay 20ms 10ms loss 10% 20% reorder 25% 50%
 # ip netns exec test
 
-nohup ../finishedSignal.py -p 3 & nohup ../barrier.py -p 6
+nohup ../finishedSignal.py -p 3 & nohup ../barrier.py -p 3

@@ -10,6 +10,7 @@ import java.util.TimerTask;
 
 import cs451.Host;
 import cs451.utils.Packet;
+import cs451.utils.ConcurrencyManager;
 
 
 public class PingLayer {
@@ -22,8 +23,8 @@ public class PingLayer {
     private static List<Host> listAllGoodHosts;
     private static Set<Host> currentHosts;
 
-    static final int DELAY = 100;
-    static final int PERIOD = 10000;
+    static final int DELAY = ConcurrencyManager.SENDING_PERIOD_PING;
+    static final int PERIOD = ConcurrencyManager.CHECKING_PERIOD_PING;
 
     private static PingSenderManager manager = new PingSenderManager();
 
@@ -48,7 +49,25 @@ public class PingLayer {
 				}
 			};
 			this.timer.scheduleAtFixedRate(task, 0, DELAY);
-		}
+        }
+        
+        public synchronized void schedule() {
+            TimerTask task = new TimerTask() {
+				@Override
+				public void run() {
+                    if (!RUNNING) this.cancel();
+
+                    checkStillHaveHosts();
+                    List<Host> crashedHosts = removeLostHosts();
+    
+                    if (!crashedHosts.isEmpty()) {
+                        cancelSendingMessageInVoid(crashedHosts);
+                        bLayer.lostConnectionTo(listAllGoodHosts);
+                    }
+				}
+			};
+			this.timer.scheduleAtFixedRate(task, PERIOD, PERIOD);
+        }
     }
 
     // intialize layer
@@ -67,7 +86,7 @@ public class PingLayer {
         // program the sending of pings
         programPingSending();
         // start checking if all ping are received
-        createCheckThread().start();
+        manager.schedule();
     }
 
     public static void stop() {
@@ -84,32 +103,6 @@ public class PingLayer {
             for (Host host : listAllGoodHosts) {
                 manager.schedule(new Packet(host.getIp(), host.getPort(), Packet.PING,0));
             }
-        }
-    }
-
-    // check if ping received from all good hosts
-    private static Thread createCheckThread() {
-        return new Thread(() -> {
-            sleep();
-
-            while (RUNNING) {
-                checkStillHaveHosts();
-                List<Host> crashedHosts = removeLostHosts();
-
-                if (!crashedHosts.isEmpty()) {
-                    cancelSendingMessageInVoid(crashedHosts);
-                    bLayer.lostConnectionTo(listAllGoodHosts);
-                }
-                sleep();
-            }
-        });
-    }
-
-    private static void sleep() {   
-        try {
-            Thread.sleep(PERIOD);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
         }
     }
 

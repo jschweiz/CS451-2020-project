@@ -1,6 +1,8 @@
-package cs451.utils;
+package cs451.unused;
 
 import java.util.LinkedList;
+
+import cs451.utils.Packet;
 
 public class PacketList {
 

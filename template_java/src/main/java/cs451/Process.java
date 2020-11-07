@@ -1,8 +1,9 @@
 package cs451;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +11,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import cs451.layers.BEBLayer;
 import cs451.layers.FIFOLayer;
@@ -18,6 +21,8 @@ import cs451.layers.PerfectLinkLayer;
 import cs451.layers.PingLayer;
 import cs451.layers.TransportLayer;
 import cs451.layers.UBLayer;
+import cs451.utils.ConcurrencyManager;
+import cs451.utils.Message;
 
 public class Process {
 
@@ -33,11 +38,13 @@ public class Process {
     private static List<String> messageList = Collections.synchronizedList(new LinkedList<>());
     private static int ID = -1;
     private static int PORT = 0;
-    private static int CURRENT_BROADCASTED_MESSAGES = 0;
+    private static AtomicInteger CURRENT_BROADCASTED_MESSAGES = new AtomicInteger(0);
     private static int MAXBROAD = 30000;
     private static int NUMMESSAGES = 10000;
     private static String configPath = null;
     private static String outputPath = null;
+
+    public static Process currProcess;
 
     // timer
     private long start = 0;
@@ -63,6 +70,7 @@ public class Process {
         fifoLayer.setLayers(urbLayer);
 
         // initSignalHandlers();
+        currProcess = this;
     }
 
     // Start layers and broadcast messages
@@ -71,7 +79,7 @@ public class Process {
         startLayers();
 
         // start thread to check number of messages received
-        startReporter();
+        (new ReportManager()).schedule();
 
         // start broadcasting
         startBroadcasting(getMessages());
@@ -83,62 +91,81 @@ public class Process {
         PingLayer.start();
     }
 
-    private void startReporter() {
-        (new Thread(() -> {
-            try {
-                Thread.sleep(5000);
-                int lastVersion = -1;
-                int evolution = 0;
-                int numHosts = Host.getHostList().size();
-                while (RUNNING) {
+     // TaskManager to program sending packets
+     private class ReportManager {
+        private Timer timer;
+        private int lastVersion;
+        private int evolution;
+        private int numHosts;
+
+		public ReportManager() {
+            this.timer = new Timer();
+            this.lastVersion = -1;
+            this.evolution = 0;
+            this.numHosts = Host.getHostList().size();
+		}
+
+		public synchronized void schedule() {
+			TimerTask task = new TimerTask() {
+				@Override
+				public void run() {
                     int messageReceived = messageList.size();
                     if (messageReceived == NUMMESSAGES * (numHosts + 1)) {
-                        System.out.println("All " + NUMMESSAGES  + " messages broadcasted in " + (System.currentTimeMillis()-start)/1000 + " s (received " + messageReceived + " messages)" );
-                        return;
-                        // System.exit(0);
+                        System.out.println("All " + NUMMESSAGES + " messages broadcasted in "
+                                + (System.currentTimeMillis() - start) / 1000 + " s (received " + messageReceived
+                                + " messages)");
+                        this.cancel();
                     } else {
-                        System.out.println("Number of messages received= "+ (messageReceived));// - NUMMESSAGES));
-                        Thread.sleep(2000);
+                        System.out.println("Number of messages received= " + (messageReceived));
                     }
                     if (lastVersion == messageReceived) {
                         evolution++;
-                        if (evolution == 10) {
+                        if (evolution == 50) {
                             Main.coord.finishedBroadcasting();
-                            break;
+                            this.cancel();
                         }
                     } else {
                         lastVersion = messageReceived;
                         evolution = 0;
                     }
-                }
-            } catch (Exception e) {
-                System.err.print(e);
-            }
-        })).start();
+				}
+            };
+            int delay = ConcurrencyManager.CHECKING_PERIOD_MESSAGE_RECEIVED;
+            this.timer.scheduleAtFixedRate(task, delay, delay);
+        }
     }
 
     private void startBroadcasting(List<String> messages) {
         for (String m : messages) {
-            while (RUNNING && CURRENT_BROADCASTED_MESSAGES > MAXBROAD) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            while (RUNNING && CURRENT_BROADCASTED_MESSAGES.intValue() > MAXBROAD) {
+                synchronized (CURRENT_BROADCASTED_MESSAGES) {
+                    try {
+                        CURRENT_BROADCASTED_MESSAGES.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+               }
             }
             if (!RUNNING) return;
-            this.fifoLayer.send(m);
+            this.bebLayer.send(new Message(m, ID), Host.getHostList());
             writeInMemory(m, ID, false);
             incrementCurrentBroad(true);
         }
     }
 
-    public static void incrementCurrentBroad(boolean increment) {
-        if (increment) CURRENT_BROADCASTED_MESSAGES++;
-        else CURRENT_BROADCASTED_MESSAGES--;
+    public void incrementCurrentBroad(boolean increment) {
+        synchronized (CURRENT_BROADCASTED_MESSAGES) {
+            if (increment) CURRENT_BROADCASTED_MESSAGES.incrementAndGet();
+            else {
+                CURRENT_BROADCASTED_MESSAGES.decrementAndGet();
+                if (CURRENT_BROADCASTED_MESSAGES.intValue() < MAXBROAD * 0.9) {
+                    CURRENT_BROADCASTED_MESSAGES.notify();
+                }
+            }
+        }
     }
 
-    public static void writeInMemory(String message, int pid, boolean delivery) {
+    public void writeInMemory(String message, int pid, boolean delivery) {
         messageList.add((delivery ? "d " + pid + " " : "b ") + message);
         if (delivery && pid == ID) incrementCurrentBroad(false);
     }
@@ -151,11 +178,11 @@ public class Process {
             try {
                 myReader = new Scanner(myObj);
                 String data = myReader.nextLine();
-                NUMMESSAGES = Integer.parseInt(data);
+                NUMMESSAGES = Integer.parseInt(data) * 30;
 
                 if (myReader.hasNext()) {
                     data = myReader.nextLine();
-                    MAXBROAD = Integer.valueOf(data);
+                    MAXBROAD = Integer.valueOf(data) * 30;
                 }
 
                 myReader.close();

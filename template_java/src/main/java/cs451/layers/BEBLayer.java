@@ -4,6 +4,7 @@ import java.util.List;
 
 import cs451.Host;
 import cs451.utils.Message;
+import cs451.Process;
 
 public class BEBLayer {
 
@@ -22,7 +23,8 @@ public class BEBLayer {
     }
 
     public void receive(Host sender, String payload) {
-        this.bLayer.receive(sender, new Message(payload));
+        Process.currProcess.writeInMemory(payload, sender.getId(), true);
+        // this.bLayer.receive(sender, new Message(payload));
     }
 
 }

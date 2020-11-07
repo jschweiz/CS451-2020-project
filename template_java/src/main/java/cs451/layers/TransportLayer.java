@@ -8,6 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cs451.utils.Packet;
+import cs451.utils.ConcurrencyManager;
 
 
 public class TransportLayer {
@@ -18,9 +19,9 @@ public class TransportLayer {
     private Set<Packet> received = Collections.synchronizedSet(new HashSet<Packet>());
 
     private SenderManager manager = new SenderManager();
-    private int seqNum = 0;
+    private long seqNum = 0;
 
-    private static final int SENDINGPERIOD = 1000;
+    private static final int SENDINGPERIOD = ConcurrencyManager.SENDING_PERIOD_PACKET;
 
     // Init function
     public void setLayers(PerfectLinkLayer p) {
@@ -36,7 +37,7 @@ public class TransportLayer {
 
     // TaskManager to program sending packets
     private class SenderManager {
-		private Timer timer;
+        private Timer timer;
 
 		public SenderManager() {
 			this.timer = new Timer();
@@ -45,7 +46,7 @@ public class TransportLayer {
 		public synchronized void schedule(Packet m) {
 			TimerTask task = new TimerTask() {
 				@Override
-				public void run() {
+				public synchronized void run() {
                     if (!toBeAcked.contains(m)) {
                         this.cancel();
                     } else {
@@ -65,23 +66,24 @@ public class TransportLayer {
         seqNum++;
     }
     
-    public void receive(Packet m) {
-        String senderName = m.destHost;
-        int fromPort = m.destPort;
-
+    public synchronized void receive(Packet m) {
         if (m.isAck()) { // if message is a ACK
             toBeAcked.remove(m);
         } else { // if normal message
             if (!received.contains(m)) {
                 received.add(m);
-                perfectLinkLayer.receive(senderName, fromPort, m.payload);
+                deliver(m);
             }
-            GroundLayer.send(m.toAckPacket(), senderName, fromPort);
+            GroundLayer.send(m.toAckPacket(), m.destHost, m.destPort);
         }
     }
 
+    public void deliver(Packet m) {
+        perfectLinkLayer.receive(m.destHost, m.destPort, m.payload);
+    }
+
     // Cancel sendings 
-    public void cancelSending(String ip, int port) {
+    public synchronized void cancelSending(String ip, int port) {
         LinkedList<Packet> packetToRemove = new LinkedList<>();
         synchronized (toBeAcked) { // make sure lock is kept when iteration on toBeAcked
             for (Packet m : toBeAcked) {
