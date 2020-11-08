@@ -14,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import cs451.Host;
 import cs451.layers.GroundLayer;
 
-public class ListPacketSet {
+public class SenderPoolStruct {
 
     private List<Set<Packet>> map = new LinkedList<Set<Packet>>();
     // private Map<Integer, Lock> locks = Collections.synchronizedMap(new HashMap<Integer, Lock>());
@@ -22,24 +22,23 @@ public class ListPacketSet {
     // private long[] lastExecution;
     // private boolean[] currentExecution;
 
-    private int size;
-    private long mSize;
+    private final int nbins;
+    private final long maxSize;
+    private long size;
 
     // private Object locker = new Object();
 
-    private static int INTERVAL = ConcurrencyManager.SENDING_PERIOD_PACKET;
 
-    private long maxSize;
 
-    public ListPacketSet(int size, int maxSize) {
-        this.mSize = 0;
-        this.size = size;
+    public SenderPoolStruct(int nbins, int maxSize) {
+        this.size = 0;
+        this.nbins = nbins;
         this.maxSize = maxSize;
         // LinkedList<>(); 
         // lastExecution = new long[size];
         // currentExecution = new boolean[size];
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < nbins; i++) {
             // currentExecution[i] = false;
             map.add(Collections.synchronizedSet(new HashSet<Packet>()));
             // locks.put(i, new ReentrantLock());
@@ -62,7 +61,7 @@ public class ListPacketSet {
     public synchronized void addIn(Packet m) {
         int v = m.getMapId();
 
-        while (mSize > maxSize) {
+        while (size > maxSize) {
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -70,9 +69,15 @@ public class ListPacketSet {
             }
         }
 
-        this.mSize++;
+        this.size++;
 
-        map.get(v).remove(m);
+        Set<Packet> p = null;
+        synchronized(map) {
+            p = map.get(v);
+        }
+        synchronized (p) {
+            p.add(m);
+        }
         
         // synchronized (currentExecution) {
         //     while (currentExecution[v]);
@@ -84,9 +89,17 @@ public class ListPacketSet {
         int v = m.getMapId();
 
         // Set<Packet> p = ;
+        Set<Packet> p = null;
+        synchronized(map) {
+            p = map.get(v);
+        }
+        synchronized (p) {
+            p.remove(m);
+        }
 
-        map.get(v).remove(m);
-        this.mSize--;
+
+
+        this.size--;
         this.notify();
     }
 
@@ -95,8 +108,8 @@ public class ListPacketSet {
     //     this.size = 0;
     // }
 
-    public synchronized int getSize() {
-        return size;
+    public synchronized int getNBins() {
+        return nbins;
     }
 
     public void sendAll(int v) {
@@ -143,8 +156,8 @@ public class ListPacketSet {
         return;
     }
 
-    public synchronized long totalSize() {
-        return mSize;
+    public synchronized long getTotalSize() {
+        return size;
     }
 
     public synchronized String toString() {

@@ -49,12 +49,12 @@ public class Packet {
     }
 
     public Host getHost() {
-        return Host.findHost(this.destHost, this.destPort);
+        return Host.findHost(this.destHost.toString(), this.destPort);
     }
 
     @Override
     public String toString() {
-        return "(" + destHost + ";" + destPort + ";" + seqNum + ";" + payload + ")";
+        return "(" + new String(destHost) + ";" + destPort + ";" + seqNum + ";" + payload + ")";
     }
 
     @Override

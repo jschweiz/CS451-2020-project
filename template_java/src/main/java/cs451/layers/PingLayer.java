@@ -144,7 +144,7 @@ public class PingLayer {
     
     private static void cancelSendingMessageInVoid(List<Host> crashedHosts) {
         for (Host h : crashedHosts) {
-            transportLayer.cancelSending(h.getIp(), h.getPort());
+            // transportLayer.cancelSending(h.getIp(), h.getPort());
         }
     }
 

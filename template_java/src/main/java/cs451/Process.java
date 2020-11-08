@@ -105,7 +105,7 @@ public class Process {
             this.numHosts = Host.getHostList().size();
 		}
 
-		public synchronized void schedule() {
+		public void schedule() {
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {

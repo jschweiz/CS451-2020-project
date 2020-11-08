@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import cs451.layers.GroundLayer;
 import cs451.layers.PerfectLinkLayer;
@@ -31,6 +32,8 @@ public class TestProcess {
     public static TestProcess currProcess;
 
     public static boolean loggedTiming = false;
+
+    public static AtomicInteger sentnum = new AtomicInteger(0);
 
     // timer
     private long start = 0;
@@ -66,7 +69,7 @@ public class TestProcess {
     private void startLayers() {
         start = System.currentTimeMillis();
         GroundLayer.start(PORT);
-        PingLayer.start();
+        // PingLayer.start();
     }
 
      // TaskManager to program sending packets
@@ -74,45 +77,29 @@ public class TestProcess {
         private Timer timer;
         private long number;
 
-        private long old_version;
-        private int repeat;
-
 		public ReportManager() {
             this.timer = new Timer();
             this.number = 0;
 		}
 
-		public synchronized void schedule() {
+		public void schedule() {
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
                     synchronized (messageList) {
                         long messageReceived = messageList.size() + number;
                    
-                        if (ID == 1) {
-                            System.out.println("Number of messages received= " + (messageReceived));
-                        } else {
-                            System.out.println("Number of messages sent= " + (messageReceived));
-                        }
+                        // if (ID == 1) {
+                            System.out.println("Number of messages: (received: " + (messageReceived) + "   sent:" + sentnum + ")");
+                        // } 
     
-                        if (messageList.size() > 1000000) {
+                        if (messageList.size() > 500000) {
                             System.out.println("Cleaning final map");
                                 number = messageReceived;
                                 messageList.clear();
                         }
-    
-                        if (messageReceived == old_version) {
-                            repeat++;
-                            if (repeat == 10) {
-                                ConcurrencyManager.DEBUG = true;
-                                System.out.println("LOGGING DEBUG");
-                            }
-                        } else {
-                            repeat = 0;
-                        }
-                        old_version = messageReceived;
 
-                        if (!loggedTiming && messageReceived >= 5000000) {
+                        if (!loggedTiming && messageReceived >= 1000000) {
                             System.out.println("Timing : " + (System.currentTimeMillis() - (double)start)/1000 + " s");
                             loggedTiming = true;
                         }
@@ -127,20 +114,24 @@ public class TestProcess {
     private void startBroadcasting(int numMessages) {
         for (int i = 0; i < numMessages; i++) {
             if (!RUNNING) return;
-            // int friend = (ID == 1) ? 1 : 0;
+            int friend = (ID == 1) ? 2 : 1;
 
             String m = "" + i;
 
-            if (ID == 1) {
-                this.perfectLinkLayer.send(Host.getHostList().get(1), m);
-                writeInMemory(m, ID, false);
-            }
+            // if (ID == 1) {
+                this.perfectLinkLayer.send(Host.getHostList().get(friend-1), m);
+                // sentnum.incrementAndGet();
+                //writeInMemory(m, ID, false);
+            // }
+
         }
     }
 
 
     public void writeInMemory(String message, int pid, boolean delivery) {
-        messageList.add((delivery ? "d " + pid + " " : "b ") + message);
+        synchronized(messageList) {
+            messageList.add((delivery ? "d " + pid + " " : "b ") + message);
+        }
     }
     
     private int getMessages() {

@@ -12,14 +12,14 @@ import java.util.TimerTask;
 import java.util.Map.Entry;
 
 import cs451.utils.Packet;
+import cs451.utils.SenderPoolStruct;
 import cs451.utils.ConcurrencyManager;
-import cs451.utils.ListPacketSet;
 
 public class TransportLayer {
 
     private PerfectLinkLayer perfectLinkLayer = null;
 
-    private ListPacketSet toBeAcked;
+    private SenderPoolStruct toBeAcked;
     private Map<Packet, Long> received = Collections.synchronizedMap(new HashMap<Packet, Long>());
 
     private SenderManager manager = new SenderManager();
@@ -35,12 +35,12 @@ public class TransportLayer {
         this.perfectLinkLayer = p;
         GroundLayer.deliverTo(this);
 
-        toBeAcked = new ListPacketSet(NBINS, MAXNUMBEROFCONCURRENTPACKETS);
+        toBeAcked = new SenderPoolStruct(NBINS, MAXNUMBEROFCONCURRENTPACKETS);
         manager.scheduleGC();
     }
 
     public void stop() {
-        toBeAcked.clear();
+        // toBeAcked.clear();
     }
 
     // TaskManager to program sending packets
@@ -60,11 +60,9 @@ public class TransportLayer {
                 public void run() {
                     long currTime = System.currentTimeMillis() - GARBAGECOLLECTIONPERIOD;
                     synchronized (received) {
-                        synchronized (toBeAcked) {
                             System.out.println("Starting garbage collection (sizes --> received: "
-                                    + (received.size() / 1000.0) + "k  tobeacked: " + (toBeAcked.totalSize() / 1000.0) + "k'"
-                                    + toBeAcked.getSize() + ")\n" + toBeAcked);
-                        }
+                                    + (received.size() / 1000.0) + "k  tobeacked: " + (toBeAcked.getTotalSize() / 1000.0) + "k'"
+                                    + toBeAcked.getNBins() + ")\n" + toBeAcked);
                         List<Packet> toRemove = new LinkedList<>();
                         for (Entry<Packet, Long> m : received.entrySet()) {
                             if (currTime > m.getValue()) {
@@ -90,7 +88,7 @@ public class TransportLayer {
             TimerTask task = new TimerTask() {
                 @Override
                 public void run() {
-                    toBeAcked.sendAll(n);
+                        toBeAcked.sendAll(n);
                 }
             };
             this.timerSending.scheduleAtFixedRate(task, 0, SENDINGPERIOD);
@@ -101,22 +99,22 @@ public class TransportLayer {
         Packet m = new Packet(destHost, destPort, payload, seqNum);
 
         GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
-        toBeAcked.addIn(m); // add to sending pool
+            toBeAcked.addIn(m); // add to sending pool
         seqNum++;
 
         // schedule pool was not already scheduled
         manager.scheduleSendingPool(m.getMapId());
     }
     
-    public synchronized void receive(Packet m) {
+    public void receive(Packet m) {
         if (m.isAck()) { // if message is a ACK
-            toBeAcked.removeIn(m);
-        }
-        else { // if normal message
-            if (!received.containsKey(m)) { // if not already received
-                received.put(m, System.currentTimeMillis());
-                deliver(m);
+                toBeAcked.removeIn(m);
             }
+        else { // if normal message
+                if (!received.containsKey(m)) { // if not already received
+                    received.put(m, System.currentTimeMillis());
+                    deliver(m);
+                }
             GroundLayer.send(m.toAckPacket(), m.destHost, m.destPort); // reply ack
         }
     }
@@ -127,19 +125,19 @@ public class TransportLayer {
 
     // Cancel sendings 
     public synchronized void cancelSending(String ip, int port) {
-        LinkedList<Packet> packetToRemove = new LinkedList<>();
-        for (int i = 0; i < toBeAcked.getSize(); i++) {
-            Set<Packet> set = toBeAcked.get(i);
-            synchronized (set) {
-                for (Packet m : set) {
-                    if (port != -1 && m.destHost.equals(ip)
-                            && m.destPort == port) // cancel messages to a specific host
-                    {
-                        packetToRemove.add(m);
-                    }
-                }
-                set.removeAll(packetToRemove);
-            }
-        }
+            // LinkedList<Packet> packetToRemove = new LinkedList<>();
+            // for (int i = 0; i < toBeAcked.getSize(); i++) {
+            //     Set<Packet> set = toBeAcked.get(i);
+            //     synchronized (set) {
+            //         for (Packet m : set) {
+            //             if (port != -1 && m.destHost.equals(ip)
+            //                     && m.destPort == port) // cancel messages to a specific host
+            //             {
+            //                 packetToRemove.add(m);
+            //             }
+            //         }
+            //         set.removeAll(packetToRemove);
+            //     }
+            // }
     }
 }

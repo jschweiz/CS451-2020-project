@@ -21,8 +21,13 @@ public class ConcurrencyManager {
 
 
     // garbage collection of transport layer
-    public static final int NBINS = 30;
-    public static final int GARBAGECOLLECTIONPERIOD = SENDING_PERIOD_PACKET * 7;
-    public static final int MAXNUMBEROFCONCURRENTPACKETSPERBIN = 5000;
+    public static final int NBINS = 15;
+    public static final int GARBAGECOLLECTIONPERIOD = SENDING_PERIOD_PACKET * 10;
+    public static final int MAXNUMBEROFCONCURRENTPACKETSPERBIN = 500;
+
+
+    // parameters:
+    // 1 sender: 1000 30 7 5000
+    // 2 sender:  
 
 }
