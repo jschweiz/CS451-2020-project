@@ -80,7 +80,7 @@ public class TransportLayer {
     public void send(String destHost, int destPort, String payload) {
         Packet m = new Packet(destHost, destPort, payload, seqNum);
 
-        // GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
+        GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
         toBeAcked.addIn(m); // add to sending pool
         seqNum++;
     }

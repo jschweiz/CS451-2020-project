@@ -22,12 +22,6 @@ public class SenderPoolStruct {
 
     private List<Set<Packet>> map;
 
-    private Object locker = new Object();
-    // private Map<Integer, Lock> locks = Collections.synchronizedMap(new HashMap<Integer, Lock>());
-
-    // private long[] lastExecution;
-    // private boolean[] currentExecution;
-
     private final int nbins;
     private final long maxSize;
     private long size;
@@ -36,52 +30,33 @@ public class SenderPoolStruct {
     public static final int MAXNUMBEROFCONCURRENTPACKETSPERBIN = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN;
 
 
-
     public SenderPoolStruct(int nbins, int maxSize) {
         this.size = 0;
         this.nbins = nbins;
         this.maxSize = maxSize;
-        // LinkedList<>(); 
-        // lastExecution = new long[size];
-        // currentExecution = new boolean[size];
         map = new ArrayList<Set<Packet>>();
 
         for (int i = 0; i < nbins; i++) {
-            // currentExecution[i] = false;
-            map[i] =  Collections.synchronizedSet(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3));//(new ConcurrentHashMap(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 4)).newKeySet();
-            //.add(Collections.synchronizedSet(new HashSet<Packet>()));
-            // locks.put(i, new ReentrantLock());
-        }
-
-        // for (int i = 0; i < size; i++) {
-        //     map.add(new HashSet<Packet>());
-        //     lastExecution.add((long)0);
-        // }
+            map.add(Collections.synchronizedSet(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3)));//(new ConcurrentHashMap(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 4)).newKeySet();
+            }
     }
 
-    // public synchronized Set<Packet> get(int v) {
-    //     Set<Packet> set = null;
-    //     synchronized (map) {
-    //         set = map[v];
-    //     }
-    //     return set;
-    // }
+    public synchronized Set<Packet> get(int v) {
+        return map.get(v);
+    }
 
     public synchronized void addIn(Packet m) {
         int v = m.getMapId();
 
-            while (size > maxSize) {
-                try {
-                    this.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        while (size > maxSize) {
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            this.size++;
-            Set<Packet> p = map[v];
-            // synchronized(p) {
-                p.add(m);
-            // }
+        }
+        this.size++;
+        map.get(v).add(m);
 
         manager.scheduleSendingPool(v);
     }
@@ -89,20 +64,19 @@ public class SenderPoolStruct {
     public synchronized void removeIn(Packet m) {
         int v = m.getMapId();
 
+        Set<Packet> p = map.get(v);
+        if (p.contains(m)){
+            p.remove(m);
+            this.size--;
+        }
 
-            Set<Packet> p = map[v];
-            if (p.contains(m)){
-                p.remove(m);
-                this.size--;
-            }
-
-            this.notify();
+        this.notify();
     }
 
-    // public synchronized void clear() {
-    //     map.clear();
-    //     this.size = 0;
-    // }
+    public synchronized void clear() {
+        map.clear();
+        this.size = 0;
+    }
 
     public synchronized int getNBins() {
         return nbins;
@@ -110,64 +84,31 @@ public class SenderPoolStruct {
 
     public synchronized void sendAll(int v) {
 
-        // synchronized(currentExecution) {
-        //     if (currentExecution[v]) {
-        //         return;
-        //     } else {
-        //         currentExecution[v] = true;
-        //     }
-        // }
-
-        // synchronized(lastExecution) {
-        //     lastExecution[v] = System.currentTimeMillis();
-        // }
-
-        Set<Packet> p = null;
-        
-            p =  map[v];
+        Set<Packet> p = map.get(v);
        
+        if (p.isEmpty()) {
+            return;
+        }
 
-        // synchronized(p) {
-            if (p.isEmpty()) {
-                // synchronized(lastExecution) {
-                //     lastExecution[v] = System.currentTimeMillis();
-                // }
-                return;
-            }
-
-            for (Object o : p.toArray()) {
-                Packet m = (Packet)o;
-                GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
-            }
-        // }
-
-        // synchronized(lastExecution) {
-        //     lastExecution[v] = System.currentTimeMillis();
-        // }
-
-        // synchronized(currentExecution) {
-        //     currentExecution[v] = false;
-        // }
+        for (Object o : p) {
+            Packet m = (Packet)o;
+            GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
+        }
         return;
     }
 
     public synchronized long getTotalSize() {
-        long s = -1;
-        synchronized(locker) {
-            s = size;
-        }
-        return s;
+        return  size;
     }
 
-    public String toString() {
+    public synchronized String toString() {
         String s = "(";
-        // for (int i = 0; i < this.size; i++) {
-        //     s += map[i].size()/10 + " ";
-        // }
-        // s += ")";
+        for (int i = 0; i < this.nbins; i++) {
+            s += map.get(i).size()/10 + " ";
+        }
+        s += ")";
         return s;
     }
-
 
     private static final int SENDINGPERIOD = ConcurrencyManager.SENDING_PERIOD_PACKET;
     private SenderManager manager = new SenderManager();
@@ -180,7 +121,7 @@ public class SenderPoolStruct {
             this.timerSending = new Timer();
         }
 
-        public void scheduleSendingPool(int n) {
+        public synchronized void scheduleSendingPool(int n) {
             if (alreadyScheduled.contains(n))
                 return;
             alreadyScheduled.add(n);

@@ -10,11 +10,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import cs451.layers.BEBLayer;
 import cs451.layers.GroundLayer;
 import cs451.layers.PerfectLinkLayer;
 import cs451.layers.PingLayer;
 import cs451.layers.TransportLayer;
 import cs451.utils.ConcurrencyManager;
+import cs451.utils.Message;
 
 public class TestProcess {
 
@@ -22,6 +24,7 @@ public class TestProcess {
 
     public PerfectLinkLayer perfectLinkLayer;
     private static TransportLayer transportLayer;
+    private static BEBLayer bebLayer;
 
     private static List<String> messageList = Collections.synchronizedList(new LinkedList<>());
     private static int ID = -1;
@@ -45,11 +48,13 @@ public class TestProcess {
 
         transportLayer = new TransportLayer();
         perfectLinkLayer = new PerfectLinkLayer(ID);
+        bebLayer = new BEBLayer();
 
         PingLayer.initializePingLayer(transportLayer, null, p.hosts(), p.myHost());
 
         transportLayer.setLayers(perfectLinkLayer);
-        perfectLinkLayer.setLayers(transportLayer, null);
+        perfectLinkLayer.setLayers(transportLayer, bebLayer);
+        bebLayer.setLayers(perfectLinkLayer, null);
 
         currProcess = this;
     }
@@ -114,15 +119,16 @@ public class TestProcess {
     private void startBroadcasting(int numMessages) {
         for (int i = 0; i < numMessages; i++) {
             if (!RUNNING) return;
-            int friend = (ID == 1) ? 2 : 1;
+            // int friend = (ID == 1) ? 2 : 1;
 
             String m = "" + i;
 
-            if (ID == 1) {
-                this.perfectLinkLayer.send(Host.getHostList().get(friend-1), m);
+            // if (ID == 1) {
+                //this.perfectLinkLayer.send(Host.getHostList().get(friend-1), m);
+                bebLayer.send(new Message(m, ID), Host.getHostList());
                 // sentnum.incrementAndGet();
                 //writeInMemory(m, ID, false);
-            }
+            // }
 
         }
     }

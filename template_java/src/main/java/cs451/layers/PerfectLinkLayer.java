@@ -29,7 +29,7 @@ public class PerfectLinkLayer {
     }
 
     public void receive(String senderName, int fromPort, String payload) {
-        TestProcess.currProcess.writeInMemory(payload, Host.findHost(senderName, fromPort).getId(), true);
-        // bebLayer.receive(Host.findHost(senderName, fromPort), payload);
+        // TestProcess.currProcess.writeInMemory(payload, Host.findHost(senderName, fromPort).getId(), true);
+        bebLayer.receive(Host.findHost(senderName, fromPort), payload);
     }    
 }
