@@ -10,18 +10,24 @@ public class Packet {
     public static int DIV2 = ConcurrencyManager.NBINS;
 
     // properties of each packet
-    public final String payload;
-    public final long seqNum;
+    public String payload;
+    public long seqNum;
     public final String destHost;
     public final int destPort;
 
     // constructor when receiving
     public Packet(String payload, String h, int p) {
-        String[] splits = payload.split(";", 2);
         this.destHost = h;
         this.destPort = p;
-        this.seqNum = Long.valueOf(splits[0]);
+        this.seqNum = -1;
+        this.payload = payload;
+    }
+    // to call on received packets
+    public void processPacket() {
+        String[] splits = payload.split(";", 2);
         this.payload = splits[1];
+        this.seqNum = Long.parseLong(splits[0]);
+        // System.out.println(this);
     }
 
     // constructor when sending
@@ -40,7 +46,14 @@ public class Packet {
         return PING.equals(payload);
     }
 
+    public static boolean isPing(String s) {
+        return PING.equals(s);
+    }
+
     public String encapsulate() {
+        if (isPing()) {
+            return PING;
+        }
         return seqNum + ";" + payload;
     }
 
@@ -59,6 +72,7 @@ public class Packet {
 
     @Override
     public boolean equals(Object o) {
+        if (o == null) return false;
         if (!(o instanceof Packet)) return false;
         Packet m = (Packet)o;
         return seqNum == m.seqNum && destHost.equals(m.destHost)

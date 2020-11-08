@@ -2,14 +2,13 @@ package cs451.layers;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 import cs451.utils.Packet;
 import cs451.utils.SenderPoolStruct;
@@ -19,15 +18,15 @@ public class TransportLayer {
 
     private PerfectLinkLayer perfectLinkLayer = null;
 
-    private SenderPoolStruct toBeAcked;
-    private Map<Packet, Long> received = Collections.synchronizedMap(new HashMap<Packet, Long>());
+    private SenderPoolStruct toBeAcked; 
+    private Map<Packet, Long> received = Collections.synchronizedMap(new HashMap<Packet, Long>(2000000));
 
     private SenderManager manager = new SenderManager();
     private long seqNum = 0;
 
-    private static final int SENDINGPERIOD = ConcurrencyManager.SENDING_PERIOD_PACKET;
     private static final int NBINS = ConcurrencyManager.NBINS;
     private static final int GARBAGECOLLECTIONPERIOD = ConcurrencyManager.GARBAGECOLLECTIONPERIOD;
+
     private static final int MAXNUMBEROFCONCURRENTPACKETS = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN * NBINS;
 
     // Init function
@@ -45,12 +44,9 @@ public class TransportLayer {
 
     // TaskManager to program sending packets
     private class SenderManager {
-        private Timer timerSending;
         private Timer timerGC;
-        private Set<Integer> alreadyScheduled = new HashSet<>();
 
         public SenderManager() {
-            this.timerSending = new Timer();
             this.timerGC = new Timer();
         }
 
@@ -59,14 +55,15 @@ public class TransportLayer {
                 @Override
                 public void run() {
                     long currTime = System.currentTimeMillis() - GARBAGECOLLECTIONPERIOD;
-                    synchronized (received) {
                             System.out.println("Starting garbage collection (sizes --> received: "
                                     + (received.size() / 1000.0) + "k  tobeacked: " + (toBeAcked.getTotalSize() / 1000.0) + "k'"
                                     + toBeAcked.getNBins() + ")\n" + toBeAcked);
                         List<Packet> toRemove = new LinkedList<>();
-                        for (Entry<Packet, Long> m : received.entrySet()) {
-                            if (currTime > m.getValue()) {
-                                toRemove.add(m.getKey());
+                        synchronized (received) {
+                            for (Packet m : received.keySet()) {
+                                if (currTime > received.get(m)) {
+                                    toRemove.add(m);
+                                }
                             }
                         }
                         for (Packet m : toRemove) {
@@ -74,36 +71,18 @@ public class TransportLayer {
                         }
                         System.out
                                 .println("Garbage collected : " + toRemove.size() + " elements");
-                    }
                 }
             };
-            this.timerGC.scheduleAtFixedRate(gcTask, GARBAGECOLLECTIONPERIOD, GARBAGECOLLECTIONPERIOD);
-        }
-
-        public void scheduleSendingPool(int n) {
-            if (alreadyScheduled.contains(n))
-                return;
-            alreadyScheduled.add(n);
-
-            TimerTask task = new TimerTask() {
-                @Override
-                public void run() {
-                        toBeAcked.sendAll(n);
-                }
-            };
-            this.timerSending.scheduleAtFixedRate(task, 0, SENDINGPERIOD);
+            this.timerGC.scheduleAtFixedRate(gcTask, 1000, GARBAGECOLLECTIONPERIOD);
         }
     }
 
     public void send(String destHost, int destPort, String payload) {
         Packet m = new Packet(destHost, destPort, payload, seqNum);
 
-        GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
-            toBeAcked.addIn(m); // add to sending pool
+        // GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
+        toBeAcked.addIn(m); // add to sending pool
         seqNum++;
-
-        // schedule pool was not already scheduled
-        manager.scheduleSendingPool(m.getMapId());
     }
     
     public void receive(Packet m) {

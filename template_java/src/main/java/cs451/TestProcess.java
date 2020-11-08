@@ -93,7 +93,7 @@ public class TestProcess {
                             System.out.println("Number of messages: (received: " + (messageReceived) + "   sent:" + sentnum + ")");
                         // } 
     
-                        if (messageList.size() > 500000) {
+                        if (messageList.size() > 1000000) {
                             System.out.println("Cleaning final map");
                                 number = messageReceived;
                                 messageList.clear();
@@ -118,11 +118,11 @@ public class TestProcess {
 
             String m = "" + i;
 
-            // if (ID == 1) {
+            if (ID == 1) {
                 this.perfectLinkLayer.send(Host.getHostList().get(friend-1), m);
                 // sentnum.incrementAndGet();
                 //writeInMemory(m, ID, false);
-            // }
+            }
 
         }
     }

@@ -22,6 +22,7 @@ public class GroundLayer {
 	private static LinkedBlockingQueue<Packet> receivedPacketList = new LinkedBlockingQueue<Packet>();
 	private static DatagramSocket serverSocket = null;
 
+
 	public static void deliverTo(TransportLayer layer) {
 		upLayer = layer;
 	}
@@ -41,6 +42,7 @@ public class GroundLayer {
 		DatagramPacket sendPacket = new DatagramPacket(buf, buf.length, address, destPort);
 
 		try {
+			// System.out.println("Sending " + payload);
 			serverSocket.send(sendPacket);
 		} catch (IOException e) {
 			System.err.println("Error while sending in GroundLayer");
@@ -49,14 +51,13 @@ public class GroundLayer {
 
 	// start 2 types of threads
 	public static void start(int localPort) {
+		initReceiver(localPort);
 		// start thread receiving and storing in receivedPacketList List
-		(new Thread(() -> receivePacketThreadFunction(localPort))).start();
+		(new Thread(() -> receivePacketThreadFunction())).start();
 
 		// start threads to process the received packets
-		if (!optimizedThreads) {
-			for (int i = 0; i < numThreads; i++) {
-				(new Thread(() -> handleReceivedPacketThreadFunction())).start();
-			}
+		for (int i = 0; i < numThreads; i++) {
+			(new Thread(() -> handleReceivedPacketThreadFunction())).start();
 		}
 	}
 
@@ -69,9 +70,10 @@ public class GroundLayer {
 		while (RUNNING) {
 			try {
 				Packet m = null;
-				synchronized (receivedPacketList) {
+				// synchronized (receivedPacketList) {
 					m = receivedPacketList.take();
-				}
+					m.processPacket();
+				// }
 				upLayer.receive(m);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -79,8 +81,7 @@ public class GroundLayer {
 		}
 	}
 
-	// receiver packet thread : 1
-	private static void receivePacketThreadFunction(int localPort) {
+	private static void initReceiver(int localPort) {
 		try {
 			System.out.println("Opening socket on port " + localPort);
 			serverSocket = new DatagramSocket(localPort);
@@ -88,23 +89,25 @@ public class GroundLayer {
 			System.err.println("Error during server socket opening on port" + localPort + e.getMessage());
 			return;
 		}
+	}
+
+	// receiver packet thread : 1
+	private static void receivePacketThreadFunction() {
 
 		DatagramPacket packet = null;
-		byte[] buf = new byte[258];
+		byte[] buf = new byte[128];
 
 		while (!Thread.currentThread().isInterrupted() && RUNNING) {
 			packet = new DatagramPacket(buf, buf.length);
 			try {
 				serverSocket.receive(packet);
-				Packet p = new Packet(
-						new String(packet.getData(), 0, packet.getLength()),
-						packet.getAddress().getHostAddress(), packet.getPort());
 
+				Packet p = new Packet(new String(packet.getData(), 0, packet.getLength()),
+						packet.getAddress().getHostAddress(), packet.getPort());
+				
 				// handle ping here so they are not stuck behind queue
 				if (p.isPing()) {
 					PingLayer.receive(p);
-				} else  if (optimizedThreads) {
-					upLayer.receive(p);
 				} else {
 					receivedPacketList.add(p);
 				}
