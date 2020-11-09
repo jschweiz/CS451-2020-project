@@ -2,43 +2,36 @@ package cs451.utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-
-import cs451.Host;
 import cs451.layers.GroundLayer;
 
 public class SenderPoolStruct {
-
+    
+    private static final int MAXNUMBEROFCONCURRENTPACKETSPERBIN = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN;
+    private static final int SENDINGPERIOD = ConcurrencyManager.SENDING_PERIOD_PACKET;
+    
     private List<Set<Packet>> map;
+    private long size;
 
     private final int nbins;
     private final long maxSize;
-    private long size;
-
-    // private Object locker = new Object();
-    public static final int MAXNUMBEROFCONCURRENTPACKETSPERBIN = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN;
-
+    private final SenderManager manager = new SenderManager();
 
     public SenderPoolStruct(int nbins, int maxSize) {
-        this.size = 0;
         this.nbins = nbins;
         this.maxSize = maxSize;
-        map = new ArrayList<Set<Packet>>();
+        this.size = 0;
 
+        map = new ArrayList<>();
         for (int i = 0; i < nbins; i++) {
-            map.add(Collections.synchronizedSet(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3)));//(new ConcurrentHashMap(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 4)).newKeySet();
-            }
+            map.add(Collections.synchronizedSet(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3)));
+        }
     }
 
     public synchronized Set<Packet> get(int v) {
@@ -78,27 +71,40 @@ public class SenderPoolStruct {
         this.size = 0;
     }
 
-    public synchronized int getNBins() {
-        return nbins;
-    }
-
     public synchronized void sendAll(int v) {
-
         Set<Packet> p = map.get(v);
        
         if (p.isEmpty()) {
             return;
         }
 
-        for (Object o : p) {
-            Packet m = (Packet)o;
+        for (Packet m : p) {
             GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
         }
-        return;
+    }
+
+    public synchronized void cancelSending(String ip, int port) {
+        for (Set<Packet> set : map) {
+            List<Packet> packetToRemove = new LinkedList<>();
+            for (Packet m : set) {
+                if (port != -1 && m.destHost.equals(ip)
+                        && m.destPort == port) // cancel messages to a specific host
+                {
+                    packetToRemove.add(m);
+                }
+            }
+            for (Packet m : packetToRemove) {
+                removeIn(m);
+            }
+        }
     }
 
     public synchronized long getTotalSize() {
         return  size;
+    }
+
+    public synchronized int getNBins() {
+        return nbins;
     }
 
     public synchronized String toString() {
@@ -110,20 +116,12 @@ public class SenderPoolStruct {
         return s;
     }
 
-    private static final int SENDINGPERIOD = ConcurrencyManager.SENDING_PERIOD_PACKET;
-    private SenderManager manager = new SenderManager();
-
     private class SenderManager {
-        private Timer timerSending;
+        private Timer timerSending = new Timer();
         private Set<Integer> alreadyScheduled = new HashSet<>();
 
-        public SenderManager() {
-            this.timerSending = new Timer();
-        }
-
         public synchronized void scheduleSendingPool(int n) {
-            if (alreadyScheduled.contains(n))
-                return;
+            if (alreadyScheduled.contains(n)) return;
             alreadyScheduled.add(n);
 
             TimerTask task = new TimerTask() {

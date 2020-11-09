@@ -10730,3 +10730,1556 @@ Traceback (most recent call last):
   File "../finishedSignal.py", line 37, in wait
     ts = pid_timestamp[1]
 IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42482), corresponds to PID 1
+Connection from ('127.0.0.1', 42486), corresponds to PID 2
+Process 1 started broadcasting at time 1604871643882 ms from Unix epoch 
+Process 2 started broadcasting at time 1604871643882 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42538), corresponds to PID 1
+Connection from ('127.0.0.1', 42542), corresponds to PID 2
+Process 1 started broadcasting at time 1604872091489 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872091489 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51720, corresponds to PID 1
+Connection from 127.0.0.1:51724, corresponds to PID 2
+Connection from 127.0.0.1:51776, corresponds to PID 1
+Connection from 127.0.0.1:51780, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42546), corresponds to PID 1
+Connection from ('127.0.0.1', 42550), corresponds to PID 2
+Process 1 started broadcasting at time 1604872184418 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872184418 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42554), corresponds to PID 1
+Connection from ('127.0.0.1', 42558), corresponds to PID 2
+Process 1 started broadcasting at time 1604872438032 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872438032 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51784, corresponds to PID 1
+Connection from 127.0.0.1:51788, corresponds to PID 2
+Connection from 127.0.0.1:51792, corresponds to PID 1
+Connection from 127.0.0.1:51796, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42562), corresponds to PID 1
+Connection from ('127.0.0.1', 42566), corresponds to PID 2
+Process 1 started broadcasting at time 1604872477648 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872477648 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42570), corresponds to PID 1
+Connection from ('127.0.0.1', 42574), corresponds to PID 2
+Process 1 started broadcasting at time 1604872500273 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872500273 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51800, corresponds to PID 1
+Connection from 127.0.0.1:51804, corresponds to PID 2
+Connection from 127.0.0.1:51808, corresponds to PID 1
+Connection from 127.0.0.1:51812, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42598), corresponds to PID 1
+Connection from ('127.0.0.1', 42602), corresponds to PID 2
+Process 1 started broadcasting at time 1604872734866 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872734866 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42608), corresponds to PID 1
+Connection from ('127.0.0.1', 42612), corresponds to PID 2
+Process 1 started broadcasting at time 1604872809865 ms from Unix epoch 
+Process 2 started broadcasting at time 1604872809865 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51836, corresponds to PID 1
+Connection from 127.0.0.1:51840, corresponds to PID 2
+Connection from 127.0.0.1:51846, corresponds to PID 1
+Connection from 127.0.0.1:51850, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42628), corresponds to PID 1
+Connection from ('127.0.0.1', 42632), corresponds to PID 2
+Process 1 started broadcasting at time 1604873003731 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873003731 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42638), corresponds to PID 1
+Connection from ('127.0.0.1', 42642), corresponds to PID 2
+Process 1 started broadcasting at time 1604873022571 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873022571 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51866, corresponds to PID 1
+Connection from 127.0.0.1:51870, corresponds to PID 2
+Connection from 127.0.0.1:51876, corresponds to PID 1
+Connection from 127.0.0.1:51880, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42654), corresponds to PID 1
+Connection from ('127.0.0.1', 42658), corresponds to PID 2
+Process 1 started broadcasting at time 1604873043878 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873043878 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42662), corresponds to PID 1
+Connection from ('127.0.0.1', 42666), corresponds to PID 2
+Process 1 started broadcasting at time 1604873167833 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873167833 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51892, corresponds to PID 1
+Connection from 127.0.0.1:51896, corresponds to PID 2
+Connection from 127.0.0.1:51900, corresponds to PID 1
+Connection from 127.0.0.1:51904, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42678), corresponds to PID 1
+Connection from ('127.0.0.1', 42682), corresponds to PID 2
+Process 1 started broadcasting at time 1604873263017 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873263017 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42686), corresponds to PID 1
+Connection from ('127.0.0.1', 42690), corresponds to PID 2
+Process 1 started broadcasting at time 1604873293871 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873293871 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51916, corresponds to PID 1
+Connection from 127.0.0.1:51920, corresponds to PID 2
+Connection from 127.0.0.1:51924, corresponds to PID 1
+Connection from 127.0.0.1:51928, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42696), corresponds to PID 1
+Connection from ('127.0.0.1', 42700), corresponds to PID 2
+Process 1 started broadcasting at time 1604873366810 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873366810 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42704), corresponds to PID 1
+Connection from ('127.0.0.1', 42708), corresponds to PID 2
+Process 1 started broadcasting at time 1604873504666 ms from Unix epoch 
+Process 2 started broadcasting at time 1604873504666 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:51934, corresponds to PID 1
+Connection from 127.0.0.1:51938, corresponds to PID 2
+Connection from 127.0.0.1:51942, corresponds to PID 1
+Connection from 127.0.0.1:51946, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42908), corresponds to PID 1
+Connection from ('127.0.0.1', 42912), corresponds to PID 2
+Process 1 started broadcasting at time 1604874208644 ms from Unix epoch 
+Process 2 started broadcasting at time 1604874208644 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42922), corresponds to PID 1
+Connection from ('127.0.0.1', 42926), corresponds to PID 2
+Process 1 started broadcasting at time 1604874420609 ms from Unix epoch 
+Process 2 started broadcasting at time 1604874420609 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:52146, corresponds to PID 1
+Connection from 127.0.0.1:52150, corresponds to PID 2
+Connection from 127.0.0.1:52160, corresponds to PID 1
+Connection from 127.0.0.1:52164, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42938), corresponds to PID 1
+Connection from ('127.0.0.1', 42942), corresponds to PID 2
+Process 1 started broadcasting at time 1604874610551 ms from Unix epoch 
+Process 2 started broadcasting at time 1604874610551 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 42946), corresponds to PID 1
+Connection from ('127.0.0.1', 42950), corresponds to PID 2
+Process 1 started broadcasting at time 1604874664335 ms from Unix epoch 
+Process 2 started broadcasting at time 1604874664335 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:52176, corresponds to PID 1
+Connection from 127.0.0.1:52180, corresponds to PID 2
+Connection from 127.0.0.1:52184, corresponds to PID 1
+Connection from 127.0.0.1:52188, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 43020), corresponds to PID 1
+Connection from ('127.0.0.1', 43024), corresponds to PID 2
+Process 1 started broadcasting at time 1604874798151 ms from Unix epoch 
+Process 2 started broadcasting at time 1604874798151 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 43028), corresponds to PID 1
+Connection from ('127.0.0.1', 43032), corresponds to PID 2
+Process 1 started broadcasting at time 1604874846214 ms from Unix epoch 
+Process 2 started broadcasting at time 1604874846214 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:52258, corresponds to PID 1
+Connection from 127.0.0.1:52262, corresponds to PID 2
+Connection from 127.0.0.1:52266, corresponds to PID 1
+Connection from 127.0.0.1:52270, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49438), corresponds to PID 1
+Connection from ('127.0.0.1', 49442), corresponds to PID 2
+Process 1 started broadcasting at time 1604929237931 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929237931 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49446), corresponds to PID 1
+Connection from ('127.0.0.1', 49450), corresponds to PID 2
+Process 1 started broadcasting at time 1604929364127 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929364127 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:54914, corresponds to PID 1
+Connection from 127.0.0.1:54918, corresponds to PID 2
+Connection from 127.0.0.1:54922, corresponds to PID 1
+Connection from 127.0.0.1:54926, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49454), corresponds to PID 1
+Connection from ('127.0.0.1', 49458), corresponds to PID 2
+Process 1 started broadcasting at time 1604929474194 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929474194 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49464), corresponds to PID 1
+Connection from ('127.0.0.1', 49468), corresponds to PID 2
+Process 1 started broadcasting at time 1604929531149 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929531149 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:54930, corresponds to PID 1
+Connection from 127.0.0.1:54934, corresponds to PID 2
+Connection from 127.0.0.1:54940, corresponds to PID 1
+Connection from 127.0.0.1:54944, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49474), corresponds to PID 1
+Connection from ('127.0.0.1', 49478), corresponds to PID 2
+Process 1 started broadcasting at time 1604929635316 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929635316 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49490), corresponds to PID 1
+Connection from ('127.0.0.1', 49494), corresponds to PID 2
+Process 1 started broadcasting at time 1604929689540 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929689540 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:54950, corresponds to PID 1
+Connection from 127.0.0.1:54954, corresponds to PID 2
+Connection from 127.0.0.1:54966, corresponds to PID 1
+Connection from 127.0.0.1:54970, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49510), corresponds to PID 1
+Connection from ('127.0.0.1', 49514), corresponds to PID 2
+Process 1 started broadcasting at time 1604929789958 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929789958 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49518), corresponds to PID 1
+Connection from ('127.0.0.1', 49522), corresponds to PID 2
+Process 1 started broadcasting at time 1604929812385 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929812386 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:54986, corresponds to PID 1
+Connection from 127.0.0.1:54990, corresponds to PID 2
+Connection from 127.0.0.1:54994, corresponds to PID 1
+Connection from 127.0.0.1:54998, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49526), corresponds to PID 1
+Connection from ('127.0.0.1', 49530), corresponds to PID 2
+Process 1 started broadcasting at time 1604929826589 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929826589 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49534), corresponds to PID 1
+Connection from ('127.0.0.1', 49538), corresponds to PID 2
+Process 1 started broadcasting at time 1604929880552 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929880552 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55002, corresponds to PID 1
+Connection from 127.0.0.1:55006, corresponds to PID 2
+Connection from 127.0.0.1:55010, corresponds to PID 1
+Connection from 127.0.0.1:55014, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49542), corresponds to PID 1
+Connection from ('127.0.0.1', 49546), corresponds to PID 2
+Process 1 started broadcasting at time 1604929924242 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929924242 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49554), corresponds to PID 1
+Connection from ('127.0.0.1', 49558), corresponds to PID 2
+Process 1 started broadcasting at time 1604929941894 ms from Unix epoch 
+Process 2 started broadcasting at time 1604929941894 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55018, corresponds to PID 1
+Connection from 127.0.0.1:55022, corresponds to PID 2
+Connection from 127.0.0.1:55030, corresponds to PID 1
+Connection from 127.0.0.1:55034, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49562), corresponds to PID 1
+Connection from ('127.0.0.1', 49566), corresponds to PID 2
+Process 1 started broadcasting at time 1604930088184 ms from Unix epoch 
+Process 2 started broadcasting at time 1604930088184 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49570), corresponds to PID 1
+Connection from ('127.0.0.1', 49574), corresponds to PID 2
+Process 1 started broadcasting at time 1604930172416 ms from Unix epoch 
+Process 2 started broadcasting at time 1604930172416 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55038, corresponds to PID 1
+Connection from 127.0.0.1:55042, corresponds to PID 2
+Connection from 127.0.0.1:55046, corresponds to PID 1
+Connection from 127.0.0.1:55050, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49578), corresponds to PID 1
+Connection from ('127.0.0.1', 49582), corresponds to PID 2
+Process 1 started broadcasting at time 1604930197246 ms from Unix epoch 
+Process 2 started broadcasting at time 1604930197247 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49588), corresponds to PID 1
+Connection from ('127.0.0.1', 49592), corresponds to PID 2
+Process 1 started broadcasting at time 1604930236617 ms from Unix epoch 
+Process 2 started broadcasting at time 1604930236618 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55054, corresponds to PID 1
+Connection from 127.0.0.1:55058, corresponds to PID 2
+Connection from 127.0.0.1:55064, corresponds to PID 1
+Connection from 127.0.0.1:55068, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49596), corresponds to PID 1
+Connection from ('127.0.0.1', 49600), corresponds to PID 2
+Process 1 started broadcasting at time 1604930381754 ms from Unix epoch 
+Process 2 started broadcasting at time 1604930381754 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49622), corresponds to PID 1
+Connection from ('127.0.0.1', 49626), corresponds to PID 2
+Process 1 started broadcasting at time 1604930585325 ms from Unix epoch 
+Process 2 started broadcasting at time 1604930585325 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55072, corresponds to PID 1
+Connection from 127.0.0.1:55076, corresponds to PID 2
+Connection from 127.0.0.1:55098, corresponds to PID 1
+Connection from 127.0.0.1:55102, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49634), corresponds to PID 1
+Connection from ('127.0.0.1', 49638), corresponds to PID 2
+Process 1 started broadcasting at time 1604931305808 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931305808 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49642), corresponds to PID 1
+Connection from ('127.0.0.1', 49646), corresponds to PID 2
+Process 1 started broadcasting at time 1604931330313 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931330313 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55110, corresponds to PID 1
+Connection from 127.0.0.1:55114, corresponds to PID 2
+Connection from 127.0.0.1:55118, corresponds to PID 1
+Connection from 127.0.0.1:55122, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49650), corresponds to PID 1
+Connection from ('127.0.0.1', 49654), corresponds to PID 2
+Process 1 started broadcasting at time 1604931347757 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931347757 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49658), corresponds to PID 1
+Connection from ('127.0.0.1', 49662), corresponds to PID 2
+Process 1 started broadcasting at time 1604931391214 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931391214 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55126, corresponds to PID 1
+Connection from 127.0.0.1:55130, corresponds to PID 2
+Connection from 127.0.0.1:55134, corresponds to PID 1
+Connection from 127.0.0.1:55138, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49674), corresponds to PID 1
+Connection from ('127.0.0.1', 49678), corresponds to PID 2
+Process 1 started broadcasting at time 1604931594770 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931594770 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49682), corresponds to PID 1
+Connection from ('127.0.0.1', 49686), corresponds to PID 2
+Process 1 started broadcasting at time 1604931616872 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931616872 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55150, corresponds to PID 1
+Connection from 127.0.0.1:55154, corresponds to PID 2
+Connection from 127.0.0.1:55158, corresponds to PID 1
+Connection from 127.0.0.1:55162, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49690), corresponds to PID 1
+Connection from ('127.0.0.1', 49694), corresponds to PID 2
+Process 1 started broadcasting at time 1604931727821 ms from Unix epoch 
+Process 2 started broadcasting at time 1604931727821 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49704), corresponds to PID 1
+Connection from ('127.0.0.1', 49708), corresponds to PID 2
+Process 1 started broadcasting at time 1604932588222 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932588222 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55166, corresponds to PID 1
+Connection from 127.0.0.1:55170, corresponds to PID 2
+Connection from 127.0.0.1:55180, corresponds to PID 1
+Connection from 127.0.0.1:55184, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49714), corresponds to PID 1
+Connection from ('127.0.0.1', 49718), corresponds to PID 2
+Process 1 started broadcasting at time 1604932682884 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932682884 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49722), corresponds to PID 1
+Connection from ('127.0.0.1', 49726), corresponds to PID 2
+Process 1 started broadcasting at time 1604932733106 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932733106 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55190, corresponds to PID 1
+Connection from 127.0.0.1:55194, corresponds to PID 2
+Connection from 127.0.0.1:55198, corresponds to PID 1
+Connection from 127.0.0.1:55202, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49730), corresponds to PID 1
+Connection from ('127.0.0.1', 49734), corresponds to PID 2
+Process 1 started broadcasting at time 1604932777800 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932777800 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49738), corresponds to PID 1
+Connection from ('127.0.0.1', 49742), corresponds to PID 2
+Process 1 started broadcasting at time 1604932808022 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932808022 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55206, corresponds to PID 1
+Connection from 127.0.0.1:55210, corresponds to PID 2
+Connection from 127.0.0.1:55214, corresponds to PID 1
+Connection from 127.0.0.1:55218, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49750), corresponds to PID 1
+Connection from ('127.0.0.1', 49754), corresponds to PID 2
+Process 1 started broadcasting at time 1604932860067 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932860067 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49758), corresponds to PID 1
+Connection from ('127.0.0.1', 49762), corresponds to PID 2
+Process 1 started broadcasting at time 1604932909191 ms from Unix epoch 
+Process 2 started broadcasting at time 1604932909191 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55226, corresponds to PID 1
+Connection from 127.0.0.1:55230, corresponds to PID 2
+Connection from 127.0.0.1:55234, corresponds to PID 1
+Connection from 127.0.0.1:55238, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49766), corresponds to PID 1
+Connection from ('127.0.0.1', 49770), corresponds to PID 2
+Process 1 started broadcasting at time 1604933015031 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933015031 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49774), corresponds to PID 1
+Connection from ('127.0.0.1', 49778), corresponds to PID 2
+Process 1 started broadcasting at time 1604933069449 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933069449 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55242, corresponds to PID 1
+Connection from 127.0.0.1:55246, corresponds to PID 2
+Connection from 127.0.0.1:55250, corresponds to PID 1
+Connection from 127.0.0.1:55254, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49782), corresponds to PID 1
+Connection from ('127.0.0.1', 49786), corresponds to PID 2
+Process 1 started broadcasting at time 1604933167273 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933167273 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49798), corresponds to PID 1
+Connection from ('127.0.0.1', 49802), corresponds to PID 2
+Process 1 started broadcasting at time 1604933253962 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933253962 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55258, corresponds to PID 1
+Connection from 127.0.0.1:55262, corresponds to PID 2
+Connection from 127.0.0.1:55274, corresponds to PID 1
+Connection from 127.0.0.1:55278, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49806), corresponds to PID 1
+Connection from ('127.0.0.1', 49810), corresponds to PID 2
+Process 1 started broadcasting at time 1604933340597 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933340598 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49826), corresponds to PID 1
+Connection from ('127.0.0.1', 49830), corresponds to PID 2
+Process 1 started broadcasting at time 1604933636901 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933636901 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55282, corresponds to PID 1
+Connection from 127.0.0.1:55286, corresponds to PID 2
+Connection from 127.0.0.1:55302, corresponds to PID 1
+Connection from 127.0.0.1:55306, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49834), corresponds to PID 1
+Connection from ('127.0.0.1', 49838), corresponds to PID 2
+Process 1 started broadcasting at time 1604933676939 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933676939 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49842), corresponds to PID 1
+Connection from ('127.0.0.1', 49846), corresponds to PID 2
+Process 1 started broadcasting at time 1604933696475 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933696475 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55310, corresponds to PID 1
+Connection from 127.0.0.1:55314, corresponds to PID 2
+Connection from 127.0.0.1:55318, corresponds to PID 1
+Connection from 127.0.0.1:55322, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49850), corresponds to PID 1
+Connection from ('127.0.0.1', 49854), corresponds to PID 2
+Process 1 started broadcasting at time 1604933734668 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933734668 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49858), corresponds to PID 1
+Connection from ('127.0.0.1', 49862), corresponds to PID 2
+Process 1 started broadcasting at time 1604933758325 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933758325 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55326, corresponds to PID 1
+Connection from 127.0.0.1:55330, corresponds to PID 2
+Connection from 127.0.0.1:55334, corresponds to PID 1
+Connection from 127.0.0.1:55338, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49866), corresponds to PID 1
+Connection from ('127.0.0.1', 49870), corresponds to PID 2
+Process 1 started broadcasting at time 1604933791410 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933791410 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49874), corresponds to PID 1
+Connection from ('127.0.0.1', 49878), corresponds to PID 2
+Process 1 started broadcasting at time 1604933816592 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933816592 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55342, corresponds to PID 1
+Connection from 127.0.0.1:55346, corresponds to PID 2
+Connection from 127.0.0.1:55350, corresponds to PID 1
+Connection from 127.0.0.1:55354, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49882), corresponds to PID 1
+Connection from ('127.0.0.1', 49886), corresponds to PID 2
+Process 1 started broadcasting at time 1604933839413 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933839413 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49890), corresponds to PID 1
+Connection from ('127.0.0.1', 49894), corresponds to PID 2
+Process 1 started broadcasting at time 1604933873826 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933873826 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55358, corresponds to PID 1
+Connection from 127.0.0.1:55362, corresponds to PID 2
+Connection from 127.0.0.1:55366, corresponds to PID 1
+Connection from 127.0.0.1:55370, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49900), corresponds to PID 1
+Connection from ('127.0.0.1', 49904), corresponds to PID 2
+Process 1 started broadcasting at time 1604933939773 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933939773 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49908), corresponds to PID 1
+Connection from ('127.0.0.1', 49912), corresponds to PID 2
+Process 1 started broadcasting at time 1604933967106 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933967106 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55376, corresponds to PID 1
+Connection from 127.0.0.1:55380, corresponds to PID 2
+Connection from 127.0.0.1:55384, corresponds to PID 1
+Connection from 127.0.0.1:55388, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49916), corresponds to PID 1
+Connection from ('127.0.0.1', 49920), corresponds to PID 2
+Process 1 started broadcasting at time 1604933994620 ms from Unix epoch 
+Process 2 started broadcasting at time 1604933994620 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49924), corresponds to PID 1
+Connection from ('127.0.0.1', 49928), corresponds to PID 2
+Process 1 started broadcasting at time 1604934020582 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934020582 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55392, corresponds to PID 1
+Connection from 127.0.0.1:55396, corresponds to PID 2
+Connection from 127.0.0.1:55400, corresponds to PID 1
+Connection from 127.0.0.1:55404, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49948), corresponds to PID 1
+Connection from ('127.0.0.1', 49952), corresponds to PID 2
+Process 1 started broadcasting at time 1604934138689 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934138689 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49956), corresponds to PID 1
+Connection from ('127.0.0.1', 49960), corresponds to PID 2
+Process 1 started broadcasting at time 1604934160937 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934160937 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55424, corresponds to PID 1
+Connection from 127.0.0.1:55428, corresponds to PID 2
+Connection from 127.0.0.1:55432, corresponds to PID 1
+Connection from 127.0.0.1:55436, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49964), corresponds to PID 1
+Connection from ('127.0.0.1', 49968), corresponds to PID 2
+Process 1 started broadcasting at time 1604934212312 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934212312 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49972), corresponds to PID 1
+Connection from ('127.0.0.1', 49976), corresponds to PID 2
+Process 1 started broadcasting at time 1604934221748 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934221748 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55440, corresponds to PID 1
+Connection from 127.0.0.1:55444, corresponds to PID 2
+Connection from 127.0.0.1:55448, corresponds to PID 1
+Connection from 127.0.0.1:55452, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49982), corresponds to PID 1
+Connection from ('127.0.0.1', 49986), corresponds to PID 2
+Process 1 started broadcasting at time 1604934294760 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934294760 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 49994), corresponds to PID 1
+Connection from ('127.0.0.1', 49998), corresponds to PID 2
+Process 1 started broadcasting at time 1604934400577 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934400577 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55458, corresponds to PID 1
+Connection from 127.0.0.1:55462, corresponds to PID 2
+Connection from 127.0.0.1:55470, corresponds to PID 1
+Connection from 127.0.0.1:55474, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50004), corresponds to PID 1
+Connection from ('127.0.0.1', 50008), corresponds to PID 2
+Process 1 started broadcasting at time 1604934435258 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934435258 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50012), corresponds to PID 1
+Connection from ('127.0.0.1', 50016), corresponds to PID 2
+Process 1 started broadcasting at time 1604934480095 ms from Unix epoch 
+Process 2 started broadcasting at time 1604934480098 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55480, corresponds to PID 1
+Connection from 127.0.0.1:55484, corresponds to PID 2
+Connection from 127.0.0.1:55488, corresponds to PID 1
+Connection from 127.0.0.1:55492, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50024), corresponds to PID 1
+Connection from ('127.0.0.1', 50028), corresponds to PID 2
+Process 1 started broadcasting at time 1604936646597 ms from Unix epoch 
+Process 2 started broadcasting at time 1604936646597 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50036), corresponds to PID 1
+Connection from ('127.0.0.1', 50040), corresponds to PID 2
+Process 1 started broadcasting at time 1604940644252 ms from Unix epoch 
+Process 2 started broadcasting at time 1604940644252 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55500, corresponds to PID 1
+Connection from 127.0.0.1:55504, corresponds to PID 2
+Connection from 127.0.0.1:55512, corresponds to PID 1
+Connection from 127.0.0.1:55516, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50044), corresponds to PID 1
+Connection from ('127.0.0.1', 50048), corresponds to PID 2
+Process 1 started broadcasting at time 1604940701970 ms from Unix epoch 
+Process 2 started broadcasting at time 1604940701970 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50052), corresponds to PID 1
+Connection from ('127.0.0.1', 50056), corresponds to PID 2
+Process 1 started broadcasting at time 1604940742610 ms from Unix epoch 
+Process 2 started broadcasting at time 1604940742610 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55520, corresponds to PID 1
+Connection from 127.0.0.1:55524, corresponds to PID 2
+Connection from 127.0.0.1:55528, corresponds to PID 1
+Connection from 127.0.0.1:55532, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50108), corresponds to PID 1
+Connection from ('127.0.0.1', 50112), corresponds to PID 2
+Process 1 started broadcasting at time 1604942591111 ms from Unix epoch 
+Process 2 started broadcasting at time 1604942591111 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50172), corresponds to PID 1
+Connection from ('127.0.0.1', 50176), corresponds to PID 2
+Process 1 started broadcasting at time 1604945772669 ms from Unix epoch 
+Process 2 started broadcasting at time 1604945772670 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55584, corresponds to PID 1
+Connection from 127.0.0.1:55588, corresponds to PID 2
+Connection from 127.0.0.1:55648, corresponds to PID 1
+Connection from 127.0.0.1:55652, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50206), corresponds to PID 1
+Connection from ('127.0.0.1', 50210), corresponds to PID 2
+Process 1 started broadcasting at time 1604946351842 ms from Unix epoch 
+Process 2 started broadcasting at time 1604946351842 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50214), corresponds to PID 1
+Connection from ('127.0.0.1', 50218), corresponds to PID 2
+Process 1 started broadcasting at time 1604946422394 ms from Unix epoch 
+Process 2 started broadcasting at time 1604946422394 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55682, corresponds to PID 1
+Connection from 127.0.0.1:55686, corresponds to PID 2
+Connection from 127.0.0.1:55690, corresponds to PID 1
+Connection from 127.0.0.1:55694, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50222), corresponds to PID 1
+Connection from ('127.0.0.1', 50226), corresponds to PID 2
+Process 1 started broadcasting at time 1604946504677 ms from Unix epoch 
+Process 2 started broadcasting at time 1604946504678 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50262), corresponds to PID 1
+Connection from ('127.0.0.1', 50266), corresponds to PID 2
+Process 1 started broadcasting at time 1604952612097 ms from Unix epoch 
+Process 2 started broadcasting at time 1604952612097 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55698, corresponds to PID 1
+Connection from 127.0.0.1:55702, corresponds to PID 2
+Connection from 127.0.0.1:55738, corresponds to PID 1
+Connection from 127.0.0.1:55742, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50272), corresponds to PID 1
+Connection from ('127.0.0.1', 50276), corresponds to PID 2
+Process 1 started broadcasting at time 1604952899461 ms from Unix epoch 
+Process 2 started broadcasting at time 1604952899461 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50280), corresponds to PID 1
+Connection from ('127.0.0.1', 50284), corresponds to PID 2
+Process 1 started broadcasting at time 1604953001036 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953001036 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55748, corresponds to PID 1
+Connection from 127.0.0.1:55752, corresponds to PID 2
+Connection from 127.0.0.1:55756, corresponds to PID 1
+Connection from 127.0.0.1:55760, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50288), corresponds to PID 1
+Connection from ('127.0.0.1', 50292), corresponds to PID 2
+Process 1 started broadcasting at time 1604953133666 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953133666 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50308), corresponds to PID 1
+Connection from ('127.0.0.1', 50312), corresponds to PID 2
+Process 1 started broadcasting at time 1604953436709 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953436709 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55764, corresponds to PID 1
+Connection from 127.0.0.1:55768, corresponds to PID 2
+Connection from 127.0.0.1:55784, corresponds to PID 1
+Connection from 127.0.0.1:55788, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50320), corresponds to PID 1
+Connection from ('127.0.0.1', 50324), corresponds to PID 2
+Process 1 started broadcasting at time 1604953495041 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953495041 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50328), corresponds to PID 1
+Connection from ('127.0.0.1', 50332), corresponds to PID 2
+Process 1 started broadcasting at time 1604953781588 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953781589 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55796, corresponds to PID 1
+Connection from 127.0.0.1:55800, corresponds to PID 2
+Connection from 127.0.0.1:55804, corresponds to PID 1
+Connection from 127.0.0.1:55808, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50336), corresponds to PID 1
+Connection from ('127.0.0.1', 50340), corresponds to PID 2
+Process 1 started broadcasting at time 1604953961542 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953961548 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50344), corresponds to PID 1
+Connection from ('127.0.0.1', 50348), corresponds to PID 2
+Process 1 started broadcasting at time 1604953998898 ms from Unix epoch 
+Process 2 started broadcasting at time 1604953998898 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55812, corresponds to PID 1
+Connection from 127.0.0.1:55816, corresponds to PID 2
+Connection from 127.0.0.1:55820, corresponds to PID 1
+Connection from 127.0.0.1:55824, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50354), corresponds to PID 1
+Connection from ('127.0.0.1', 50358), corresponds to PID 2
+Process 1 started broadcasting at time 1604954098867 ms from Unix epoch 
+Process 2 started broadcasting at time 1604954098867 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50364), corresponds to PID 1
+Connection from ('127.0.0.1', 50368), corresponds to PID 2
+Process 1 started broadcasting at time 1604954160773 ms from Unix epoch 
+Process 2 started broadcasting at time 1604954160773 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55830, corresponds to PID 1
+Connection from 127.0.0.1:55834, corresponds to PID 2
+Connection from 127.0.0.1:55840, corresponds to PID 1
+Connection from 127.0.0.1:55844, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50374), corresponds to PID 1
+Connection from ('127.0.0.1', 50378), corresponds to PID 2
+Process 1 started broadcasting at time 1604954320242 ms from Unix epoch 
+Process 2 started broadcasting at time 1604954320242 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50382), corresponds to PID 1
+Connection from ('127.0.0.1', 50386), corresponds to PID 2
+Process 1 started broadcasting at time 1604954565344 ms from Unix epoch 
+Process 2 started broadcasting at time 1604954565344 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55850, corresponds to PID 1
+Connection from 127.0.0.1:55854, corresponds to PID 2
+Connection from 127.0.0.1:55858, corresponds to PID 1
+Connection from 127.0.0.1:55862, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50398), corresponds to PID 1
+Connection from ('127.0.0.1', 50402), corresponds to PID 2
+Process 1 started broadcasting at time 1604954649261 ms from Unix epoch 
+Process 2 started broadcasting at time 1604954649261 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50406), corresponds to PID 1
+Connection from ('127.0.0.1', 50410), corresponds to PID 2
+Process 1 started broadcasting at time 1604954847006 ms from Unix epoch 
+Process 2 started broadcasting at time 1604954847006 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55874, corresponds to PID 1
+Connection from 127.0.0.1:55878, corresponds to PID 2
+Connection from 127.0.0.1:55882, corresponds to PID 1
+Connection from 127.0.0.1:55886, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50502), corresponds to PID 1
+Connection from ('127.0.0.1', 50506), corresponds to PID 2
+Process 1 started broadcasting at time 1604956234120 ms from Unix epoch 
+Process 2 started broadcasting at time 1604956234120 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50510), corresponds to PID 1
+Connection from ('127.0.0.1', 50514), corresponds to PID 2
+Process 1 started broadcasting at time 1604956825198 ms from Unix epoch 
+Process 2 started broadcasting at time 1604956825198 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55978, corresponds to PID 1
+Connection from 127.0.0.1:55982, corresponds to PID 2
+Connection from 127.0.0.1:55986, corresponds to PID 1
+Connection from 127.0.0.1:55990, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50518), corresponds to PID 1
+Connection from ('127.0.0.1', 50522), corresponds to PID 2
+Process 1 started broadcasting at time 1604957013885 ms from Unix epoch 
+Process 2 started broadcasting at time 1604957013887 ms from Unix epoch 
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Traceback (most recent call last):
+  File "../barrier.py", line 89, in <module>
+    barrier.wait()
+  File "../barrier.py", line 28, in wait
+    conn, addr = self.sock.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 96, in <module>
+    signal.listen()
+  File "../finishedSignal.py", line 23, in listen
+    self.sock.bind((self.host, self.port))
+OSError: [Errno 98] Address already in use
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 50526), corresponds to PID 1
+Connection from ('127.0.0.1', 50530), corresponds to PID 2
+Process 1 started broadcasting at time 1604957227620 ms from Unix epoch 
+Process 2 started broadcasting at time 1604957227620 ms from Unix epoch 
+Finish signal listens on 0.0.0.0:11000 and waits for 3 processes
+Connection from 127.0.0.1:55994, corresponds to PID 1
+Connection from 127.0.0.1:55998, corresponds to PID 2
+Connection from 127.0.0.1:56002, corresponds to PID 1
+Connection from 127.0.0.1:56006, corresponds to PID 2
+Traceback (most recent call last):
+  File "../finishedSignal.py", line 99, in <module>
+    signal.wait()
+  File "../finishedSignal.py", line 37, in wait
+    ts = pid_timestamp[1]
+IndexError: list index out of range
+Barrier listens on 0.0.0.0:10000 and waits for 2 processes
+Connection from ('127.0.0.1', 51052), corresponds to PID 1
+Connection from ('127.0.0.1', 51056), corresponds to PID 2
+Process 1 started broadcasting at time 1604964018877 ms from Unix epoch 
+Process 2 started broadcasting at time 1604964018877 ms from Unix epoch 

@@ -1,12 +1,7 @@
 package cs451.utils;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
-import cs451.Host;
 
 public class FifoStruc {
     private Map<Integer, String> messagesWaiting;
@@ -14,7 +9,7 @@ public class FifoStruc {
 
     public FifoStruc() {
         this.lastMessageReceived = -1;
-        this.messagesWaiting = new HashMap<>();
+        this.messagesWaiting = new HashMap<>(1000000);
     }
 
     public boolean nextMessageIs(int n) {

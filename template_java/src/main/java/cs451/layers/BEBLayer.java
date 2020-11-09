@@ -4,11 +4,10 @@ import java.util.List;
 
 import cs451.Host;
 import cs451.utils.Message;
-import cs451.Process;
-import cs451.TestProcess;
 
 public class BEBLayer {
 
+    // layers
     private PerfectLinkLayer perfectLinkLayer;
     private UBLayer bLayer;
 
@@ -24,8 +23,8 @@ public class BEBLayer {
     }
 
     public void receive(Host sender, String payload) {
-        TestProcess.currProcess.writeInMemory(payload, sender.getId(), true);
-        // this.bLayer.receive(sender, new Message(payload));
+        // TestProcess.currProcess.writeInMemory(payload, sender.getId(), true);
+        this.bLayer.receive(sender, new Message(payload));
     }
 
 }

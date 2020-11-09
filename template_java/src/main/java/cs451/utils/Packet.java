@@ -4,30 +4,25 @@ import cs451.Host;
 
 public class Packet {
     // static constants
-    public static String ACK = "ACK";
-    public static String PING = "PING";
-    public static int DIV1 = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN;
-    public static int DIV2 = ConcurrencyManager.NBINS;
+    public final static String ACK = "ACK";
+    public final static String PING = "PING";
+    public final static long SEQ_NUM_PING = -11;
+    public final static int DIV1 = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN;
+    public final static int DIV2 = ConcurrencyManager.NBINS;
 
     // properties of each packet
-    public String payload;
-    public long seqNum;
+    public final String payload;
+    public final long seqNum;
     public final String destHost;
     public final int destPort;
 
     // constructor when receiving
     public Packet(String payload, String h, int p) {
+        String[] splits = payload.split(";", 2);
         this.destHost = h;
         this.destPort = p;
-        this.seqNum = -1;
-        this.payload = payload;
-    }
-    // to call on received packets
-    public void processPacket() {
-        String[] splits = payload.split(";", 2);
-        this.payload = splits[1];
         this.seqNum = Long.parseLong(splits[0]);
-        // System.out.println(this);
+        this.payload = splits[1];
     }
 
     // constructor when sending
@@ -43,17 +38,10 @@ public class Packet {
     }
 
     public boolean isPing() {
-        return PING.equals(payload);
-    }
-
-    public static boolean isPing(String s) {
-        return PING.equals(s);
+        return SEQ_NUM_PING == this.seqNum || PING.equals(payload);
     }
 
     public String encapsulate() {
-        if (isPing()) {
-            return PING;
-        }
         return seqNum + ";" + payload;
     }
 
@@ -62,12 +50,12 @@ public class Packet {
     }
 
     public Host getHost() {
-        return Host.findHost(this.destHost.toString(), this.destPort);
+        return Host.findHost(this.destHost, this.destPort);
     }
 
     @Override
     public String toString() {
-        return "(" + new String(destHost) + ";" + destPort + ";" + seqNum + ";" + payload + ")";
+        return "(" + destHost + ";" + destPort + ";" + seqNum + ";" + payload + ")";
     }
 
     @Override

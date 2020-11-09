@@ -12,7 +12,7 @@ public class AckMap {
     private HashMap<Message, Set<Host>> map;
 
     public AckMap() {
-        this.map = new HashMap<>();
+        this.map = new HashMap<>(100000000);
     }
 
     public synchronized void ackBy(Message m, Host h) {
@@ -39,5 +39,9 @@ public class AckMap {
         Set<Message> s = new HashSet<>();
         s.addAll( map.keySet());
         return s;
+    }
+
+    public synchronized int size() {
+        return map.size();
     }
 }

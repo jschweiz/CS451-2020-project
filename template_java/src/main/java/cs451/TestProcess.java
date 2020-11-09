@@ -1,62 +1,96 @@
 package cs451;
 
+import java.util.logging.Logger;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import cs451.layers.BEBLayer;
+import cs451.layers.FIFOLayer;
 import cs451.layers.GroundLayer;
 import cs451.layers.PerfectLinkLayer;
 import cs451.layers.PingLayer;
 import cs451.layers.TransportLayer;
+import cs451.layers.UBLayer;
 import cs451.utils.ConcurrencyManager;
-import cs451.utils.Message;
 
 public class TestProcess {
 
-    public static boolean RUNNING = true;
+    private static final long MAX_LIST_SIZE = 1000000;
+    private static final long NUM_TO_TIME = 500000;
+    private static final int DELAY = ConcurrencyManager.CHECKING_PERIOD_MESSAGE_RECEIVED;
+    private static final boolean WRITE_TO_FILE = false;
 
-    public PerfectLinkLayer perfectLinkLayer;
-    private static TransportLayer transportLayer;
-    private static BEBLayer bebLayer;
+    // logging purposes
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%1$tT] %5$s %n");
+    }
+    private static Logger LOG = Logger.getLogger(TestProcess.class.getName());
+    private static final String ORIGIN_STRING = "[PROCESS] ";
+    private static final String N_STRING = ORIGIN_STRING + "Number of messages received: %d";
+    private static final String GC_STRING = ORIGIN_STRING + "Cleaned final string list (over %d elements) (time: %f)";
+    private static final String TIMING_STRING = ORIGIN_STRING + "Timing : %f s to broadcast %d messages";
 
-    private static List<String> messageList = Collections.synchronizedList(new LinkedList<>());
-    private static int ID = -1;
-    private static int PORT = 0;
-    private static int NUMMESSAGES = 10000;
-    private static String configPath = null;
+    // himself as main TestProcess
+    public static TestProcess CURRENT_PROCESS;
 
-    public static TestProcess currProcess;
+    // layers
+    private PerfectLinkLayer perfectLinkLayer;
+    private TransportLayer transportLayer;
+    private BEBLayer bebLayer;
+    private UBLayer ubLayer;
+    private FIFOLayer fifoLayer;
 
-    public static boolean loggedTiming = false;
+    // variables
+    private List<String> messageList = Collections.synchronizedList(new LinkedList<>());
+    private boolean loggedTiming = false;
+    private long numMessagesToBroadcast = 1000;
 
-    public static AtomicInteger sentnum = new AtomicInteger(0);
+    private final int id;
+    private final int port;
+    private final String configPath;
 
-    // timer
+    // reportmanager and thread stopper
+    private ReportManager manager = new ReportManager();
+    public boolean RUNNING = true;
+
+    // timing
     private long start = 0;
 
     public TestProcess(Parser p) {
-        ID = p.myId();
-        PORT = (int) p.myPort();
-        configPath = (p.hasConfig() ? p.config() : null);
+        this.id = p.myId();
+        this.port = (int) p.myPort();
+        this.configPath = (p.hasConfig() ? p.config() : null);
+        this.numMessagesToBroadcast = readConfigFile();
 
+        // initialize layers
         transportLayer = new TransportLayer();
-        perfectLinkLayer = new PerfectLinkLayer(ID);
+        perfectLinkLayer = new PerfectLinkLayer(id);
         bebLayer = new BEBLayer();
+        ubLayer = new UBLayer(id);
+        fifoLayer = new FIFOLayer();
 
-        PingLayer.initializePingLayer(transportLayer, null, p.hosts(), p.myHost());
+        // link static layers
+        PingLayer.initializePingLayer(transportLayer, ubLayer, p.hosts(), p.myHost());
+        GroundLayer.deliverTo(transportLayer);
 
+        // link other layers
         transportLayer.setLayers(perfectLinkLayer);
         perfectLinkLayer.setLayers(transportLayer, bebLayer);
-        bebLayer.setLayers(perfectLinkLayer, null);
+        bebLayer.setLayers(perfectLinkLayer, ubLayer);
+        ubLayer.setLayers(bebLayer, fifoLayer);
+        fifoLayer.setLayers(ubLayer);
 
-        currProcess = this;
+        // set this as the main process
+        CURRENT_PROCESS = this;
     }
 
     // Start layers and broadcast messages
@@ -65,97 +99,106 @@ public class TestProcess {
         startLayers();
 
         // start thread to check number of messages received
-        (new ReportManager()).schedule();
+        manager.schedule();
 
         // start broadcasting
-        startBroadcasting(getMessages());
+        startBroadcasting(numMessagesToBroadcast);
     }
 
     private void startLayers() {
         start = System.currentTimeMillis();
-        GroundLayer.start(PORT);
-        // PingLayer.start();
+        GroundLayer.start(this.port);
+        PingLayer.start();
     }
 
-     // TaskManager to program sending packets
-     private class ReportManager {
-        private Timer timer;
-        private long number;
-
-		public ReportManager() {
-            this.timer = new Timer();
-            this.number = 0;
-		}
-
-		public void schedule() {
-			TimerTask task = new TimerTask() {
-				@Override
-				public void run() {
-                    synchronized (messageList) {
-                        long messageReceived = messageList.size() + number;
-                   
-                        // if (ID == 1) {
-                            System.out.println("Number of messages: (received: " + (messageReceived) + "   sent:" + sentnum + ")");
-                        // } 
-    
-                        if (messageList.size() > 1000000) {
-                            System.out.println("Cleaning final map");
-                                number = messageReceived;
-                                messageList.clear();
-                        }
-
-                        if (!loggedTiming && messageReceived >= 1000000) {
-                            System.out.println("Timing : " + (System.currentTimeMillis() - (double)start)/1000 + " s");
-                            loggedTiming = true;
-                        }
-                    }
-				}
-            };
-            int delay = ConcurrencyManager.CHECKING_PERIOD_MESSAGE_RECEIVED;
-            this.timer.scheduleAtFixedRate(task, delay, delay);
+    private void startBroadcasting(long numMessages) {
+        for (long i = 0; i < numMessages; i++) {
+            if (!RUNNING)
+                return;
+            fifoLayer.send(Long.toString(i));
         }
     }
 
-    private void startBroadcasting(int numMessages) {
-        for (int i = 0; i < numMessages; i++) {
-            if (!RUNNING) return;
-            // int friend = (ID == 1) ? 2 : 1;
-
-            String m = "" + i;
-
-            // if (ID == 1) {
-                //this.perfectLinkLayer.send(Host.getHostList().get(friend-1), m);
-                bebLayer.send(new Message(m, ID), Host.getHostList());
-                // sentnum.incrementAndGet();
-                //writeInMemory(m, ID, false);
-            // }
-
-        }
-    }
-
-
+    // function called when a message has been received
     public void writeInMemory(String message, int pid, boolean delivery) {
-        synchronized(messageList) {
+        synchronized (messageList) {
             messageList.add((delivery ? "d " + pid + " " : "b ") + message);
         }
     }
-    
-    private int getMessages() {
 
+    public void writeInFile() {
+        BufferedWriter writer;
+        try {
+            writer = new BufferedWriter(new FileWriter(this.configPath));
+
+            synchronized(messageList) {
+                messageList.forEach((e) -> {
+                    try {
+                        writer.write(e);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                });
+            }
+
+            writer.close();
+            
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+    
+    // read number of messages to send
+    private long readConfigFile() {
+        long numMessages = this.numMessagesToBroadcast;
         if (configPath != null) {
             File myObj = new File(configPath);
             Scanner myReader;
             try {
                 myReader = new Scanner(myObj);
-                String data = myReader.nextLine();
-                NUMMESSAGES = Integer.parseInt(data);
+                numMessages = Long.parseLong(myReader.nextLine());
 
                 myReader.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }
+        return numMessages;
+    }
 
-        return NUMMESSAGES;
+
+    // TaskManager to program sending packets
+    private class ReportManager {
+        private Timer timer = new Timer();
+        private long archivedMessagesNumber = 0;
+
+		public void schedule() {
+			TimerTask task = new TimerTask() {
+				@Override
+				public void run() {
+                    synchronized (messageList) {
+                        long currListSize = messageList.size();
+                        long messageReceived = currListSize + archivedMessagesNumber;
+
+                        LOG.info(String.format(N_STRING, messageReceived));
+    
+                        if (currListSize >= MAX_LIST_SIZE) {
+                            archivedMessagesNumber = messageReceived;
+                            if (WRITE_TO_FILE) {
+                                writeInFile();
+                            }
+                            messageList.clear();
+                            LOG.info(String.format(GC_STRING, MAX_LIST_SIZE, (System.currentTimeMillis() - start)/1000.0, NUM_TO_TIME));
+                        }
+
+                        if (!loggedTiming && messageReceived >= NUM_TO_TIME) {
+                            LOG.info(String.format(TIMING_STRING, (System.currentTimeMillis() - start)/1000.0, NUM_TO_TIME));
+                            loggedTiming = true;
+                        }
+                    }
+				}
+            };
+            this.timer.scheduleAtFixedRate(task, DELAY, DELAY);
+        }
     }
 }

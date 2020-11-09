@@ -5,15 +5,18 @@ import java.util.List;
 import java.util.Map;
 
 import cs451.Host;
+import cs451.TestProcess;
 import cs451.utils.FifoStruc;
 
 public class FIFOLayer {
 
-    // layers and process
+    // layers
     private UBLayer ubLayer;
 
-    private Map<Integer, FifoStruc> received = new HashMap<>(); 
+    // variables
     private int numberOfMessageSent;
+    private Map<Integer, FifoStruc> received = new HashMap<>(2000000);
+
 
     // init functions
     public FIFOLayer() {
@@ -27,7 +30,6 @@ public class FIFOLayer {
             received.put(h.getId(), new FifoStruc());
         }
     }
-
 
     // send and receive functions
     public void send(String payload) {
@@ -56,6 +58,7 @@ public class FIFOLayer {
     }
 
     private void deliver(String s, int sender) {
-        cs451.Process.currProcess.writeInMemory(s, sender, true);
+        TestProcess.CURRENT_PROCESS.writeInMemory(s, sender, true);
     }
+
 }

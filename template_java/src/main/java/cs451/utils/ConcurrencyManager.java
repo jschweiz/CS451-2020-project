@@ -2,6 +2,9 @@ package cs451.utils;
 
 public class ConcurrencyManager {
 
+    // handle congestion at the ub layer
+    public static final int MAX_CONCURRENT_MESSAGES = 100000;
+
     // number of thread working :) 
     public static final boolean REDUCE_THREADS = false;
     public static final int NUM_THREAD_PACKET_HANDLER = 1;
@@ -22,12 +25,12 @@ public class ConcurrencyManager {
 
     // garbage collection of transport layer
     public static final int NBINS = 15;
-    public static final int GARBAGECOLLECTIONPERIOD = SENDING_PERIOD_PACKET * 15;
+    public static final int GARBAGECOLLECTIONPERIOD = SENDING_PERIOD_PACKET * 8;
     public static final int MAXNUMBEROFCONCURRENTPACKETSPERBIN = 1000;
 
 
     // parameters:
     // 1 sender: 1000 30 7 5000
-    // 2 sender:  
+    // 2 sender:
 
 }
