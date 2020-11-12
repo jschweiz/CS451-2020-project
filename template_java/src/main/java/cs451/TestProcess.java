@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,13 +51,16 @@ public class TestProcess {
     private FIFOLayer fifoLayer;
 
     // variables
-    private List<String> messageList = Collections.synchronizedList(new LinkedList<>());
+    private List<String> messageList = Collections.synchronizedList(new ArrayList<>(2000000));
     private boolean loggedTiming = false;
     private long numMessagesToBroadcast = 1000;
+    private long selfDelivered = 0;
+    private final Object finishedLock = new Object();
 
     private final int id;
     private final int port;
     private final String configPath;
+    private final String outputPath;
 
     // reportmanager and thread stopper
     private ReportManager manager = new ReportManager();
@@ -69,13 +73,14 @@ public class TestProcess {
         this.id = p.myId();
         this.port = (int) p.myPort();
         this.configPath = (p.hasConfig() ? p.config() : null);
+        this.outputPath = p.output();
         this.numMessagesToBroadcast = readConfigFile();
 
         // initialize layers
         transportLayer = new TransportLayer();
         perfectLinkLayer = new PerfectLinkLayer(id);
         bebLayer = new BEBLayer();
-        ubLayer = new UBLayer(id);
+        ubLayer = new UBLayer(id, p.hosts().size());
         fifoLayer = new FIFOLayer();
 
         // link static layers
@@ -103,6 +108,17 @@ public class TestProcess {
 
         // start broadcasting
         startBroadcasting(numMessagesToBroadcast);
+
+        synchronized (finishedLock) {
+            try {
+                finishedLock.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        LOG.info("[PROCESS] ======================================================================");
+        LOG.info("[PROCESS] Broadcasted all " + this.selfDelivered + " messages to himself");
+        LOG.info("[PROCESS] ======================================================================");
     }
 
     private void startLayers() {
@@ -112,10 +128,13 @@ public class TestProcess {
     }
 
     private void startBroadcasting(long numMessages) {
-        for (long i = 0; i < numMessages; i++) {
+        Thread.currentThread().setName("CUSTOM_main_sender_thread");
+        for (long i = 1; i < numMessages + 1; i++) {
             if (!RUNNING)
                 return;
-            fifoLayer.send(Long.toString(i));
+                String m = Long.toString(i);
+            fifoLayer.send(m);
+            writeInMemory(m, -1, false);
         }
     }
 
@@ -123,18 +142,27 @@ public class TestProcess {
     public void writeInMemory(String message, int pid, boolean delivery) {
         synchronized (messageList) {
             messageList.add((delivery ? "d " + pid + " " : "b ") + message);
+            if (pid == this.id) {
+                this.selfDelivered++;
+            }
+            if (this.selfDelivered == this.numMessagesToBroadcast) {
+                synchronized (finishedLock) {
+                    finishedLock.notifyAll();
+                }
+            }
         }
     }
 
     public void writeInFile() {
+        System.out.println("Stopped. Writing to file after running for " + (System.currentTimeMillis()/1000.0-this.start/1000.0) + " s.");
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter(this.configPath));
+            writer = new BufferedWriter(new FileWriter(this.outputPath));
 
             synchronized(messageList) {
                 messageList.forEach((e) -> {
                     try {
-                        writer.write(e);
+                        writer.write(e+"\n");
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -176,6 +204,7 @@ public class TestProcess {
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
+                    Thread.currentThread().setName("CUSTOM_gc_process_timer");
                     synchronized (messageList) {
                         long currListSize = messageList.size();
                         long messageReceived = currListSize + archivedMessagesNumber;

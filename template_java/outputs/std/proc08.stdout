@@ -1,0 +1,119 @@
+My PID is 8954.
+Use 'kill -SIGINT 8954 ' or 'kill -SIGTERM 8954 ' to stop processing packets.
+My id is 8.
+List of hosts is:
+1, 127.0.0.1, 11001
+2, 127.0.0.1, 11002
+3, 127.0.0.1, 11003
+4, 127.0.0.1, 11004
+5, 127.0.0.1, 11005
+6, 127.0.0.1, 11006
+7, 127.0.0.1, 11007
+8, 127.0.0.1, 11008
+9, 127.0.0.1, 11009
+10, 127.0.0.1, 11010
+Barrier: 127.0.0.1:10000
+Signal: 127.0.0.1:11000
+Output: /home/dcl/Documents/project/CS451-2020-project/template_java/outputs/proc08.output
+Config: /tmp/tmp178kgrjj
+Waiting for all processes for finish initialization
+Accessing barrier...
+Broadcasting messages...
+nbins = 20
+30
+Opening socket on port 11008
+removed 225 packets from sending pool
+Removed 93 messages to deliver
+Juste delivered 8;47;48
+Juste delivered 4;14;15
+Juste delivered 6;42;43
+Juste delivered 3;20;21
+Juste delivered 4;31;32
+Juste delivered 1;20;21
+Juste delivered 7;19;20
+Juste delivered 5;31;32
+Juste delivered 9;36;37
+Juste delivered 6;31;32
+Juste delivered 1;6;7
+Juste delivered 6;19;20
+Juste delivered 8;19;20
+Juste delivered 6;36;37
+Juste delivered 9;7;8
+Juste delivered 3;31;32
+Juste delivered 5;36;37
+Juste delivered 4;20;21
+Juste delivered 7;13;14
+Juste delivered 9;41;42
+Juste delivered 8;29;30
+Juste delivered 9;13;14
+Juste delivered 8;46;47
+Juste delivered 4;30;31
+Juste delivered 4;19;20
+Juste delivered 9;35;36
+Juste delivered 4;41;42
+Juste delivered 1;25;26
+Juste delivered 3;24;25
+Juste delivered 4;18;19
+Juste delivered 1;13;14
+Juste delivered 3;41;42
+Juste delivered 4;35;36
+Juste delivered 6;18;19
+Juste delivered 5;35;36
+Juste delivered 3;13;14
+Juste delivered 3;30;31
+Juste delivered 1;4;5
+Juste delivered 6;35;36
+Juste delivered 8;40;41
+Juste delivered 9;40;41
+Juste delivered 9;5;6
+Juste delivered 4;4;5
+Juste delivered 5;40;41
+Juste delivered 7;17;18
+Juste delivered 6;40;41
+Juste delivered 6;4;5
+Juste delivered 1;9;10
+Juste delivered 1;3;4
+Juste delivered 9;34;35
+Juste delivered 4;40;41
+Juste delivered 9;39;40
+Juste delivered 5;39;40
+Juste delivered 1;18;19
+Juste delivered 5;34;35
+Juste delivered 3;9;10
+Juste delivered 6;39;40
+Juste delivered 4;39;40
+Juste delivered 1;2;3
+Juste delivered 3;39;40
+Juste delivered 8;44;45
+Juste delivered 4;17;18
+Juste delivered 3;2;3
+Juste delivered 1;12;13
+Juste delivered 8;33;34
+Juste delivered 4;28;29
+Juste delivered 9;33;34
+Juste delivered 5;27;28
+Juste delivered 6;2;3
+Juste delivered 5;33;34
+Juste delivered 9;38;39
+Juste delivered 6;33;34
+Juste delivered 4;38;39
+Juste delivered 7;27;28
+Juste delivered 6;38;39
+Juste delivered 8;32;33
+Juste delivered 3;38;39
+Juste delivered 9;32;33
+Juste delivered 1;8;9
+Juste delivered 8;21;22
+Juste delivered 9;1;2
+Juste delivered 5;32;33
+Juste delivered 9;37;38
+Juste delivered 1;27;28
+Juste delivered 4;8;9
+Juste delivered 6;37;38
+Juste delivered 3;32;33
+Juste delivered 5;37;38
+Juste delivered 7;20;21
+Juste delivered 5;26;27
+Juste delivered 8;31;32
+Juste delivered 9;8;9
+Juste delivered 9;31;32

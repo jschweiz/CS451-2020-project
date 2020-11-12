@@ -44,7 +44,7 @@ public class Process {
     private static String configPath = null;
     private static String outputPath = null;
 
-    public static Process currProcess;
+    public static Process currProcess = null;
 
     // timer
     private long start = 0;
@@ -58,7 +58,7 @@ public class Process {
         transportLayer = new TransportLayer();
         perfectLinkLayer = new PerfectLinkLayer(ID);
         bebLayer = new BEBLayer();
-        urbLayer = new UBLayer(ID);
+        urbLayer = new UBLayer(ID, p.hosts().size());
         fifoLayer = new FIFOLayer();
 
         PingLayer.initializePingLayer(transportLayer, urbLayer, p.hosts(), p.myHost());

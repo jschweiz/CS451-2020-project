@@ -18,25 +18,26 @@ import cs451.utils.ConcurrencyManager;
 
 public class UBLayer {
 
-    private static final int MAX_CONCURRENT_MESSAGES = ConcurrencyManager.MAX_CONCURRENT_MESSAGES;
     private static final int GARBAGECOLLECTIONPERIOD = ConcurrencyManager.GARBAGECOLLECTIONPERIOD;
+    private static final boolean GC_ENABLED = ConcurrencyManager.GC_UB_ENABLED;
 
     // logging purposes
     private static final Logger LOG = Logger.getLogger(UBLayer.class.getName());
     private static final String STARTING_STRING =
         "[UNIFORMB] GC - START collection - delivered size: %fk - forward size: %fk - acked size: %fk";
     private static final String END_STRING =
-        "[UNIFORMB] GC - FINISHED collection - delivered size: %fk - forward size: %fk - acked size: %fk";
+        "[UNIFORMB] GC - FINISHED collection - delivered size: %fk --> %fk";
 
     // layers
     private FIFOLayer fifoLayer;
     private BEBLayer bebLayer;
 
     // variables
+    private final int maxConcurrentMessages;
     private final int processID; // used to sign first sender of message
     private int concurrentMessages;
-    private Map<Message, Long> delivered = Collections.synchronizedMap(new HashMap<Message, Long>(2000000));
-    private Set<Message> forward = Collections.synchronizedSet(new HashSet<Message>(2000000));
+    private Map<Message, Long> delivered = Collections.synchronizedMap(new HashMap<Message, Long>(100000)); //
+    private Set<Message> forward = Collections.synchronizedSet(new HashSet<Message>(20000));//
     private AckMap ack = new AckMap();
     private List<Host> availableHosts; // updated directly by pinglayer
 
@@ -45,23 +46,27 @@ public class UBLayer {
 
 
     // init functions
-    public UBLayer(int id) {
+    public UBLayer(int id, int numHosts) {
         this.processID = id;
+        this.maxConcurrentMessages = ConcurrencyManager.getUBMaxConcurrentMessages(numHosts);
+        System.out.println(maxConcurrentMessages);
         this.concurrentMessages = 0;
     }
 
-    public void setLayers(BEBLayer b, FIFOLayer f) {
+    public synchronized void setLayers(BEBLayer b, FIFOLayer f) {
         this.bebLayer = b;
         this.fifoLayer = f;
         this.availableHosts = PingLayer.currentAvailableHosts();
-        this.manager.scheduleGC();
+        if (GC_ENABLED) {
+            this.manager.scheduleGC();
+        }
     }
 
     // send and receive functions
     public synchronized void send(String payload) {
         Message m = new Message(payload, this.processID);
 
-        while (this.concurrentMessages > MAX_CONCURRENT_MESSAGES) {
+        while (this.concurrentMessages > maxConcurrentMessages) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -91,34 +96,55 @@ public class UBLayer {
 
         if (ack.allAcked(m, availableHosts)) {
             deliver(m);
-            
-        if (m.originalSenderId == this.processID) {
-                this.concurrentMessages--;
-                if (this.concurrentMessages < MAX_CONCURRENT_MESSAGES * 0.7) {
-                    notify();
-                }
-            }
         }
     }
 
     // update current good hosts
-    public synchronized void lostConnectionTo(List<Host> goodHosts) {
+    public synchronized void refreshHostList(List<Host> goodHosts) {
         this.availableHosts = goodHosts;
- 
-        for (Message m : ack.getAllMessages()) {
-            if (ack.allAcked(m, availableHosts)) {
-                deliver(m);
-            }
+        
+        List<Message> messageToDeliver = ack.getAlreadyAckedMessage(this.availableHosts);
+        for (Message m : messageToDeliver) {
+            deliver(m);
+            System.out.println("Juste delivered " + m);
         }
     }
 
     private synchronized void deliver(Message m) {
         delivered.put(m, System.currentTimeMillis());
-        forward.remove(m);
+        forward.remove(m); 
         this.fifoLayer.receive(m.payload, m.originalSenderId);
+
+        if (m.originalSenderId == this.processID) {
+            this.concurrentMessages--;
+            if (this.concurrentMessages < maxConcurrentMessages * 0.7) {
+                notifyAll();
+            }
+        }
         // TestProcess.currProcess.writeInMemory(m.payload, m.originalSenderId, true);
     }
 
+    private synchronized void garbageCollect() {
+        System.out.println("garbage collect ublayer");
+        double deliveredSize =  delivered.size()/1000.0;
+        double forwardSize =  forward.size()/1000.0;
+        double ackSize =  ack.size()/1000.0;
+        LOG.info(String.format(STARTING_STRING, deliveredSize, forwardSize, ackSize));
+        
+        // long currTime = System.currentTimeMillis() - GARBAGECOLLECTIONPERIOD;
+        // List<Message> toRemove = new LinkedList<>();
+        // for (Message m : delivered.keySet()) {
+        //     if (currTime > delivered.get(m)) {
+        //         toRemove.add(m);
+        //     }
+        // }
+        // for (Message m : toRemove) {
+        //     delivered.remove(m);
+        // }
+
+        // double deliveredNewSize = delivered.size()/1000.0;
+        // LOG.info(String.format(END_STRING, deliveredSize, deliveredNewSize));
+    }
 
     private class GCManager {
         private Timer timerGC = new Timer();
@@ -127,26 +153,11 @@ public class UBLayer {
             TimerTask gcTask = new TimerTask() {
                 @Override
                 public void run() {
-                    LOG.info(String.format(STARTING_STRING, delivered.size()/1000.0, forward.size()/1000.0, ack.size()/1000.0));
-                    
-                    long currTime = System.currentTimeMillis() - GARBAGECOLLECTIONPERIOD;
-                    List<Message> toRemove = new LinkedList<>();
-                    synchronized (delivered) {
-                        for (Message m : delivered.keySet()) {
-                            if (currTime > delivered.get(m)) {
-                                toRemove.add(m);
-                            }
-                        }
-                    }
-                    for (Message m : toRemove) {
-                        delivered.remove(m);
-                    }
-
-                    LOG.info(String.format(END_STRING, delivered.size()/1000.0,
-                            forward.size()/1000.0, ack.size()/1000.0));
+                    Thread.currentThread().setName("CUSTOM_gc_ublayer_timer");
+                    garbageCollect(); 
                 }
             };
-            this.timerGC.scheduleAtFixedRate(gcTask, GARBAGECOLLECTIONPERIOD * 3, GARBAGECOLLECTIONPERIOD * 3);
+            this.timerGC.scheduleAtFixedRate(gcTask, GARBAGECOLLECTIONPERIOD * 2, GARBAGECOLLECTIONPERIOD * 2);
         }
     }
 }

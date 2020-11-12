@@ -1,0 +1,33 @@
+[19:20:11] [PROCESS] Number of messages received: 31 
+[19:20:12] [PROCESS] Number of messages received: 31 
+[19:20:14] [PROCESS] Number of messages received: 31 
+[19:20:16] [PROCESS] Number of messages received: 31 
+[19:20:18] [PROCESS] Number of messages received: 31 
+[19:20:19] [PING] Active hosts:  127.0.0.1;11001  127.0.0.1;11003  127.0.0.1;11004  127.0.0.1;11005  127.0.0.1;11006  127.0.0.1;11007  127.0.0.1;11008  127.0.0.1;11009  127.0.0.1;11010   
+[19:20:20] [PROCESS] Number of messages received: 33 
+[19:20:22] [PROCESS] Number of messages received: 33 
+[19:20:24] [PROCESS] Number of messages received: 35 
+[19:20:26] [PROCESS] Number of messages received: 41 
+[19:20:28] [PROCESS] Number of messages received: 41 
+[19:20:28] [PING] Active hosts:  127.0.0.1;11001  127.0.0.1;11003  127.0.0.1;11004  127.0.0.1;11005  127.0.0.1;11006  127.0.0.1;11007  127.0.0.1;11008  127.0.0.1;11009  127.0.0.1;11010   
+[19:20:30] [PROCESS] Number of messages received: 41 
+[19:20:32] [PROCESS] Number of messages received: 56 
+[19:20:34] [PROCESS] Number of messages received: 56 
+[19:20:36] [PROCESS] Number of messages received: 79 
+[19:20:38] [PING] Active hosts:  127.0.0.1;11001  127.0.0.1;11003  127.0.0.1;11004  127.0.0.1;11005  127.0.0.1;11006  127.0.0.1;11007  127.0.0.1;11008  127.0.0.1;11009  127.0.0.1;11010   
+[19:20:38] [PING] NO ANSWER FROM 10;11010 
+[19:20:38] [PROCESS] Number of messages received: 82 
+[19:20:40] [PROCESS] Number of messages received: 167 
+[19:20:42] [PROCESS] Number of messages received: 206 
+[19:20:44] [PROCESS] Number of messages received: 278 
+[19:20:46] [PROCESS] Number of messages received: 293 
+[19:20:48] [PROCESS] Number of messages received: 383 
+[19:20:48] [PING] Active hosts:  127.0.0.1;11001  127.0.0.1;11003  127.0.0.1;11004  127.0.0.1;11005  127.0.0.1;11006  127.0.0.1;11007  127.0.0.1;11008  127.0.0.1;11009   
+[19:20:50] [PROCESS] Number of messages received: 481 
+[19:20:52] [PROCESS] Number of messages received: 492 
+[19:20:54] [PROCESS] Number of messages received: 535 
+[19:20:56] [PROCESS] Number of messages received: 550 
+[19:20:58] [PROCESS] Number of messages received: 607 
+[19:20:58] [PING] Active hosts:  127.0.0.1;11001  127.0.0.1;11003  127.0.0.1;11004  127.0.0.1;11005  127.0.0.1;11006  127.0.0.1;11007  127.0.0.1;11008  127.0.0.1;11009   
+[19:21:00] [PROCESS] Number of messages received: 668 
+[19:21:02] [PROCESS] Number of messages received: 712 

@@ -35,7 +35,7 @@ class TC:
         self.sudoPassword = sudoPassword
 
         cmd1 = 'tc qdisc add dev {} root netem 2>/dev/null'.format(self.interface)
-        cmd2 = 'tc qdisc change dev {} root netem delay {} {} loss {} {} reorder {} {}'.format(self.interface, *self.losses['delay'], *self.losses['loss'], *self.losses['reordering'])
+        cmd2 = 'tc qdisc change dev {} root netem delay {} {} distribution normal loss {} {} reorder {} {}'.format(self.interface, *self.losses['delay'], *self.losses['loss'], *self.losses['reordering'])
 
         if self.needSudo:
             os.system("echo {} | sudo -S {}".format(self.sudoPassword, cmd1))
@@ -49,6 +49,7 @@ class TC:
     def __str__(self):
         ret = """\
         Interface: {}
+          Distribution: Normal
           Delay: {} {}
           Loss: {} {}
           Reordering: {} {}""".format(
@@ -228,12 +229,12 @@ class StressTest:
         random.shuffle(selectProc)
 
         selectOp = [ProcessState.STOPPED] * int(1000 * self.attemptsRatio['STOP']) + \
-                    [ProcessState.RUNNING] * int(1000 * self.attemptsRatio['CONT']) + \
-                    [ProcessState.TERMINATED] * int(1000 * self.attemptsRatio['TERM'])
+                    [ProcessState.RUNNING] * int(1000 * self.attemptsRatio['CONT'])
+                    #+ \ [ProcessState.TERMINATED] * int(1000 * self.attemptsRatio['TERM'])
         random.shuffle(selectOp)
 
         successfulAttempts = 0
-        while successfulAttempts < self.attempts:
+        while successfulAttempts < 0: #self.attempts:
             proc = random.choice(selectProc)
             op = random.choice(selectOp)
             info = self.processesInfo[proc]
@@ -329,8 +330,8 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
                    '--output', os.path.join(outputDirPath, 'proc{:02d}.output'.format(pid)),
                    configFilePath]
 
-        stdoutFd = open(os.path.join(outputDirPath, 'proc{:02d}.stdout'.format(pid)), "w")
-        stderrFd = open(os.path.join(outputDirPath, 'proc{:02d}.stderr'.format(pid)), "w")
+        stdoutFd = open(os.path.join(outputDirPath + '/std', 'proc{:02d}.stdout'.format(pid)), "w")
+        stderrFd = open(os.path.join(outputDirPath + '/err', 'proc{:02d}.stderr'.format(pid)), "w")
 
 
         procs.append((pid, subprocess.Popen(cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))

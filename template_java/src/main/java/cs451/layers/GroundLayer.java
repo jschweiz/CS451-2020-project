@@ -19,7 +19,7 @@ public class GroundLayer {
 
 	// variables
 	private static DatagramSocket serverSocket = null;
-	private static LinkedBlockingQueue<Packet> receivedPacketList = new LinkedBlockingQueue<Packet>();
+	private static LinkedBlockingQueue<Packet> receivedPacketList = new LinkedBlockingQueue<>(2000000);
 	
 	// thread stopper
 	private static boolean RUNNING = true;
@@ -69,6 +69,7 @@ public class GroundLayer {
 
 	// processing received packet threads : numThreads
 	private static void handleReceivedPacketThreadFunction() {
+		Thread.currentThread().setName("CUSTOM_handler_receiver_thread");
 		while (RUNNING) {
 			try {
 				Packet m = receivedPacketList.take();
@@ -91,6 +92,7 @@ public class GroundLayer {
 
 	// receiver packet thread : 1
 	private static void receivePacketThreadFunction() {
+		Thread.currentThread().setName("CUSTOM_udp_receiver_thread");
 
 		DatagramPacket packet = null;
 		byte[] buf = new byte[128];

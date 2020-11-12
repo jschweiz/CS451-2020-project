@@ -19,12 +19,15 @@ public class TransportLayer {
     private static final int NBINS = ConcurrencyManager.NBINS;
     private static final int GARBAGECOLLECTIONPERIOD = ConcurrencyManager.GARBAGECOLLECTIONPERIOD;
     private static final int MAXNUMBEROFCONCURRENTPACKETS = ConcurrencyManager.MAXNUMBEROFCONCURRENTPACKETSPERBIN * NBINS;
+    private static final boolean GC_ENABLED = ConcurrencyManager.GC_TR_ENABLED;
 
     // logging purposes
     private static final Logger LOG = Logger.getLogger(TransportLayer.class.getName());
     private static final String ORIGIN_STRING = "[TRANSPORT] ";
-    private static final String STARTING_STRING = ORIGIN_STRING +  "GC - START collection - toBeSent size: %fk - toBeAcked size: %fk - received size: %fk";
-    private static final String END_STRING = ORIGIN_STRING +  "GC - FINISHED collection - toBeSent size: %fk - toBeAcked size: %fk - received size: %fk";
+    private static final String STARTING_STRING = ORIGIN_STRING +
+            "GC - START collection - toBeSent size: %fk - toBeAcked size: %fk - received size: %fk";
+    private static final String END_STRING = ORIGIN_STRING +
+            "GC - FINISHED collection - received size: %fk --> %fk";
 
     // layer
     private PerfectLinkLayer perfectLinkLayer = null;
@@ -45,7 +48,9 @@ public class TransportLayer {
         this.perfectLinkLayer = p;
         toBeAcked = new SenderPoolStruct(NBINS, MAXNUMBEROFCONCURRENTPACKETS);
 
-        manager.scheduleGC();
+        if (GC_ENABLED) {
+            manager.scheduleGC();
+        }
 
         // thread sending the messages
         Thread senderThread = new Thread(() -> senderThreadFunction());
@@ -60,6 +65,7 @@ public class TransportLayer {
 
     // function executed by sender thread
     private void senderThreadFunction() {
+		Thread.currentThread().setName("CUSTOM__sender_thread");
         while (RUNNING) {
 			try {
                 Packet m = toBeSent.take(); 
@@ -102,28 +108,43 @@ public class TransportLayer {
 
     private class GCManager {
         private Timer timerGC = new Timer();
+        private double toBeSentSize = 0;
+        private double toBeAckedSize = 0;
+        private double receivedSize = 0; 
+        private double newReceivedSize = 0;
+
 
         public void scheduleGC() {
             TimerTask gcTask = new TimerTask() {
                 @Override
                 public void run() {
-                    LOG.info(String.format(STARTING_STRING, toBeSent.size()/1000.0, toBeAcked.getTotalSize()/1000.0, received.size()/1000.0));
-                    List<Packet> toRemove = new LinkedList<>();
-                    long currTime = System.currentTimeMillis() - GARBAGECOLLECTIONPERIOD;
                     synchronized (received) {
-                        for (Packet m : received.keySet()) {
-                            if (currTime > received.get(m)) {
-                                toRemove.add(m);
-                            }
-                        }
-                    }
-                    for (Packet m : toRemove) {
-                        received.remove(m);
-                    }
-                    LOG.info(String.format(END_STRING, toBeSent.size()/1000.0, toBeAcked.getTotalSize()/1000.0, received.size()/1000.0));
+                    Thread.currentThread().setName("CUSTOM_gc_transport_timer");
+                    toBeSentSize = toBeSent.size()/1000.0;
+                    toBeAckedSize =  toBeAcked.getTotalSize()/1000.0;
+                    receivedSize =  received.size()/1000.0;
+
+
+                    LOG.info(String.format(STARTING_STRING, toBeSentSize, toBeAckedSize, receivedSize));
+                    // List<Packet> toRemove = new LinkedList<>();
+                    // long currTime = System.currentTimeMillis() - GARBAGECOLLECTIONPERIOD;
+                    //     for (Packet m : received.keySet()) {
+                    //         if (currTime > received.get(m)) {
+                    //             toRemove.add(m);
+                    //         }
+                    //     }
+                    // // } // reduced due to segfault 3649
+                    // for (Packet m : toRemove) {
+                    //     received.remove(m);
+                    // }
+
+                    // newReceivedSize = receivedSize - toRemove.size()/1000.0;
+                    // LOG.info(String.format(END_STRING, receivedSize, newReceivedSize));
+                    
+                } // extended size due to segfault error 5920 // moved again due to threadlock 5644
                 }
             };
-            this.timerGC.scheduleAtFixedRate(gcTask, 1000, GARBAGECOLLECTIONPERIOD);
+            this.timerGC.scheduleAtFixedRate(gcTask, GARBAGECOLLECTIONPERIOD, GARBAGECOLLECTIONPERIOD);
         }
     }
 }

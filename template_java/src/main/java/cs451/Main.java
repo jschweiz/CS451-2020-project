@@ -1,6 +1,5 @@
 package cs451;
 
-import java.io.IOException;
 import java.net.SocketException;
 
 public class Main {
@@ -11,11 +10,10 @@ public class Main {
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
-                try {
-                    Process.writeInFile();
-                    // Main.coord.finishedBroadcasting();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (TestProcess.CURRENT_PROCESS == null) {
+                    System.out.println("Process not even created yet");
+                } else {
+                    TestProcess.CURRENT_PROCESS.writeInFile();
                 }
             }
         });

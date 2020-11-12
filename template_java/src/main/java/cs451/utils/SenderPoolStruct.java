@@ -30,7 +30,8 @@ public class SenderPoolStruct {
 
         map = new ArrayList<>();
         for (int i = 0; i < nbins; i++) {
-            map.add(Collections.synchronizedSet(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3)));
+            // map.add(Collections.synchronizedSet(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3)));
+            map.add(new HashSet<>(MAXNUMBEROFCONCURRENTPACKETSPERBIN * 3));
         }
     }
 
@@ -84,6 +85,7 @@ public class SenderPoolStruct {
     }
 
     public synchronized void cancelSending(String ip, int port) {
+        int n = 0; 
         for (Set<Packet> set : map) {
             List<Packet> packetToRemove = new LinkedList<>();
             for (Packet m : set) {
@@ -95,8 +97,12 @@ public class SenderPoolStruct {
             }
             for (Packet m : packetToRemove) {
                 removeIn(m);
+                n++;
             }
+            
         }
+        
+        System.out.println("removed " + n + " packets from sending pool");
     }
 
     public synchronized long getTotalSize() {
@@ -120,14 +126,15 @@ public class SenderPoolStruct {
         private Timer timerSending = new Timer();
         private Set<Integer> alreadyScheduled = new HashSet<>();
 
-        public synchronized void scheduleSendingPool(int n) {
+        public void scheduleSendingPool(int n) { // removed synchronized, maybe for 6252
             if (alreadyScheduled.contains(n)) return;
             alreadyScheduled.add(n);
 
             TimerTask task = new TimerTask() {
                 @Override
                 public void run() {
-                        sendAll(n);
+                    Thread.currentThread().setName("CUSTOM_resending_transport_" + n + "_timer");
+                    sendAll(n);
                 }
             };
             this.timerSending.scheduleAtFixedRate(task, SENDINGPERIOD , SENDINGPERIOD);

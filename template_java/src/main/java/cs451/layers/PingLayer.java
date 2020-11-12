@@ -110,9 +110,11 @@ public class PingLayer {
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
+                    Thread.currentThread().setName("CUSTOM_ping_sender_timer");
                     synchronized (listAllGoodHosts) {
                         listAllGoodHosts.forEach((e) -> {
                             Packet m = new Packet(e.getIp(), e.getPort(), Packet.PING, Packet.SEQ_NUM_PING);
+                            GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
                             GroundLayer.send(m.encapsulate(), m.destHost, m.destPort);
                         });
                     }
@@ -125,6 +127,7 @@ public class PingLayer {
             TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
+                    Thread.currentThread().setName("CUSTOM_check_ping_timer");
                     if (!RUNNING) this.cancel();
 
                     List<Host> crashedHosts = removeLostHosts();
@@ -133,7 +136,7 @@ public class PingLayer {
                         for (Host h : crashedHosts) {
                             transportLayer.cancelSending(h.getIp(), h.getPort());
                         }
-                        bLayer.lostConnectionTo(listAllGoodHosts);
+                        bLayer.refreshHostList(currentAvailableHosts());
                     }
 				}
 			};
